@@ -1,0 +1,134 @@
+{
+	"name": "uji-baku",
+	"version": "0.1.0",
+	"dependencies": {
+		"@babel/cli": "^7.0.0-beta.39",
+		"@babel/preset-env": "^7.0.0-beta.39",
+		"@material-ui/core": "^1.1.0",
+		"@material-ui/icons": "^1.1.0",
+		"@storybook/addon-actions": "^3.4.10",
+		"@storybook/addon-links": "^3.4.10",
+		"@storybook/addons": "^3.4.10",
+		"@storybook/react": "^3.4.10",
+		"autoprefixer": "8.6.5",
+		"babel-core": "6.26.3",
+		"babel-engine-plugin": "^0.2.1",
+		"babel-eslint": "8.2.1",
+		"babel-jest": "^23.2.0",
+		"babel-loader": "7.1.5",
+		"babel-plugin-lodash": "^3.3.4",
+		"babel-preset-react-app": "^3.1.2",
+		"babel-runtime": "6.26.0",
+		"camelcase-keys-recursive": "^0.8.2",
+		"case-sensitive-paths-webpack-plugin": "2.1.2",
+		"chalk": "2.4.1",
+		"coveralls": "^3.0.2",
+		"css-loader": "1.0.0",
+		"dotenv": "6.0.0",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
+		"enzyme-to-json": "^3.3.4",
+		"eslint": "^4.18.1",
+		"eslint-config-react-app": "^2.1.0",
+		"eslint-loader": "1.9.0",
+		"eslint-plugin-flowtype": "^2.45.0",
+		"eslint-plugin-import": "^2.6.0",
+		"eslint-plugin-jsx-a11y": "^5.1.1",
+		"eslint-plugin-react": "^7.7.0",
+		"extract-text-webpack-plugin": "3.0.2",
+		"file-loader": "1.1.11",
+		"firebase": "^5.4.2",
+		"flow-bin": "^0.80.0",
+		"fs-extra": "5.0.0",
+		"html-webpack-plugin": "2.30.1",
+		"husky": "^0.14.3",
+		"jest": "^22.4.0",
+		"lint-staged": "^6.1.1",
+		"lodash": "^4.17.10",
+		"moment": "^2.22.2",
+		"normalizr": "^3.2.4",
+		"object-assign": "4.1.1",
+		"postcss-flexbugs-fixes": "3.3.1",
+		"postcss-loader": "2.1.5",
+		"prettier": "^1.14.2",
+		"promise": "8.0.1",
+		"query-string": "^6.1.0",
+		"raf": "3.4.0",
+		"react": "^16.4.2",
+		"react-dev-utils": "^5.0.2",
+		"react-dom": "^16.4.2",
+		"react-redux": "^5.0.7",
+		"react-router-dom": "^4.3.1",
+		"react-test-renderer": "^16.4.2",
+		"redux": "^4.0.0",
+		"redux-persist": "^5.10.0",
+		"redux-thunk": "^2.3.0",
+		"s2s": "^0.18.3",
+		"s2s-plugins-redux": "^0.4.8",
+		"s2s-templates-redux": "^0.2.0",
+		"style-loader": "0.21.0",
+		"styled-components": "^3.3.3",
+		"superagent": "^3.8.3",
+		"sw-precache-webpack-plugin": "0.11.4",
+		"url-loader": "1.0.1",
+		"webpack": "3.11.0",
+		"webpack-dev-server": "2.11.1",
+		"webpack-manifest-plugin": "1.3.2",
+		"whatwg-fetch": "2.0.4"
+	},
+	"devDependencies": {
+		"babel-engine-plugin": "^0.2.1"
+	},
+	"homepage": "https://elzup.github.io/react-app-boilerplate",
+	"jest": {
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx,mjs}"
+		],
+		"setupFiles": [
+			"<rootDir>/config/polyfills.js"
+		],
+		"testMatch": [
+			"<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+			"<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+		],
+		"testEnvironment": "node",
+		"testURL": "http://localhost",
+		"transform": {
+			"^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+			"^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+			"^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+		},
+		"transformIgnorePatterns": [
+			"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+		],
+		"moduleNameMapper": {
+			"^react-native$": "react-native-web"
+		},
+		"moduleFileExtensions": [
+			"web.js",
+			"mjs",
+			"js",
+			"json",
+			"web.jsx",
+			"jsx",
+			"node"
+		]
+	},
+	"lint-staged": {
+		"src/**/*.js": [
+			"prettier --config ./.prettierrc --write",
+			"git add"
+		]
+	},
+	"private": true,
+	"scripts": {
+		"dev": "node scripts/start.js",
+		"build": "node scripts/build.js",
+		"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+		"deploy": "npm run build && up production",
+		"flow": "flow",
+		"gen:env": "cp templates/temp.env .env.development.local && cp templates/temp.env .env.production.local",
+		"precommit": "lint-staged",
+		"test": "node scripts/test.js --env=jsdom --coverage"
+	}
+}
