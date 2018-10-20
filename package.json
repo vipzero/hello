@@ -79,7 +79,7 @@
 	"devDependencies": {
 		"babel-engine-plugin": "^0.2.1"
 	},
-	"homepage": "https://ym3th733f1.execute-api.ap-northeast-1.amazonaws.com/production/",
+	"homepage": "https://vip.asobo.name",
 	"jest": {
 		"collectCoverageFrom": [
 			"src/**/*.{js,jsx,mjs}"
