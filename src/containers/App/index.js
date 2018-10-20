@@ -15,7 +15,6 @@ const App = () => (
 	<Router>
 		<div>
 			<div>
-				<MenuItem to="/uji">uji</MenuItem>
 				<MenuItem to="/jiko">jiko</MenuItem>
 				<MenuItem to="/makerank">makerank</MenuItem>
 			</div>
