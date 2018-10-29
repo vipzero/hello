@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Home from '../Home'
 import Jiko from '../Jiko'
 import MakeRank from '../MakeRank'
-import Y500million from '../Y500million'
+import Y500million from '../../components/Y500million'
 
 const MenuItem = styled(Link)`
 	margin-left: 10px;
