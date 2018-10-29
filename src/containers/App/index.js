@@ -3,9 +3,10 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
 
-import Home from '../../containers/Home'
-import Jiko from '../../containers/Jiko'
+import Home from '../Home'
+import Jiko from '../Jiko'
 import MakeRank from '../MakeRank'
+import Y500million from '../Y500million'
 
 const MenuItem = styled(Link)`
 	margin-left: 10px;
@@ -17,10 +18,12 @@ const App = () => (
 			<div>
 				<MenuItem to="/jiko">jiko</MenuItem>
 				<MenuItem to="/makerank">makerank</MenuItem>
+				<MenuItem to="/5000000000000year">5000000000000year</MenuItem>
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/jiko" component={Jiko} />
 			<Route exact path="/makerank" component={MakeRank} />
+			<Route exact path="/5000000000000year" component={Y500million} />
 		</div>
 	</Router>
 )
