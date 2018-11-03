@@ -15,8 +15,6 @@ import config from './config'
 
 import './config/init'
 
-console.log(config)
-
 const { store, persistor } = configureStore()
 // store.dispatch(thunkWorld())
 const rootEl = document.getElementById('root')

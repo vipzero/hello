@@ -124,7 +124,7 @@
 	},
 	"private": true,
 	"scripts": {
-		"dev": "node scripts/start.js",
+		"start": "node scripts/start.js",
 		"build": "node scripts/build.js",
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
 		"deploy": "npm run build && up production",
