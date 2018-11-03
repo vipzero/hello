@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { connect, type Connector } from 'react-redux'
+import { connect } from 'react-redux'
 import _ from 'lodash'
 
 import styled from 'styled-components'
@@ -8,21 +8,17 @@ import styled from 'styled-components'
 import type { State as RootState } from '../../types'
 
 const Wrap = styled.div``
-const Top = styled.div`
-	width: 50%;
-`
-
 const titles = ['vipper', 'うんこ', 'ちんこ']
 type State = {
-	cells: boolean,
+	cells: { [y: string]: { [x: string]: boolean } },
 }
 
-class MakeRank extends React.Component<Props, State> {
+class MakeRank extends React.Component<{}, State> {
 	state = {
 		cells: {
-			0: { 0: false, 1: true, 2: true },
-			1: { 0: false, 1: false, 2: true },
-			2: { 0: false, 1: false, 2: false },
+			'0': { '0': false, '1': true, '2': true },
+			'1': { '0': false, '1': false, '2': true },
+			'2': { '0': false, '1': false, '2': false },
 		},
 	}
 	componentDidMount() {}
@@ -30,7 +26,7 @@ class MakeRank extends React.Component<Props, State> {
 	render() {
 		const { state } = this
 		const nums = _.range(3).map(i => ({
-			n: _.sum(_.values(state.cells[i])),
+			n: _.sum(_.values(state.cells[`${i}`])),
 			title: titles[i],
 		}))
 		const rank = _.reverse(_.sortBy(nums, 'n'))
@@ -97,7 +93,7 @@ class MakeRank extends React.Component<Props, State> {
 
 const ms = (state: RootState) => ({})
 
-const conn: Connector<{}, Props> = connect(
+const conn = connect(
 	ms,
 	{},
 )

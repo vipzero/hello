@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { connect, type Connector } from 'react-redux'
+import { connect } from 'react-redux'
 
 import styled, { keyframes } from 'styled-components'
 
@@ -70,11 +70,14 @@ const Jk = styled.img`
 
 type Props = {}
 
-class Home extends React.Component<Props> {
-	constructor(props) {
-		super(props)
-		this.state = { x: 0, y: 0 }
-	}
+type State = {
+	x: number,
+	y: number,
+}
+
+class Home extends React.Component<Props, State> {
+	stae = { x: 0, y: 0 }
+
 	componentDidMount() {}
 
 	_onMouseMove(e) {
@@ -103,7 +106,7 @@ class Home extends React.Component<Props> {
 
 const ms = (state: RootState) => ({})
 
-const conn: Connector<{}, Props> = connect(
+const conn = connect(
 	ms,
 	{},
 )
