@@ -76,7 +76,7 @@ type State = {
 }
 
 class Home extends React.Component<Props, State> {
-	stae = { x: 0, y: 0 }
+	state = { x: 0, y: 0 }
 
 	componentDidMount() {}
 
