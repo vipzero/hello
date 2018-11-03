@@ -60,18 +60,18 @@ class MakeRank extends React.Component<{}, State> {
 													cells: {
 														...state.cells,
 														[x]: {
-															...state.cells[x],
-															[y]: !state.cells[x][y],
+															...state.cells[`${x}`],
+															[y]: !state.cells[`${x}`][`${y}`],
 														},
 														[y]: {
-															...state.cells[y],
-															[x]: !state.cells[y][x],
+															...state.cells[`${y}`],
+															[x]: !state.cells[`${y}`][`${x}`],
 														},
 													},
 												})
 											}}
 										>
-											{state.cells[x][y] ? 'o' : 'x'}
+											{state.cells[`${y}`][`${x}`] ? 'o' : 'x'}
 										</td>
 									),
 							)}

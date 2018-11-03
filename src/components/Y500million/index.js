@@ -4,7 +4,15 @@ import _ from 'lodash'
 
 type Props = {}
 
-const Pack = ({ title, size, children }: { title: string, size: number }) => {
+const Pack = ({
+	title,
+	size,
+	children,
+}: {
+	title: string,
+	size: number,
+	children: any,
+}) => {
 	const e = `${size}`.length
 	const height = `${(size * 1.2) / 3}vmax`
 	const width = `${size / 3}vmax`
