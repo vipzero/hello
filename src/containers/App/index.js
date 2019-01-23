@@ -1,7 +1,8 @@
 // @flow
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { Router, Route, Link } from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
+import createHistory from 'history/createBrowserHistory'
 
 import Home from '../Home'
 import Jiko from '../Jiko'
@@ -9,12 +10,13 @@ import MakeRank from '../MakeRank'
 import Y500million from '../../components/Y500million'
 import EroJS from '../EroJS'
 
+export const history = createHistory()
 const MenuItem = styled(Link)`
 	margin-left: 10px;
 `
 
 const App = () => (
-	<Router>
+	<Router history={history}>
 		<div>
 			<div>
 				<MenuItem to="/jiko">jiko</MenuItem>

@@ -9,6 +9,12 @@
 	"hooks": {
 		"build": "node scripts/build.js"
 	},
+	"redirects": {
+		"/*": {
+			"location": "/",
+			"status": 200
+		}
+	},
 	"stages": {
 		"production": {
 			"path": "/",
