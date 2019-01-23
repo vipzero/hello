@@ -10,7 +10,7 @@ import theme from './theme'
 import App from './containers/App'
 import registerServiceWorker from './config/registerServiceWorker'
 import configureStore from './store'
-import config from './config'
+
 // import { thunkWorld } from './containers/ScreensContainer/logic'
 
 import './config/init'

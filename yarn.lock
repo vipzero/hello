@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"2ch-trip@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/2ch-trip/-/2ch-trip-1.0.1.tgz#21a03a617c26b6187191e2b6fc9f3599dd4a6472"
+  integrity sha1-IaA6YXwmthhxkeK2/J81md1KZHI=
+
 "@babel/cli@^7.0.0-beta.39":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.0.0.tgz#108b395fd43fff6681d36fb41274df4d8ffeb12e"

@@ -2,6 +2,7 @@
 	"name": "typhlopidae",
 	"version": "0.1.0",
 	"dependencies": {
+		"2ch-trip": "^1.0.1",
 		"@babel/cli": "^7.0.0-beta.39",
 		"@babel/preset-env": "^7.0.0-beta.39",
 		"@material-ui/core": "^1.1.0",
