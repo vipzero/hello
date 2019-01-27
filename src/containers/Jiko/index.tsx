@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 
 import styled, { keyframes } from 'styled-components'
 
-import PlayerImg from '../../components/figure_tousenbo.png'
-import HikinigeImg from '../../components/jiko_car_hikinige.png'
-import JkImg from '../../components/smartphone_schoolgirl_stand_smile.png'
 import { State as RootState } from '../../types'
+import PlayerImg from './res/figure_tousenbo.png'
+import HikinigeImg from './res/jiko_car_hikinige.png'
+import JkImg from './res/smartphone_schoolgirl_stand_smile.png'
 
 const Wrap = styled.div``
 const Top = styled.div`

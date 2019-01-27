@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 
 import styled, { keyframes } from 'styled-components'
 
-import Bug from '../../components/bug_uji.png'
-import waniClose from '../../components/wani_close.png'
-import waniOpen from '../../components/wani_open.png'
 import { State as RootState } from '../../types'
+import Bug from './res/bug_uji.png'
+import waniClose from './res/wani_close.png'
+import waniOpen from './res/wani_open.png'
 
 const Wrap = styled.div`
 	display: flex;
