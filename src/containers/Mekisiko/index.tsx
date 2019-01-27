@@ -33,18 +33,22 @@ class Mekisiko extends React.Component<{}, { search: string }> {
 
 const blink = keyframes`
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
 		background: yellow;
   }
 
+	50% {
+    transform: rotate(180deg) scale(0.5);
+	}
+
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1);
 		background: yellowgreen;
   }
 `
 
 const Img = styled.img`
-	animation: ${blink} 10s linear infinite;
+	animation: ${blink} 5s linear infinite;
 `
 
 const ms = (state: RootState) => ({})
