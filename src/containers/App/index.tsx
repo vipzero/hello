@@ -4,10 +4,10 @@ import { Link, Route, Router } from 'react-router-dom'
 import styled from 'styled-components'
 
 import EroJS from '../EroJS'
-import Hoge from '../Hoge'
 import Jiko from '../Jiko'
 import LaiarGame from '../LaiarGame'
 import MakeRank from '../MakeRank'
+import Mekisiko from '../Mekisiko'
 import Uji from '../Uji'
 import Y500million from '../Y5000million'
 
@@ -26,7 +26,7 @@ const App = () => (
 				<MenuItem to="/5000000000000year">5000000000000year</MenuItem>
 				<MenuItem to="/ero.js">ero JS</MenuItem>
 				<MenuItem to="/laiargame">Laiar Game</MenuItem>
-				<MenuItem to="/hoge">朝飯前</MenuItem>
+				<MenuItem to="/mekisiko">朝飯前</MenuItem>
 			</div>
 			<Route exact path="/" component={Jiko} />
 			<Route exact path="/jiko" component={Jiko} />
@@ -35,7 +35,7 @@ const App = () => (
 			<Route exact path="/5000000000000year" component={Y500million} />
 			<Route exact path="/ero.js" component={EroJS} />
 			<Route exact path="/laiargame" component={LaiarGame} />
-			<Route exact path="/hoge" component={Hoge} />
+			<Route exact path="/mekisiko" component={Mekisiko} />
 		</div>
 	</Router>
 )

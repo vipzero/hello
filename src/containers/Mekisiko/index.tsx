@@ -7,7 +7,7 @@ import SandImg from './res/sand.jpg'
 
 import { State as RootState } from '../../types'
 
-class Hoge extends React.Component<{}, { search: string }> {
+class Mekisiko extends React.Component<{}, { search: string }> {
 	state = { search: '' }
 	componentDidMount() {}
 
@@ -54,4 +54,4 @@ const conn = connect(
 	{},
 )
 
-export default conn(Hoge)
+export default conn(Mekisiko)

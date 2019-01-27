@@ -15,10 +15,12 @@ export default () => {
 	const middleware = [thunk]
 	const enhancers = [] as any[]
 
-	enhancers.push(
-		(window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-			(window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-	)
+	if (process.env.NODE_ENV === 'development') {
+		enhancers.push(
+			(window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+				(window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+		)
+	}
 
 	// HACKME:
 	const composer = compose(
