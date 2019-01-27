@@ -14,39 +14,50 @@ class Mekisiko extends React.Component<{}, { search: string }> {
 	render() {
 		const { search } = this.state
 		return (
-			<div>
-				<h2>メキシコグロ画像大百科</h2>
+			<Page>
+				<h2 style={{ margin: '12px 20px' }}>メキシコグロ画像大百科</h2>
 				<div style={{ display: 'flex' }}>
-					<div>
-						<h1>サンドイッチ</h1>
+					<Item>
+						<MenuTitle>Sand 1</MenuTitle>
 						<Img src={SandImg} alt="" />
-					</div>
-					<div>
-						<h1>パーティ</h1>
+					</Item>
+					<Item>
+						<MenuTitle>3Hands</MenuTitle>
 						<Img src={PatyImg} alt="" />
-					</div>
+					</Item>
 				</div>
-			</div>
+			</Page>
 		)
 	}
 }
 
 const blink = keyframes`
-  from {
-    transform: rotate(0deg) scale(1);
-		background: yellow;
-  }
-
-	50% {
-    transform: rotate(180deg) scale(0.5);
-	}
-
-  to {
-    transform: rotate(360deg) scale(1);
-		background: yellowgreen;
-  }
+  from { transform: rotate(0deg) scale(1); }
+	25% { transform: rotate(-30deg) scale(0.5); }
+	50% { transform: rotate(0deg) scale(1); }
+	75% { transform: rotate(30deg) scale(0.5); }
+  to { transform: rotate(0deg) scale(1); }
 `
 
+const Item = styled.article`
+	background: white;
+	width: 40%;
+	padding: 8px;
+	margin: 8px;
+	border: solid 1px #fd0;
+	border-radius: 4px;
+`
+
+const Page = styled.div`
+	background: orange;
+	height: 100vh;
+	width: 100vh;
+`
+
+const MenuTitle = styled.h2`
+	padding-left: 1em;
+	font-family: 'Major Mono Display', monospace;
+`
 const Img = styled.img`
 	animation: ${blink} 5s linear infinite;
 `
