@@ -6,9 +6,6 @@
 	"static": {
 		"dir": "build"
 	},
-	"hooks": {
-		"build": "node scripts/build.js"
-	},
 	"redirects": {
 		"/*": {
 			"location": "/",
