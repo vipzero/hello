@@ -4,6 +4,7 @@ import { Link, Route, Router } from 'react-router-dom'
 import styled from 'styled-components'
 
 import EroJS from '../EroJS'
+import Home from '../Home'
 import Jiko from '../Jiko'
 import LaiarGame from '../LaiarGame'
 import MakeRank from '../MakeRank'
@@ -20,6 +21,7 @@ const App = () => (
 	<Router history={history}>
 		<div>
 			<div>
+				<MenuItem to="/">俺</MenuItem>
 				<MenuItem to="/jiko">jiko</MenuItem>
 				<MenuItem to="/uji">uji</MenuItem>
 				<MenuItem to="/makerank">makerank</MenuItem>
@@ -28,7 +30,7 @@ const App = () => (
 				<MenuItem to="/laiargame">Laiar Game</MenuItem>
 				<MenuItem to="/mekisiko">朝飯前</MenuItem>
 			</div>
-			<Route exact path="/" component={Jiko} />
+			<Route exact path="/" component={Home} />
 			<Route exact path="/jiko" component={Jiko} />
 			<Route exact path="/uji" component={Uji} />
 			<Route exact path="/makerank" component={MakeRank} />
