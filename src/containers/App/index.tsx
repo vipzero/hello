@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, Route, Router } from 'react-router-dom'
 import styled from 'styled-components'
 
+import AnkaChord from '../AnkaChord'
 import EroJS from '../EroJS'
 import Home from '../Home'
 import Jiko from '../Jiko'
@@ -29,8 +30,10 @@ const App = () => (
 				<MenuItem to="/ero.js">ero JS</MenuItem>
 				<MenuItem to="/laiargame">Laiar Game</MenuItem>
 				<MenuItem to="/mekisiko">朝飯前</MenuItem>
+				<MenuItem to="/anchord">安価コード進行</MenuItem>
 			</div>
 			<Route exact path="/" component={Home} />
+			<Route exact path="/anchord" component={AnkaChord} />
 			<Route exact path="/jiko" component={Jiko} />
 			<Route exact path="/uji" component={Uji} />
 			<Route exact path="/makerank" component={MakeRank} />
