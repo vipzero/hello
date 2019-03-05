@@ -10,6 +10,7 @@ import Jiko from '../Jiko'
 import LaiarGame from '../LaiarGame'
 import MakeRank from '../MakeRank'
 import Mekisiko from '../Mekisiko'
+import Syukan from '../Syukan'
 import Uji from '../Uji'
 import Y500million from '../Y5000million'
 
@@ -31,9 +32,11 @@ const App = () => (
 				<MenuItem to="/laiargame">Laiar Game</MenuItem>
 				<MenuItem to="/mekisiko">朝飯前</MenuItem>
 				<MenuItem to="/anchord">安価コード進行</MenuItem>
+				<MenuItem to="/syukan">週間</MenuItem>
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/anchord" component={AnkaChord} />
+			<Route exact path="/syukan" component={Syukan} />
 			<Route exact path="/jiko" component={Jiko} />
 			<Route exact path="/uji" component={Uji} />
 			<Route exact path="/makerank" component={MakeRank} />
