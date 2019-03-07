@@ -10,6 +10,7 @@ import Jiko from '../Jiko'
 import LaiarGame from '../LaiarGame'
 import MakeRank from '../MakeRank'
 import Mekisiko from '../Mekisiko'
+import Mili from '../Mili'
 import Syukan from '../Syukan'
 import Uji from '../Uji'
 import Y500million from '../Y5000million'
@@ -33,6 +34,7 @@ const App = () => (
 				<MenuItem to="/mekisiko">朝飯前</MenuItem>
 				<MenuItem to="/anchord">安価コード進行</MenuItem>
 				<MenuItem to="/syukan">週間</MenuItem>
+				<MenuItem to="/mili">ミリタイマー</MenuItem>
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/anchord" component={AnkaChord} />
@@ -44,6 +46,7 @@ const App = () => (
 			<Route exact path="/ero.js" component={EroJS} />
 			<Route exact path="/laiargame" component={LaiarGame} />
 			<Route exact path="/mekisiko" component={Mekisiko} />
+			<Route exact path="/mili" component={Mili} />
 		</div>
 	</Router>
 )
