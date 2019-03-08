@@ -34,7 +34,7 @@ const App = () => (
 				<MenuItem to="/mekisiko">朝飯前</MenuItem>
 				<MenuItem to="/anchord">安価コード進行</MenuItem>
 				<MenuItem to="/syukan">週間</MenuItem>
-				<MenuItem to="/mili">ミリタイマー</MenuItem>
+				<MenuItem to="/mili">コンママスター</MenuItem>
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/anchord" component={AnkaChord} />

@@ -4,8 +4,8 @@
 	"dependencies": {
 		"2ch-trip": "^1.0.1",
 		"@babel/cli": "^7.0.0-beta.39",
-		"@material-ui/core": "^1.1.0",
-		"@material-ui/icons": "^1.1.0",
+		"@material-ui/core": "^3.9.2",
+		"@material-ui/icons": "^3.0.2",
 		"husky": "^0.14.3",
 		"lint-staged": "^6.1.1",
 		"lodash": "^4.17.10",
@@ -13,6 +13,7 @@
 		"prettier": "^1.14.2",
 		"promise": "8.0.1",
 		"query-string": "^6.1.0",
+		"rc-slider": "^8.6.6",
 		"react": "^16.4.2",
 		"react-dev-utils": "^5.0.2",
 		"react-dom": "^16.4.2",
