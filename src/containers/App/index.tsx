@@ -11,6 +11,7 @@ import LaiarGame from '../LaiarGame'
 import MakeRank from '../MakeRank'
 import Mekisiko from '../Mekisiko'
 import Mili from '../Mili'
+import Mushimegane from '../Mushimegane'
 import Ping from '../Ping'
 import Syukan from '../Syukan'
 import Uji from '../Uji'
@@ -37,6 +38,7 @@ const App = () => (
 				<MenuItem to="/syukan">週間</MenuItem>
 				<MenuItem to="/mili">コンママスター</MenuItem>
 				<MenuItem to="/ping">Ping</MenuItem>
+				{/* <MenuItem to="/mushimegane">見てるぞ</MenuItem> */}
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/anchord" component={AnkaChord} />
@@ -50,6 +52,7 @@ const App = () => (
 			<Route exact path="/mekisiko" component={Mekisiko} />
 			<Route exact path="/mili" component={Mili} />
 			<Route exact path="/ping" component={Ping} />
+			<Route exact path="/mushimegane" component={Mushimegane} />
 		</div>
 	</Router>
 )
