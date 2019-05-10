@@ -1,5 +1,5 @@
 {
-  "name": "typhlopidae",
+  "name": "hello",
   "version": "0.1.0",
   "dependencies": {
     "2ch-trip": "^1.0.1",
@@ -49,7 +49,7 @@
     "typescript-fsa": "^3.0.0-beta-2",
     "typescript-fsa-reducers": "^1.1.0"
   },
-  "homepage": "https://vip.asobo.name",
+  "homepage": "https://hello.vipper.dev",
   "lint-staged": {
     "src/**/*.js": [
       "prettier --config ./.prettierrc --write",
