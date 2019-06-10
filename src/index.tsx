@@ -23,9 +23,9 @@ if (rootEl !== null) {
 		<Provider store={store}>
 			<PersistGate loading={<h3>Loading</h3>} persistor={persistor}>
 				<CssBaseline />
+				<GlobalStyle />
 				<MuiThemeProvider theme={theme}>
 					<App />
-					<GlobalStyle />
 				</MuiThemeProvider>
 			</PersistGate>
 		</Provider>,

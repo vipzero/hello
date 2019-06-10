@@ -8,7 +8,7 @@ type State = {
 	timeStr: string
 	timeMili: number
 	diffMili: number
-	timer: NodeJS.Timeout | null
+	timer: number | null
 }
 
 class Mili extends React.Component<{}, State> {
@@ -16,7 +16,7 @@ class Mili extends React.Component<{}, State> {
 		timeStr: 'xx',
 		timeMili: 0,
 		diffMili: 0,
-		timer: null as NodeJS.Timeout | null,
+		timer: null as number | null,
 	}
 	componentDidMount() {
 		const timer = setInterval(() => {
@@ -29,8 +29,9 @@ class Mili extends React.Component<{}, State> {
 		this.setState({ timer })
 	}
 	componentWillUnmount() {
-		if (this.state.timer !== null) {
-			clearInterval(this.state.timer)
+		const { timer } = this.state
+		if (timer !== null) {
+			clearInterval(timer)
 		}
 	}
 
