@@ -12,7 +12,7 @@ import configureStore from './store'
 
 // import { thunkWorld } from './containers/ScreensContainer/logic'
 
-import './config/init'
+import { GlobalStyle } from './config/init'
 
 const { store, persistor } = configureStore()
 // store.dispatch(thunkWorld())
@@ -25,6 +25,7 @@ if (rootEl !== null) {
 				<CssBaseline />
 				<MuiThemeProvider theme={theme}>
 					<App />
+					<GlobalStyle />
 				</MuiThemeProvider>
 			</PersistGate>
 		</Provider>,

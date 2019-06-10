@@ -12,7 +12,6 @@ class Mekisiko extends React.Component<{}, { search: string }> {
 	componentDidMount() {}
 
 	render() {
-		const { search } = this.state
 		return (
 			<Page>
 				<h2 style={{ margin: '12px 20px' }}>メキシコグロ画像大百科</h2>

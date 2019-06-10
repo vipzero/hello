@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
-import { State as RootState } from '../../types'
 type Props = {}
 
 type State = {
@@ -23,7 +22,6 @@ class Home extends React.Component<Props, State> {
 	}
 
 	render() {
-		const { state } = this
 		return (
 			<Wrap>
 				<Center>
@@ -43,7 +41,7 @@ const Center = styled.div`
 	margin: 50vh 50vw;
 `
 
-const ms = (state: RootState) => ({})
+const ms = () => ({})
 
 const conn = connect(
 	ms,

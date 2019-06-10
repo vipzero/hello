@@ -31,23 +31,11 @@ const Hiroshimayaki = styled.img`
 	width: 30vh;
 `
 
-const Player = styled.img<{ x: number; y: number }>`
-	width: 50%;
-	position: absolute;
-	left: ${p => p.x - 100}px;
-`
-
 const JkDiv = styled.div`
 	position: relative;
 	width: 1000px;
 	height: 1000px;
 	overflow: hidden;
-`
-
-const PlayerArea = styled.div`
-	position: relative;
-	height: 200px;
-	width: 100%;
 `
 
 const Jk = styled.img`
@@ -69,7 +57,6 @@ class Okonomiyaki extends React.Component<Props, State> {
 	componentDidMount() {}
 
 	render() {
-		const { state } = this
 		return (
 			<Wrap>
 				<Top>

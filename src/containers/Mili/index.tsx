@@ -1,6 +1,5 @@
-import _ from 'lodash'
 import moment from 'moment'
-import Slider, { Range } from 'rc-slider'
+import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import * as React from 'react'
 import styled from 'styled-components'

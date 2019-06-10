@@ -1,5 +1,4 @@
 import axios from 'axios'
-import _ from 'lodash'
 import * as React from 'react'
 import styled from 'styled-components'
 

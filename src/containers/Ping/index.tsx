@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -28,7 +27,7 @@ const ping = (url: string) => {
 		} catch (e) {
 			console.log(e)
 		}
-		const timer = setTimeout(function() {
+		setTimeout(function() {
 			reject()
 		}, 1500)
 	})
