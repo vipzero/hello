@@ -17,6 +17,7 @@ import Ping from '../Ping'
 import Syukan from '../Syukan'
 import Uji from '../Uji'
 import Y500million from '../Y5000million'
+import { YamiPrabe } from '../YamiSplatoon'
 
 export const history = createHistory()
 const MenuItem = styled(Link)`
@@ -41,6 +42,7 @@ const App = () => (
 				<MenuItem to="/ping">Ping</MenuItem>
 				{/* <MenuItem to="/mushimegane">見てるぞ</MenuItem> */}
 				<MenuItem to="/okonomiyaki">お好み焼き</MenuItem>
+				<MenuItem to="/yamipurabe">闇プラベ</MenuItem>
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/anchord" component={AnkaChord} />
@@ -56,6 +58,7 @@ const App = () => (
 			<Route exact path="/ping" component={Ping} />
 			<Route exact path="/mushimegane" component={Mushimegane} />
 			<Route exact path="/okonomiyaki" component={Okonomiyaki} />
+			<Route exact path="/yamipurabe" component={YamiPrabe} />
 		</div>
 	</Router>
 )
