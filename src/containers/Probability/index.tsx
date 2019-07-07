@@ -13,19 +13,24 @@ import {
 
 type Plot = { x: number; y: number }
 
-function geometricProgressionSum(a: number, r: number, n: number) {
-	return (a * (1 - Math.pow(r, n))) / (1 - r)
-}
-const toPlot = (x: number): Plot => ({ x, y: proOneHundred(x) * 100 })
+const geometricProgressionSumPlot = (r: number, x: number) => ({
+	x,
+	y: (1 - Math.pow(r, x)) * 100,
+})
 
-const proOneHundred = _.partial(geometricProgressionSum, 1 / 100, 99 / 100)
-const dataA: Plot[] = [..._.range(10), ..._.range(10, 501, 10)].map(toPlot)
+const genProOneX = (n: number) =>
+	_.partial(geometricProgressionSumPlot, 1 - 1 / n)
+const proOneTen = genProOneX(10)
+const proOneHandred = genProOneX(100)
+const proOneThousand = genProOneX(1000)
 
-const proOneTenth = _.partial(geometricProgressionSum, 1 / 10, 9 / 10)
-const dataB: Plot[] = [..._.range(50), ..._.range(50, 101, 10)].map(i => ({
-	x: i,
-	y: proOneTenth(i) * 100,
-}))
+const dataTen: Plot[] = [..._.range(50), ..._.range(50, 101, 10)].map(proOneTen)
+const dataHandred: Plot[] = [..._.range(100), ..._.range(100, 501, 10)].map(
+	proOneHandred,
+)
+const dataThousand: Plot[] = [..._.range(100), ..._.range(100, 5001, 100)].map(
+	proOneThousand,
+)
 
 function Graph({ data }: { data: Plot[] }) {
 	return (
@@ -53,15 +58,19 @@ function Probability() {
 	return (
 		<div>
 			<div>
-				<h2>コンマ3桁ゾロ目確率</h2>
-				<h3>一回(1/100とする)</h3>
-
-				<Graph data={dataA} />
-			</div>
-			<div>
 				<h2>コンマ2桁ゾロ目確率</h2>
 				<h3>一回(1/10とする)</h3>
-				<Graph data={dataB} />
+				<Graph data={dataTen} />
+			</div>
+			<div>
+				<h2>コンマ3桁ゾロ目確率</h2>
+				<h3>一回(1/100とする)</h3>
+				<Graph data={dataHandred} />
+			</div>
+			<div>
+				<h2>特定のコンマ確率</h2>
+				<h3>一回(1/1000とする)</h3>
+				<Graph data={dataThousand} />
 			</div>
 		</div>
 	)
