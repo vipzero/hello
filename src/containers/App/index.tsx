@@ -19,6 +19,7 @@ import { YamiPrabe } from '../YamiSplatoon'
 import Probability from '../Probability'
 import { MenuGroup } from './types'
 import NavBar from './NavBar'
+import { DigHash } from '../DigHash'
 
 export const history = createBrowserHistory()
 
@@ -31,7 +32,6 @@ const menuGroups: MenuGroup[] = [
 		name: '芸術',
 		menus: [
 			{ path: 'jiko', name: '事故', Component: Jiko },
-			{ path: 'laiargame', name: 'Laiar Game', Component: LaiarGame },
 			{ path: 'uji', name: 'uji', Component: Uji },
 			{ path: 'ero.js', name: 'ero.js', Component: EroJS },
 			{ path: 'okonomiyaki', name: 'お好み焼き', Component: Okonomiyaki },
@@ -41,6 +41,7 @@ const menuGroups: MenuGroup[] = [
 	{
 		name: '検証',
 		menus: [
+			{ path: 'laiargame', name: 'Laiar Game', Component: LaiarGame },
 			{ path: 'makerank', name: 'makerank', Component: MakeRank },
 			{ path: '5000000000000year', name: '5億年', Component: Y500million },
 			{ path: 'syukan', name: '週間', Component: Syukan },
@@ -53,6 +54,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'mili', name: 'コンママスター', Component: Mili },
 			{ path: 'yamipurabe', name: '闇プラベ', Component: YamiPrabe },
 			{ path: 'probability', name: 'コンマ確率グラフ', Component: Probability },
+			{ path: 'dighash', name: 'Hash採掘', Component: DigHash },
 		],
 	},
 ]

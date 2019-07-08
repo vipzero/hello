@@ -2,7 +2,6 @@ import React from 'react'
 import { MenuGroup } from './types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import _ from 'lodash'
 
 const MenuItem = styled(Link)`
 	margin-right: 10px;
