@@ -1,9 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import styled, { keyframes } from 'styled-components'
 
-import { State as RootState } from '../../types'
 import Bug from './res/bug_uji.png'
 import waniClose from './res/wani_close.png'
 import waniOpen from './res/wani_open.png'
@@ -80,11 +78,4 @@ class Home extends React.Component<Props> {
 	}
 }
 
-const ms = (state: RootState) => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(Home)
+export default Home

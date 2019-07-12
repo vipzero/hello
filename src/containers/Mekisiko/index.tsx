@@ -1,11 +1,8 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import styled, { keyframes } from 'styled-components'
 import PatyImg from './res/paty.jpeg'
 import SandImg from './res/sand.jpg'
-
-import { State as RootState } from '../../types'
 
 class Mekisiko extends React.Component<{}, { search: string }> {
 	state = { search: '' }
@@ -61,11 +58,4 @@ const Img = styled.img`
 	animation: ${blink} 5s linear infinite;
 `
 
-const ms = (state: RootState) => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(Mekisiko)
+export default Mekisiko

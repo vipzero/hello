@@ -1,9 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import styled from 'styled-components'
-
-import { State as RootState } from '../../types'
 
 const Wrap = styled.div``
 const Code = styled.div`
@@ -36,11 +33,4 @@ class MakeRank extends React.Component {
 	}
 }
 
-const ms = (state: RootState) => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(MakeRank)
+export default MakeRank

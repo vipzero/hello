@@ -1,10 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import genTrip from '2ch-trip'
 import styled, { keyframes } from 'styled-components'
-
-import { State as RootState } from '../../types'
 
 const hands = [
 	'微税',
@@ -121,11 +118,4 @@ const TripWrap = styled.div`
 	}
 `
 
-const ms = (state: RootState) => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(LaiarGame)
+export default LaiarGame

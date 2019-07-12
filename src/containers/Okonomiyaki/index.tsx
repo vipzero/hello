@@ -1,9 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import styled, { keyframes } from 'styled-components'
 
-import { State as RootState } from '../../types'
 import Business from './res/business_group_shock.png'
 import Hera from './res/cooking_okonomiyaki_hera.png'
 import HiroshimayakiImg from './res/food_hiroshimayaki.png'
@@ -71,11 +69,4 @@ class Okonomiyaki extends React.Component<Props, State> {
 	}
 }
 
-const ms = (state: RootState) => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(Okonomiyaki)
+export default Okonomiyaki

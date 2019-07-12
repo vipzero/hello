@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import styled from 'styled-components'
 
@@ -41,11 +40,4 @@ const Center = styled.div`
 	margin: 50vh 50vw;
 `
 
-const ms = () => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(Home)
+export default Home

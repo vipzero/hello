@@ -1,10 +1,7 @@
 import _ from 'lodash'
 import * as React from 'react'
-import { connect } from 'react-redux'
 
 import styled from 'styled-components'
-
-import { State as RootState } from '../../types'
 
 const Wrap = styled.div``
 const titles = ['vipper', 'うんこ', 'ちんこ']
@@ -42,37 +39,36 @@ class MakeRank extends React.Component<{}, State> {
 					{_.range(3).map(x => (
 						<tr key={x}>
 							<th>{titles[x]}</th>
-							{_.range(3).map(
-								y =>
-									x === y ? (
-										<td key={y}>-</td>
-									) : (
-										<td
-											key={y}
-											style={{
-												width: '100px',
-												height: '100px',
-												fontSize: '3em',
-											}}
-											onClick={() => {
-												this.setState({
-													cells: {
-														...state.cells,
-														[x]: {
-															...state.cells[`${x}`],
-															[y]: !state.cells[`${x}`][`${y}`],
-														},
-														[y]: {
-															...state.cells[`${y}`],
-															[x]: !state.cells[`${y}`][`${x}`],
-														},
+							{_.range(3).map(y =>
+								x === y ? (
+									<td key={y}>-</td>
+								) : (
+									<td
+										key={y}
+										style={{
+											width: '100px',
+											height: '100px',
+											fontSize: '3em',
+										}}
+										onClick={() => {
+											this.setState({
+												cells: {
+													...state.cells,
+													[x]: {
+														...state.cells[`${x}`],
+														[y]: !state.cells[`${x}`][`${y}`],
 													},
-												})
-											}}
-										>
-											{state.cells[`${y}`][`${x}`] ? 'o' : 'x'}
-										</td>
-									),
+													[y]: {
+														...state.cells[`${y}`],
+														[x]: !state.cells[`${y}`][`${x}`],
+													},
+												},
+											})
+										}}
+									>
+										{state.cells[`${y}`][`${x}`] ? 'o' : 'x'}
+									</td>
+								),
 							)}
 						</tr>
 					))}
@@ -90,11 +86,4 @@ class MakeRank extends React.Component<{}, State> {
 	}
 }
 
-const ms = (state: RootState) => ({})
-
-const conn = connect(
-	ms,
-	{},
-)
-
-export default conn(MakeRank)
+export default MakeRank
