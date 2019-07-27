@@ -52,7 +52,6 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-		"deploy": "yarn build && up production",
 		"gen:env": "cp templates/temp.env .env.development.local && cp templates/temp.env .env.production.local",
 		"test": "jest"
 	},
