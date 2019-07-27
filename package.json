@@ -38,7 +38,7 @@
 		"eslint-config-prettier": "^6.0.0",
 		"eslint-plugin-prettier": "^3.1.0",
 		"puppeteer": "^1.18.1",
-		"typescript": "3.5.3"
+		"typescript": "3.4.5"
 	},
 	"homepage": "https://hello.vipper.dev",
 	"lint-staged": {
