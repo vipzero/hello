@@ -10,7 +10,7 @@
 		"decimal.js": "^10.2.0",
 		"husky": "^3.0.0",
 		"lint-staged": "^9.2.0",
-		"lodash": "^4.17.14",
+		"lodash": "^4.17.15",
 		"moment": "^2.22.2",
 		"prettier": "^1.18.2",
 		"rc-slider": "^8.6.13",
