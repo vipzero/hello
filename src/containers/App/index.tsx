@@ -20,6 +20,7 @@ import Probability from '../Probability'
 import { MenuGroup } from './types'
 import NavBar from './NavBar'
 import { DigHash } from '../DigHash'
+import { HandSpinner } from '../HandSpinner'
 
 export const history = createBrowserHistory()
 
@@ -36,6 +37,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'ero.js', name: 'ero.js', Component: EroJS },
 			{ path: 'okonomiyaki', name: 'お好み焼き', Component: Okonomiyaki },
 			{ path: 'mekisiko', name: 'お朝飯前', Component: Mekisiko },
+			{ path: 'handspinner', name: 'ハンドスピナー', Component: HandSpinner },
 		],
 	},
 	{
