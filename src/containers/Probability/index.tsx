@@ -12,6 +12,7 @@ import {
 	Legend,
 	ResponsiveContainer,
 } from 'recharts'
+import { Typography } from '@material-ui/core'
 
 type Plot = { x: number; y: number }
 
@@ -58,13 +59,13 @@ const dataZorome: Plot[] = _.range(30).map(x => ({
 	y: Number(repeatTry(1000, x, 0.01).toFixed(5)) * 100,
 }))
 
-function Graph({ data }: { data: Plot[] }) {
+function Graph({ data, unit = '%' }: { data: Plot[]; unit?: string }) {
 	return (
 		<ResponsiveContainer width="100%" aspect={8 / 3}>
 			<LineChart data={data}>
 				<CartesianGrid strokeDasharray="3 3" />
 				<XAxis type="number" dataKey="x" domain={['dataMin', 'dataMax']} />
-				<YAxis unit="%" />
+				<YAxis unit={unit} />
 				<Tooltip />
 				<Legend />
 				<Line
@@ -80,21 +81,47 @@ function Graph({ data }: { data: Plot[] }) {
 	)
 }
 
+const measureHoliday = h => {
+	if (h < 2) return 10
+	if (h < 4) return 20
+	if (h < 9) return 40
+	if (h < 16) return 15
+	if (h < 19) return 10
+	return 5
+}
+
+const measureDay = h => {
+	if (h < 2) return 15
+	if (h < 4) return 25
+	if (h < 9) return 45
+	if (h < 16) return 25
+	if (h < 19) return 15
+	return 5
+}
+const dataHourSpeed: Plot[] = []
+_.range(24).reduce((p, h) => {
+	const hourCount = 60 / measureHoliday(h)
+	const y = hourCount + p
+	dataHourSpeed.push({ x: h, y })
+	return y
+}, 0)
+
 function Probability() {
 	return (
 		<div>
+			<Typography>ゾロ目確率</Typography>
 			<div>
-				<h2>コンマ2桁ゾロ目確率</h2>
+				<h2>レス回数 x コンマ2桁ゾロ目</h2>
 				<h3>一回(1/10とする)</h3>
 				<Graph data={dataTen} />
 			</div>
 			<div>
-				<h2>コンマ3桁ゾロ目確率</h2>
+				<h2>レス回数 x コンマ3桁ゾロ目</h2>
 				<h3>一回(1/100とする)</h3>
 				<Graph data={dataHandred} />
 			</div>
 			<div>
-				<h2>特定のコンマ確率</h2>
+				<h2>レス回数 x 特定のコンマ</h2>
 				<h3>一回(1/1000とする)</h3>
 				<Graph data={dataThousand} />
 			</div>
@@ -102,6 +129,12 @@ function Probability() {
 				<h2>1000レスでコンマゾロ目がx回出る確率</h2>
 				<h3>ゾロ目(1/100とする)</h3>
 				<Graph data={dataZorome} />
+			</div>
+			<Typography variant="h3">勢い目安</Typography>
+			<div>
+				<h2>時間ごとの最低勢い</h2>
+				<h3>勢いは(post count/day)とする</h3>
+				<Graph data={dataHourSpeed} unit="レス" />
 			</div>
 		</div>
 	)
