@@ -21,7 +21,7 @@ export function HandSpinner() {
 		}
 		console.log({ delta })
 	})
-	const [sized, { width, height }] = useSize(({ width }) => (
+	const [sized] = useSize(() => (
 		<div
 			{...bind()}
 			style={{
