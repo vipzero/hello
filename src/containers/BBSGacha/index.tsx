@@ -57,7 +57,10 @@ function BBSGacha() {
 			</div>
 			<List>
 				{boards.map((board, i) => (
-					<ListItem style={{ background: i < num ? 'white' : 'gray' }}>
+					<ListItem
+						key={board.name}
+						style={{ background: i < num ? 'white' : 'gray' }}
+					>
 						<ListItemText
 							primary={board.name}
 							secondary={board.url}
