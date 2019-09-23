@@ -21,6 +21,7 @@ import { MenuGroup } from './types'
 import NavBar from './NavBar'
 import { DigHash } from '../DigHash'
 import { HandSpinner } from '../HandSpinner'
+import BBSGacha from '../BBSGacha'
 
 export const history = createBrowserHistory()
 
@@ -57,6 +58,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'yamipurabe', name: '闇プラベ', Component: YamiPrabe },
 			{ path: 'probability', name: 'コンマ確率グラフ', Component: Probability },
 			{ path: 'dighash', name: 'Hash採掘', Component: DigHash },
+			{ path: 'bbsgacha', name: '板ガチャ', Component: BBSGacha },
 		],
 	},
 ]
