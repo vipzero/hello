@@ -37,7 +37,7 @@
 		"@types/react-router-dom": "5.1.0",
 		"@types/recharts": "1.1.21",
 		"@types/styled-components": "4.1.19",
-		"@typescript-eslint/eslint-plugin": "1.13.0",
+		"@typescript-eslint/eslint-plugin": "2.3.3",
 		"eslint-config-prettier": "6.4.0",
 		"eslint-plugin-prettier": "3.1.1",
 		"puppeteer": "1.20.0",
