@@ -21,6 +21,7 @@ import Probability from '../Probability'
 import { HandSpinner } from '../HandSpinner'
 import BBSGacha from '../BBSGacha'
 import { DigHash } from '../DigHash'
+import Othelle from '../Othelle'
 import NavBar from './NavBar'
 import { MenuGroup } from './types'
 
@@ -40,6 +41,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'okonomiyaki', name: 'お好み焼き', Component: Okonomiyaki },
 			{ path: 'mekisiko', name: 'お朝飯前', Component: Mekisiko },
 			{ path: 'handspinner', name: 'ハンドスピナー', Component: HandSpinner },
+			{ path: 'othelle', name: 'オセレ', Component: Othelle },
 		],
 	},
 	{
