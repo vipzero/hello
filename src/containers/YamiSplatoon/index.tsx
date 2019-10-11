@@ -2,8 +2,9 @@ import * as React from 'react'
 
 import styled from 'styled-components'
 
-import { weponList } from './data'
 import { TextField, Typography } from '@material-ui/core'
+import { weponList } from './data'
+
 const Wrap = styled.div`
 	width: 400px;
 	padding: 20px;
@@ -11,8 +12,10 @@ const Wrap = styled.div`
 const weponText = weponList
 	.map(wepon => `${wepon.name}.${wepon.start}-${wepon.end}`)
 	.join(',')
+
 export function YamiPrabe() {
 	const [num, setNum] = React.useState<string>('')
+
 	return (
 		<>
 			<Wrap>
@@ -29,7 +32,7 @@ export function YamiPrabe() {
 					}}
 				></TextField>
 				{weponList.map(wepon => (
-					<div>
+					<div key={wepon.name}>
 						{wepon.start <= Number(num) && Number(num) <= wepon.end && (
 							<Typography variant="h3">{wepon.name}</Typography>
 						)}

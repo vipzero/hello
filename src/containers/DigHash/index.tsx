@@ -17,6 +17,7 @@ export function DigHash() {
 		source: '---',
 		tri: '---',
 	})
+
 	function stop() {
 		if (runId) {
 			clearInterval(runId)
@@ -65,6 +66,7 @@ export function DigHash() {
 					}
 					let i = 0
 					const regex = new RegExp(search)
+
 					console.log(regex)
 					setRunId(
 						setInterval(() => {
@@ -73,11 +75,12 @@ export function DigHash() {
 							const source = `#${prefix}${i}`
 							const tri: string = genTrip(source)
 							const pair = { tri, source }
+
 							setLastTri(pair)
-							if (tri.match(regex)) {
+							if (regex.exec(tri)) {
 								setHashs(v => v.concat(pair))
 							}
-						}, 10),
+						}, 10)
 					)
 				}}
 			>

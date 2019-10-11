@@ -30,11 +30,12 @@ const Pack: React.SFC<PackProps> = ({ title, size, children }) => {
 	const lineX = (
 		<div style={{ display: 'flex' }}>{_.range(10).map(() => dummy)}</div>
 	)
+
 	return (
 		<div style={{ border: 'solid 1px', width: `${(size * 10) / 3}vmax` }}>
 			<span>{title}</span>
 			{line1}
-			{_.range(9).map(k => lineX)}
+			{_.range(9).map(() => lineX)}
 		</div>
 	)
 }

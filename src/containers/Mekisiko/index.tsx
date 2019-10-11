@@ -6,7 +6,6 @@ import SandImg from './res/sand.jpg'
 
 class Mekisiko extends React.Component<{}, { search: string }> {
 	state = { search: '' }
-	componentDidMount() {}
 
 	render() {
 		return (

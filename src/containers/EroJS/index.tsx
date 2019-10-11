@@ -17,20 +17,14 @@ const Line = styled.pre`
 	margin: 0;
 `
 
-class MakeRank extends React.Component {
-	componentDidMount() {}
-
-	render() {
-		return (
-			<Wrap>
-				<Code>
-					<Line>import ero from 'ero'</Line>
-					<Line>import world from 'world'</Line>
-					<Line>ero.save(world)</Line>
-				</Code>
-			</Wrap>
-		)
-	}
-}
+const MakeRank = () => (
+	<Wrap>
+		<Code>
+			<Line>import ero from {"'ero'"}</Line>
+			<Line>import world from {"'world'"}</Line>
+			<Line>ero.save(world)</Line>
+		</Code>
+	</Wrap>
+)
 
 export default MakeRank

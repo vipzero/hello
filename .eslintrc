@@ -1,12 +1,10 @@
 {
-	"extends": [
-		"react-app",
-		"@elzup/eslint-config/typescript"
-	],
+	"extends": ["nzap", "nzap/typescript", "nzap/react"],
 	"rules": {
 		"no-console": "off",
 		"sort-imports": "off",
 		"no-restricted-globals": "off",
 		"react-hooks/exhaustive-deps": "off",
+		"@typescript-eslint/explicit-function-return-type": 0
 	}
 }

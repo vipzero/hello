@@ -18,6 +18,7 @@ type Plot = { x: number; y: number }
 
 const geometricProgressionSumPlot = (r: number, x: number) => {
 	const y = 1 - Math.pow(r, x)
+
 	return {
 		x,
 		y: y * 100,
@@ -52,6 +53,7 @@ function repeatTry(n, k, p) {
 	const c = Decimal.pow(1 - p, n - k)
 	// console.log({ a: a.toFixed(4), b: b.toFixed(4), c: c.toFixed(4) })
 	// console.log({ a, b, c })
+
 	return a.times(b).times(c)
 }
 
@@ -135,9 +137,11 @@ const measureHoliday = h => {
 // 	return 5
 // }
 const dataHourSpeed: Plot[] = []
+
 _.range(24).reduce((p, h) => {
 	const hourCount = 60 / measureHoliday(h)
 	const y = hourCount + p
+
 	dataHourSpeed.push({ x: h, y })
 	return y
 }, 0)

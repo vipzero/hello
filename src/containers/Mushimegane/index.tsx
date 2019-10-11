@@ -12,6 +12,7 @@ type State = {
 
 const getPage = async (url: string) => {
 	const res = await axios.get(url)
+
 	console.log(res)
 }
 
@@ -21,10 +22,9 @@ class Mushimegane extends React.Component<{}, State> {
 		pingLog: [] as PingLog[],
 		loading: false,
 	}
-	componentDidMount() {}
-
 	render() {
 		const { state } = this
+
 		return (
 			<div
 				style={{
@@ -40,6 +40,7 @@ class Mushimegane extends React.Component<{}, State> {
 					value={state.url}
 					onChange={e => {
 						const url = e.target.value
+
 						this.setState({ url, loading: true })
 					}}
 				/>

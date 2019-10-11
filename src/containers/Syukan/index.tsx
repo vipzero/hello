@@ -2,8 +2,6 @@ import _ from 'lodash'
 import * as React from 'react'
 
 class Syukan extends React.Component<{}> {
-	componentDidMount() {}
-
 	render() {
 		return (
 			<div>
@@ -24,7 +22,7 @@ class Syukan extends React.Component<{}> {
 				{_.range(1, 101)
 					.map(n => ({ n, v: Math.pow(8, n) }))
 					.map(({ n, v }) => (
-						<div>
+						<div key={n}>
 							8 ^ {n} % 7 = {v % 7} ({v})
 						</div>
 					))}

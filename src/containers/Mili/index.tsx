@@ -1,5 +1,6 @@
 import moment from 'moment'
 import Slider from 'rc-slider'
+// eslint-disable-next-line
 import 'rc-slider/assets/index.css'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -21,15 +22,18 @@ class Mili extends React.Component<{}, State> {
 	componentDidMount() {
 		const timer = setInterval(() => {
 			const m = moment().add(this.state.diffMili, 'millisecond')
+
 			this.setState({
 				timeStr: m.format('HH:MM:ss.SS'),
 				timeMili: m.millisecond(),
 			})
 		}, 10)
+
 		this.setState({ timer })
 	}
 	componentWillUnmount() {
 		const { timer } = this.state
+
 		if (timer !== null) {
 			clearInterval(timer)
 		}

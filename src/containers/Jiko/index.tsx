@@ -75,8 +75,6 @@ type State = {
 class Home extends React.Component<Props, State> {
 	state = { x: 0, y: 0 }
 
-	componentDidMount() {}
-
 	_onMouseMove(e) {
 		console.log(e)
 		console.log(e.clientX, e.clientY)
@@ -85,6 +83,7 @@ class Home extends React.Component<Props, State> {
 
 	render() {
 		const { state } = this
+
 		return (
 			<Wrap>
 				<Top>

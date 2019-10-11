@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import 'moment/locale/ja'
 import { createGlobalStyle } from 'styled-components'
 

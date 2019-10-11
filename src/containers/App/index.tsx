@@ -1,3 +1,4 @@
+/* eslint import/max-dependencies: 0 */
 import React from 'react'
 import { createBrowserHistory } from 'history'
 import { Route, Router } from 'react-router-dom'
@@ -17,11 +18,11 @@ import Uji from '../Uji'
 import Y500million from '../Y5000million'
 import { YamiPrabe } from '../YamiSplatoon'
 import Probability from '../Probability'
-import { MenuGroup } from './types'
-import NavBar from './NavBar'
-import { DigHash } from '../DigHash'
 import { HandSpinner } from '../HandSpinner'
 import BBSGacha from '../BBSGacha'
+import { DigHash } from '../DigHash'
+import NavBar from './NavBar'
+import { MenuGroup } from './types'
 
 export const history = createBrowserHistory()
 
@@ -78,4 +79,5 @@ const App = () => (
 		</div>
 	</Router>
 )
+
 export default App

@@ -52,8 +52,6 @@ type State = {
 class Okonomiyaki extends React.Component<Props, State> {
 	state = { x: 0, y: 0 }
 
-	componentDidMount() {}
-
 	render() {
 		return (
 			<Wrap>

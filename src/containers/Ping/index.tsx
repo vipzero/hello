@@ -14,6 +14,7 @@ const ping = (url: string) => {
 		const start = Date.now()
 
 		const img = new Image()
+
 		img.onload = () => {
 			resolve(Date.now() - start)
 		}
@@ -39,10 +40,10 @@ class Ping extends React.Component<{}, State> {
 		pingLog: [] as PingLog[],
 		loading: false,
 	}
-	componentDidMount() {}
 
 	render() {
 		const { state } = this
+
 		return (
 			<div
 				style={{
@@ -57,6 +58,7 @@ class Ping extends React.Component<{}, State> {
 					value={state.url}
 					onChange={e => {
 						const url = e.target.value
+
 						this.setState({ url, loading: true })
 						ping(url)
 							.then(speed => {
@@ -65,7 +67,7 @@ class Ping extends React.Component<{}, State> {
 									loading: false,
 								})
 							})
-							.catch(e => {
+							.catch(() => {
 								this.setState({
 									pingLog: [
 										...state.pingLog,

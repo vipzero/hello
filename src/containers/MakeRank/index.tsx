@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 const Wrap = styled.div``
 const titles = ['vipper', 'うんこ', 'ちんこ']
+
 type State = {
 	cells: { [y: string]: { [x: string]: boolean } }
 }
@@ -17,7 +18,6 @@ class MakeRank extends React.Component<{}, State> {
 			'2': { '0': false, '1': false, '2': false },
 		},
 	}
-	componentDidMount() {}
 
 	render() {
 		const { state } = this
@@ -26,6 +26,7 @@ class MakeRank extends React.Component<{}, State> {
 			title: titles[i],
 		}))
 		const rank = _.reverse(_.sortBy(nums, 'n'))
+
 		console.log(rank)
 		return (
 			<Wrap>
@@ -68,7 +69,7 @@ class MakeRank extends React.Component<{}, State> {
 									>
 										{state.cells[`${y}`][`${x}`] ? 'o' : 'x'}
 									</td>
-								),
+								)
 							)}
 						</tr>
 					))}

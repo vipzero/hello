@@ -15,19 +15,21 @@ const hands = [
 ]
 
 const tripTable = {}
+
 hands.forEach(h1 =>
 	hands.forEach(h2 => {
 		const key = `#${h1}${h2}`
+
 		tripTable[key] = genTrip(key)
-	}),
+	})
 )
 
 class LaiarGame extends React.Component<{}, { search: string }> {
 	state = { search: '' }
-	componentDidMount() {}
 
 	render() {
 		const { search } = this.state
+
 		return (
 			<div>
 				<table style={{ minWidth: '1000px' }}>
@@ -46,6 +48,7 @@ class LaiarGame extends React.Component<{}, { search: string }> {
 								{hands.map(h2 => {
 									const key = `#${h1}${h2}`
 									const trip = tripTable[`#${h1}${h2}`]
+
 									return (
 										<td key={h2}>
 											<Trip
@@ -68,6 +71,7 @@ class LaiarGame extends React.Component<{}, { search: string }> {
 						style={{ fontSize: '1.3em' }}
 						onChange={e => {
 							const search = e.target.value
+
 							this.setState({ search })
 						}}
 					/>

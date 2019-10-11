@@ -19,7 +19,7 @@ export type BoardLink = {
 	url: string
 }
 
-function BBSGacha() {
+function Base() {
 	const [boards, setBoards] = React.useState<BoardLink[]>([])
 	const [num, setNum] = React.useState<number>(5)
 
@@ -80,4 +80,4 @@ function BBSGacha() {
 	)
 }
 
-export default BBSGacha
+export default Base

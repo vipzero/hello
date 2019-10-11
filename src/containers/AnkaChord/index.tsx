@@ -1,8 +1,6 @@
 import * as React from 'react'
 
 class AnChord extends React.Component<{}> {
-	componentDidMount() {}
-
 	render() {
 		return (
 			<div>
