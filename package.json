@@ -22,7 +22,7 @@
 		"react-scripts": "3.2.0",
 		"react-svg": "10.0.23",
 		"react-use": "10.8.0",
-		"react-use-gesture": "5.2.4",
+		"react-use-gesture": "6.0.10",
 		"recharts": "1.7.1",
 		"styled-components": "4.4.0",
 		"superagent": "5.1.0"
