@@ -22,6 +22,7 @@ import { HandSpinner } from '../HandSpinner'
 import BBSGacha from '../BBSGacha'
 import { DigHash } from '../DigHash'
 import Othelle from '../Othelle'
+import Mikel from '../Mikel'
 import NavBar from './NavBar'
 import { MenuGroup } from './types'
 
@@ -62,6 +63,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'probability', name: 'コンマ確率グラフ', Component: Probability },
 			{ path: 'dighash', name: 'Hash採掘', Component: DigHash },
 			{ path: 'bbsgacha', name: '板ガチャ', Component: BBSGacha },
+			{ path: 'mikel', name: 'マイコーズ', Component: Mikel },
 		],
 	},
 ]
