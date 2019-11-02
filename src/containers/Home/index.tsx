@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import styled from 'styled-components'
+import { Monument } from './Monument'
 
 type Props = {}
 
@@ -23,6 +24,7 @@ class Home extends React.Component<Props, State> {
 			<Wrap>
 				<Center>
 					<div>俺</div>
+					<Monument />
 				</Center>
 			</Wrap>
 		)

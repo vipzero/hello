@@ -25,7 +25,8 @@
 		"react-use-gesture": "6.0.14",
 		"recharts": "1.8.5",
 		"styled-components": "4.4.0",
-		"superagent": "5.1.0"
+		"superagent": "5.1.0",
+		"zdog": "^1.1.1"
 	},
 	"devDependencies": {
 		"@types/bluebird": "3.5.28",
