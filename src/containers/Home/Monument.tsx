@@ -1,7 +1,9 @@
 import * as React from 'react'
 import _ from 'lodash'
-
 import Zdog from 'zdog'
+import noisejs from 'noisejs'
+
+const noise = new noisejs.Noise(Math.random())
 
 type Props = {}
 
@@ -9,16 +11,18 @@ const WIDTH = 480
 const CS = 8
 const CW = WIDTH / 6 / CS
 
-const generateMap = (): number[][] => {
-	return _.range(CS).map(() => _.range(CS).map(() => _.random(1, 5)))
+const generateMap = (n: number): number[][] => {
+	return _.range(n).map(x => _.range(n).map(y => noise.perlin2(x / n, y / n)))
 }
 
-export function Monument(props: Props) {
+export function Monument() {
 	const canvasEl = React.useRef<HTMLCanvasElement>(null)
 	const scene = new Zdog.Anchor({
 		rotate: { x: 0.4 },
 	})
-	const lands = generateMap()
+	const lands = generateMap(CS)
+
+	console.log(lands)
 
 	lands.forEach((rows, x) =>
 		rows.forEach((cell, z) => {
@@ -31,7 +35,7 @@ export function Monument(props: Props) {
 				translate: {
 					x: (x + 1 - CS / 2 - 0.5) * CW,
 					z: (z + 1 - CS / 2 - 0.5) * CW,
-					y: cell,
+					y: cell * CW * 5,
 				},
 			})
 		})
