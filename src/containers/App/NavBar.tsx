@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import config from '../../config'
 import { MenuGroup } from './types'
 
 const MenuItem = styled(Link)`
@@ -12,7 +13,7 @@ type Props = {
 }
 function NavBar(props: Props) {
 	return (
-		<div style={{ display: 'flex' }}>
+		<div style={{ display: 'flex', height: config.headerHeihgt }}>
 			{props.menuGroups.map(g => (
 				<div key={g.name}>
 					<div>{g.name}</div>

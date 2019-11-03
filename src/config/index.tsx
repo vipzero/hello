@@ -17,6 +17,7 @@ const configProduction = {
 
 const config = {
 	isDev,
+	headerHeihgt: '60px',
 	admin: { name: '', countMax: 0 },
 	...(isDev ? configDevelopment : configProduction),
 }
