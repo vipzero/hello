@@ -5,6 +5,7 @@ import { useWindowSize, useMedia } from 'react-use'
 import { Typography } from '@material-ui/core'
 import { useMouseMove } from 'react-use-mouse-move'
 
+import config from '../../config'
 import IconVipzero from './res/vipzero.png'
 import IconAno from './res/ano.png'
 import IconMosha from './res/mosha.png'
@@ -99,7 +100,7 @@ function Home() {
 
 const Wrap = styled.div`
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh - ${config.headerHeihgt});
 `
 
 const Center = styled.div`
