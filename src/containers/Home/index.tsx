@@ -1,10 +1,11 @@
 import * as React from 'react'
 
 import styled from 'styled-components'
-import { useMouse } from 'react-use'
+import { useWindowSize } from 'react-use'
 import { Typography } from '@material-ui/core'
-import config from '../../config'
+import { useMouseMove } from 'react-use-mouse-move'
 
+import config from '../../config'
 import IconVipzero from './res/vipzero.png'
 import IconAno from './res/ano.png'
 import IconMosha from './res/mosha.png'
@@ -14,8 +15,8 @@ const WIDTH = '400px'
 
 const faces: { name: string; icon: string }[] = [
 	{ name: 'あの', icon: IconAno },
-	{ name: 'もしゃ', icon: IconMosha },
 	{ name: 'vipzero', icon: IconVipzero },
+	{ name: 'もしゃ', icon: IconMosha },
 ]
 
 const LinkItem: React.SFC<{ id: string; link: string }> = ({
@@ -32,22 +33,47 @@ const LinkItem: React.SFC<{ id: string; link: string }> = ({
 	</li>
 )
 
-function Home() {
-	const ref = React.useRef(null)
-	const { docX, docY, posX, posY, elX, elY, elW, elH } = useMouse(ref)
+const blight = (
+	wx: number,
+	wy: number,
+	px: number,
+	py: number
+): [number, number, number] => {
+	const distance = (a, b) => Math.abs(a - b)
+	const overcut = (v, min, max) => Math.min(Math.max(v, min), max)
+	const normalize = (v, min, max) => {
+		return (v - min) / (max - min)
+	}
 
+	const wp = v =>
+		normalize(overcut((0.5 - distance(v, 0.5)) * 2, 0.2, 0.8), 0.2, 0.8)
+
+	return [wp(px / wx), 1, wp(py / wy)]
+}
+
+function FaceBox() {
+	const { width, height } = useWindowSize()
+	const pos = useMouseMove(10)
+	const blights = blight(width, height, pos.x, pos.y)
+
+	return (
+		<Faces>
+			{faces.map((face, i) => (
+				<div key={i} style={{ opacity: blights[i] }}>
+					<Icon src={face.icon}></Icon>
+					<Typography>{face.name}</Typography>
+				</div>
+			))}
+		</Faces>
+	)
+}
+
+function Home() {
 	return (
 		<Wrap>
 			<Center>
 				<Box>
-					<Faces>
-						{faces.map(face => (
-							<div key={face.name}>
-								<Icon src={face.icon}></Icon>
-								<Typography>{face.name}</Typography>
-							</div>
-						))}
-					</Faces>
+					<FaceBox />
 					<Typography>_vip_splatoon2_web_programming_</Typography>
 					<Typography>__vim_minecraft_design_</Typography>
 					<Links>
@@ -85,11 +111,14 @@ const Box = styled.div`
 	width: 100vw;
 	max-width: ${WIDTH};
 	height: ${HEIGHT};
-	background: #222;
+	background: linear-gradient(30deg, #111, #444),
+		linear-gradient(45deg, transparent 10px, #0099ff 10px);
 	color: white;
 `
 
 const Faces = styled.div`
+	overflow: hidden;
+	height: 185px;
 	padding: 28px 0;
 	color: white;
 	display: flex;

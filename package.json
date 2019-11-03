@@ -26,6 +26,7 @@
 		"react-svg": "10.0.23",
 		"react-use": "12.9.0",
 		"react-use-gesture": "6.0.14",
+		"react-use-mouse-move": "^1.0.4",
 		"recharts": "1.8.5",
 		"styled-components": "4.4.0",
 		"superagent": "5.1.0",
