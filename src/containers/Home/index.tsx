@@ -1,11 +1,10 @@
 import * as React from 'react'
 
 import styled from 'styled-components'
-import { useWindowSize } from 'react-use'
+import { useWindowSize, useMedia } from 'react-use'
 import { Typography } from '@material-ui/core'
 import { useMouseMove } from 'react-use-mouse-move'
 
-import config from '../../config'
 import IconVipzero from './res/vipzero.png'
 import IconAno from './res/ano.png'
 import IconMosha from './res/mosha.png'
@@ -54,7 +53,9 @@ const blight = (
 function FaceBox() {
 	const { width, height } = useWindowSize()
 	const pos = useMouseMove(10)
-	const blights = blight(width, height, pos.x, pos.y)
+	const isWide = useMedia('(min-width: 480px)')
+
+	const blights = isWide ? blight(width, height, pos.x, pos.y) : [1, 1, 1]
 
 	return (
 		<Faces>
@@ -98,7 +99,7 @@ function Home() {
 
 const Wrap = styled.div`
 	width: 100vw;
-	height: calc(100vh - ${config.headerHeihgt});
+	height: 100vh;
 `
 
 const Center = styled.div`
@@ -111,8 +112,13 @@ const Box = styled.div`
 	width: 100vw;
 	max-width: ${WIDTH};
 	height: ${HEIGHT};
-	background: linear-gradient(30deg, #111, #444),
-		linear-gradient(45deg, transparent 10px, #0099ff 10px);
+	background: linear-gradient(
+			225deg,
+			transparent 0%,
+			transparent 95%,
+			#fafafa 95%
+		),
+		linear-gradient(30deg, #111, #444);
 	color: white;
 `
 
