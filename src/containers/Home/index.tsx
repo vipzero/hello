@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import styled from 'styled-components'
-import { Monument } from './Monument'
 
 type Props = {}
 
@@ -23,8 +22,7 @@ class Home extends React.Component<Props, State> {
 		return (
 			<Wrap>
 				<Center>
-					<div>俺</div>
-					<Monument />
+					<div style={{ width: '100px', height: '100px' }}></div>
 				</Center>
 			</Wrap>
 		)
@@ -37,7 +35,8 @@ const Wrap = styled.div`
 `
 
 const Center = styled.div`
-	margin: 50vh 50vw;
+	top: 50vw;
+	left: 50vh;
 `
 
 export default Home

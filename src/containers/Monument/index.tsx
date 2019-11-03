@@ -8,34 +8,41 @@ const noise = new noisejs.Noise(Math.random())
 type Props = {}
 
 const WIDTH = 480
-const CS = 8
-const CW = WIDTH / 6 / CS
+const CS = 5
+const CW = WIDTH / 8 / CS
 
 const generateMap = (n: number): number[][] => {
-	return _.range(n).map(x => _.range(n).map(y => noise.perlin2(x / n, y / n)))
+	return _.range(n).map(x =>
+		_.range(n).map(y => {
+			const nv: number = noise.perlin2(((x / n) * 2) % 2, ((y / n) * 2) % 2)
+
+			return Math.min(Math.max(0, Math.floor((nv + 0.5) * 5)), 5)
+		})
+	)
 }
 
 export function Monument() {
 	const canvasEl = React.useRef<HTMLCanvasElement>(null)
 	const scene = new Zdog.Anchor({
-		rotate: { x: 0.4 },
+		rotate: { x: -0.4 },
 	})
 	const lands = generateMap(CS)
 
 	console.log(lands)
 
 	lands.forEach((rows, x) =>
-		rows.forEach((cell, z) => {
+		rows.forEach((v, z) => {
 			new Zdog.Box({
 				centered: false,
 				addTo: scene,
-				width: CW,
-				height: CW,
-				depth: CW,
+				width: CW - 3,
+				height: CW - 3,
+				depth: CW - 3,
+				color: `hsla(${(360 / 5) * v},50%,50%,1.0)`,
 				translate: {
 					x: (x + 1 - CS / 2 - 0.5) * CW,
 					z: (z + 1 - CS / 2 - 0.5) * CW,
-					y: cell * CW * 5,
+					y: (v - 1) * CW,
 				},
 			})
 		})
