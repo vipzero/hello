@@ -4049,7 +4049,7 @@ emoji-regex@^8.0.0:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
-emoji-toolkit@^5.0.5:
+emoji-toolkit@5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/emoji-toolkit/-/emoji-toolkit-5.0.5.tgz#83f92fc5e78031e046f9fe861c804effdc4380ee"
   integrity sha512-I57/yzEll8mIczqUCv2DaBhF61eBKtOwUN/7bxFPjwtwoVB9FnkRoabQRLZS6+KeSZNscw0av8o/N7tfy59PUg==
@@ -7711,12 +7711,12 @@ node-releases@^1.1.29, node-releases@^1.1.38:
   dependencies:
     semver "^6.3.0"
 
-noise@^0.0.0:
+noise@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/noise/-/noise-0.0.0.tgz#689e2b731c2c66167b64425a562eb48afcd6f67a"
   integrity sha1-aJ4rcxwsZhZ7ZEJaVi60ivzW9no=
 
-noisejs@^2.1.0:
+noisejs@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/noisejs/-/noisejs-2.1.0.tgz#84b4c4cd04ff43367034f65253e213e0d9fe1aff"
   integrity sha1-hLTEzQT/QzZwNPZSU+IT4Nn+Gv8=
@@ -9680,7 +9680,7 @@ react-use-gesture@6.0.14:
   resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-6.0.14.tgz#ab2d35ef72a5fb6060a6160eb12568c276f8a4b1"
   integrity sha512-d9cnZJ0DOFd3FIO76J776DyhtbODgbxGKu19lvc1aSNTnRV5EKr9V4Uda188l2Qh0Va3pqWGxEQlw72r2cmnFQ==
 
-react-use-mouse-move@^1.0.4:
+react-use-mouse-move@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-use-mouse-move/-/react-use-mouse-move-1.0.4.tgz#29beee7c98297de630ed7afee6b463de577ba7c8"
   integrity sha512-yRlIo4N6NzebeHxNjKMJCk2318dQcpgY4NxKvUli52OG2sOQr7J3juHSRLUCur3JFaLTPamY2/ytW4EtNGrgaA==
@@ -12136,7 +12136,7 @@ yauzl@2.4.1:
   dependencies:
     fd-slicer "~1.0.1"
 
-zdog@^1.1.1:
+zdog@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/zdog/-/zdog-1.1.1.tgz#6c5d1e5acd3f2b4ead4a15b76e1284432d80abbe"
   integrity sha512-e6xvLe4nURPsrOYmNWY35DRHJ13O3W/VnucRJDlq/3bvcv7E4/OW68VWUIXLBTJxeuR8K7JC4yEU1MYyopFXDQ==
