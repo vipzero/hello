@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 
 const Group = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	border-bottom: 1px solid;
 	margin-bottom: 4px;
 	border-radius: 0 0 0 0.8em;
