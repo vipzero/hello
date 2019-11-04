@@ -33,7 +33,7 @@ const LinkItem: React.SFC<{ id: string; link: string }> = ({
 	</li>
 )
 
-const blight = (
+const soul = (
 	wx: number,
 	wy: number,
 	px: number,
@@ -53,16 +53,16 @@ const blight = (
 
 function FaceBox() {
 	const { width, height } = useWindowSize()
-	const pos = useMouseMove(10)
+	const pos = useMouseMove(2)
 	const isWide = useMedia('(min-width: 480px)')
 
-	const blights = isWide ? blight(width, height, pos.x, pos.y) : [1, 1, 1]
+	const souls = isWide ? soul(width, height, pos.x, pos.y) : [1, 1, 1]
 
 	return (
 		<Faces>
 			{faces.map((face, i) => (
-				<div key={i} style={{ opacity: blights[i] }}>
-					<Icon src={face.icon}></Icon>
+				<div key={i}>
+					<Icon soul={souls[i]} src={face.icon} />
 					<Typography>{face.name}</Typography>
 				</div>
 			))}
@@ -142,9 +142,10 @@ const Links = styled.div`
 	justify-content: flex-end;
 `
 
-const Icon = styled.img`
+const Icon = styled.img<{ soul: number }>`
 	width: 100px;
-	border-radius: 4px;
+	border-radius: calc(20px + 60px * ${p => p.soul}) 20px / 20px
+		calc(20px + 60px * ${p => 1 - p.soul});
 `
 
 const Link = styled.a`
