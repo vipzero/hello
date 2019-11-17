@@ -23,6 +23,7 @@ import BBSGacha from '../BBSGacha'
 import { DigHash } from '../DigHash'
 import Othelle from '../Othelle'
 import Mikel from '../Mikel'
+import Birthday from '../Birthday'
 import NavBar from './NavBar'
 import { MenuGroup } from './types'
 
@@ -43,6 +44,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'mekisiko', name: 'お朝飯前', Component: Mekisiko },
 			{ path: 'handspinner', name: 'ハンドスピナー', Component: HandSpinner },
 			{ path: 'othelle', name: 'オセレ', Component: Othelle },
+			{ path: 'birthday', name: 'バースデー', Component: Birthday },
 		],
 	},
 	{
