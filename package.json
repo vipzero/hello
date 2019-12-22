@@ -24,7 +24,7 @@
 		"react-dom": "16.12.0",
 		"react-router-dom": "5.1.2",
 		"react-scripts": "3.3.0",
-		"react-svg": "10.0.26",
+		"react-svg": "11.0.4",
 		"react-use": "12.13.0",
 		"react-use-gesture": "6.0.14",
 		"react-use-mouse-move": "1.0.4",
