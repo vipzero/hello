@@ -44,7 +44,7 @@
 		"@types/recharts": "1.8.3",
 		"@types/styled-components": "4.4.1",
 		"eslint-config-nzap": "1.4.3",
-		"puppeteer": "1.20.0",
+		"puppeteer": "2.0.0",
 		"typescript": "3.7.4"
 	},
 	"homepage": "https://hello.vipper.dev",
