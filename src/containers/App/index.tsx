@@ -2,7 +2,7 @@
 import React from 'react'
 import { createBrowserHistory } from 'history'
 import { Route, Router } from 'react-router-dom'
-import _ from 'lodash'
+import _flatten from 'lodash/flatten'
 
 import AnkaChord from '../AnkaChord'
 import EroJS from '../EroJS'
@@ -76,7 +76,7 @@ const App = () => (
 	<Router history={history}>
 		<div>
 			<NavBar menuGroups={menuGroups} />
-			{_.flatten(menuGroups.map(g => g.menus)).map(menu => (
+			{_flatten(menuGroups.map(g => g.menus)).map(menu => (
 				<Route
 					key={menu.path}
 					exact

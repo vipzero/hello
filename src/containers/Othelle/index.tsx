@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import _ from 'lodash'
+import _range from 'lodash/range'
 import { Typography, Button } from '@material-ui/core'
 import styled from 'styled-components'
 
@@ -58,29 +58,27 @@ function Othelle() {
 							onClick={() => {
 								const b = [...board]
 
-								_.set(b, [i], hand)
+								b[i] = hand
 								const reversible = (h1: Stone, h2: Stone) =>
 									h1 === h2 && h2 !== '-'
 
-								if (
-									_.range(i + 1, b.length).some(j => reversible(hand, b[j]))
-								) {
-									_.range(i + 1, b.length).every(j => {
+								if (_range(i + 1, b.length).some(j => reversible(hand, b[j]))) {
+									_range(i + 1, b.length).every(j => {
 										if (reversible(hand, b[j])) {
 											return false
 										}
 
-										_.set(b, [j], hand)
+										b[j] = hand
 										return true
 									})
 								}
-								if (_.range(i - 1, -1).some(j => reversible(hand, b[j]))) {
-									_.range(i - 1, -1).every(j => {
+								if (_range(i - 1, -1).some(j => reversible(hand, b[j]))) {
+									_range(i - 1, -1).every(j => {
 										if (reversible(hand, b[j])) {
 											return false
 										}
 
-										_.set(b, [j], hand)
+										b[j] = hand
 										return true
 									})
 								}

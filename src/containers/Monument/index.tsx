@@ -1,5 +1,5 @@
 import * as React from 'react'
-import _ from 'lodash'
+import _range from 'lodash/range'
 import Zdog from 'zdog'
 import noisejs from 'noisejs'
 
@@ -12,8 +12,8 @@ const CS = 5
 const CW = WIDTH / 8 / CS
 
 const generateMap = (n: number): number[][] => {
-	return _.range(n).map(x =>
-		_.range(n).map(y => {
+	return _range(n).map(x =>
+		_range(n).map(y => {
 			const nv: number = noise.perlin2(((x / n) * 2) % 2, ((y / n) * 2) % 2)
 
 			return Math.min(Math.max(0, Math.floor((nv + 0.5) * 5)), 5)

@@ -1,5 +1,5 @@
-import _ from 'lodash'
 import * as React from 'react'
+import _range from 'lodash/range'
 
 type PackProps = {
 	title: string
@@ -24,18 +24,18 @@ const Pack: React.SFC<PackProps> = ({ title, size, children }) => {
 	const line1 = (
 		<div style={{ display: 'flex', width: `${(size * 10) / 3}vmax` }}>
 			<div style={boxStyle}>{children}</div>
-			{_.range(9).map(() => dummy)}
+			{_range(9).map(() => dummy)}
 		</div>
 	)
 	const lineX = (
-		<div style={{ display: 'flex' }}>{_.range(10).map(() => dummy)}</div>
+		<div style={{ display: 'flex' }}>{_range(10).map(() => dummy)}</div>
 	)
 
 	return (
 		<div style={{ border: 'solid 1px', width: `${(size * 10) / 3}vmax` }}>
 			<span>{title}</span>
 			{line1}
-			{_.range(9).map(() => lineX)}
+			{_range(9).map(() => lineX)}
 		</div>
 	)
 }

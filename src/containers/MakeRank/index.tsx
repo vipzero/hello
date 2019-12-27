@@ -1,4 +1,6 @@
-import _ from 'lodash'
+import _range from 'lodash/range'
+import _sum from 'lodash/sum'
+import _map from 'lodash/map'
 import * as React from 'react'
 
 import styled from 'styled-components'
@@ -21,11 +23,12 @@ class MakeRank extends React.Component<{}, State> {
 
 	render() {
 		const { state } = this
-		const nums = _.range(3).map(i => ({
-			n: _.sum(_.values(state.cells[`${i}`])),
+		const rank = _range(3).map(i => ({
+			n: _sum(Object.values(state.cells[`${i}`])),
 			title: titles[i],
 		}))
-		const rank = _.reverse(_.sortBy(nums, 'n'))
+
+		rank.sort((a, b) => b.n - a.n)
 
 		console.log(rank)
 		return (
@@ -33,14 +36,14 @@ class MakeRank extends React.Component<{}, State> {
 				<table>
 					<tr>
 						<th>強いのどっち</th>
-						{_.range(3).map(x => (
+						{_range(3).map(x => (
 							<th key={x}>{titles[x]}</th>
 						))}
 					</tr>
-					{_.range(3).map(x => (
+					{_range(3).map(x => (
 						<tr key={x}>
 							<th>{titles[x]}</th>
-							{_.range(3).map(y =>
+							{_range(3).map(y =>
 								x === y ? (
 									<td key={y}>-</td>
 								) : (
@@ -75,7 +78,7 @@ class MakeRank extends React.Component<{}, State> {
 					))}
 				</table>
 				<ul>
-					{_.map(rank, (v, i) => (
+					{_map(rank, (v, i) => (
 						<li>
 							{i + 1}
 							胃: {v.title} - {v.n}勝

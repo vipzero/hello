@@ -1,5 +1,5 @@
 import * as React from 'react'
-import _ from 'lodash'
+import _shuffle from 'lodash/shuffle'
 import { Typography, Button } from '@material-ui/core'
 
 export type BoardLink = {
@@ -10,11 +10,11 @@ export type BoardLink = {
 function Xmas() {
 	const presents = React.useMemo(() => {
 		const v = [
-			{ title: '昼　飯', items: _.shuffle(['🍩', '🍔', '🦞', '💩', '🍖']) },
-			{ title: '夕　飯', items: _.shuffle(['🍖', '🍕', '🍡', '💩', '🌷']) },
-			{ title: '生活品', items: _.shuffle(['🎮', '🚘', '📷', '🔫', '🌂']) },
-			{ title: 'ペット', items: _.shuffle(['🐈', '🐧', '🐎', '🦧', '🦙']) },
-			{ title: '旅行先', items: _.shuffle(['⛩', '⛰', '🕋', '🌕', '🏛']) },
+			{ title: '昼　飯', items: _shuffle(['🍩', '🍔', '🦞', '💩', '🍖']) },
+			{ title: '夕　飯', items: _shuffle(['🍖', '🍕', '🍡', '💩', '🌷']) },
+			{ title: '生活品', items: _shuffle(['🎮', '🚘', '📷', '🔫', '🌂']) },
+			{ title: 'ペット', items: _shuffle(['🐈', '🐧', '🐎', '🦧', '🦙']) },
+			{ title: '旅行先', items: _shuffle(['⛩', '⛰', '🕋', '🌕', '🏛']) },
 		]
 
 		v.forEach(v => (v.items[3] = '🗿'))

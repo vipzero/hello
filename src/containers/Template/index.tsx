@@ -9,7 +9,7 @@ import {
 	ListItemText,
 } from '@material-ui/core'
 
-import _ from 'lodash'
+import _sampleSize from 'lodash/sampleSize'
 
 // eslint-disable-next-line
 const boardlist: BoardLink[] = require('./boardlist.json')
@@ -38,7 +38,7 @@ function Base() {
 					size="large"
 					variant="contained"
 					onClick={() => {
-						const boards = _.sampleSize(boardlist, 20)
+						const boards = _sampleSize(boardlist, 20)
 
 						setBoards(boards)
 					}}

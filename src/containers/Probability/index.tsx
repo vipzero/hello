@@ -1,5 +1,6 @@
 import * as React from 'react'
-import _ from 'lodash'
+import _partial from 'lodash/partial'
+import _range from 'lodash/range'
 import { Decimal } from 'decimal.js'
 
 import {
@@ -12,6 +13,7 @@ import {
 	Legend,
 	ResponsiveContainer,
 } from 'recharts'
+
 import { Typography } from '@material-ui/core'
 
 type Plot = { x: number; y: number }
@@ -27,21 +29,21 @@ const geometricProgressionSumPlot = (r: number, x: number) => {
 }
 
 const genProOneX = (n: number) =>
-	_.partial(geometricProgressionSumPlot, 1 - 1 / n)
+	_partial(geometricProgressionSumPlot, 1 - 1 / n)
 const proOneTen = genProOneX(10)
 const proOneHandred = genProOneX(100)
 const proOneThousand = genProOneX(1000)
 
-const dataTen: Plot[] = [..._.range(50), ..._.range(50, 101, 10)].map(proOneTen)
-const dataHandred: Plot[] = [..._.range(100), ..._.range(100, 501, 10)].map(
-	proOneHandred,
+const dataTen: Plot[] = [..._range(50), ..._range(50, 101, 10)].map(proOneTen)
+const dataHandred: Plot[] = [..._range(100), ..._range(100, 501, 10)].map(
+	proOneHandred
 )
-const dataThousand: Plot[] = [..._.range(100), ..._.range(100, 5001, 100)].map(
-	proOneThousand,
+const dataThousand: Plot[] = [..._range(100), ..._range(100, 5001, 100)].map(
+	proOneThousand
 )
 
 function permutation(n, r) {
-	return _.range(0, r).reduce((d, i) => d.times(n - i), new Decimal(1))
+	return _range(0, r).reduce((d, i) => d.times(n - i), new Decimal(1))
 }
 
 function combination(n, r) {
@@ -58,9 +60,9 @@ function repeatTry(n, k, p) {
 }
 
 console.log(repeatTry(10, 1, 0.5).toFixed(10))
-// const res = _.range(5).map(i => repeatTry(5, i, 0.5))
+// const res = _range(5).map(i => repeatTry(5, i, 0.5))
 // コンマゾロメが i 回でる確率
-const dataZorome: Plot[] = _.range(30).map(x => ({
+const dataZorome: Plot[] = _range(30).map(x => ({
 	x,
 	y: Number(repeatTry(1000, x, 0.01).toFixed(5)) * 100,
 }))
@@ -138,7 +140,7 @@ const measureHoliday = h => {
 // }
 const dataHourSpeed: Plot[] = []
 
-_.range(24).reduce((p, h) => {
+_range(24).reduce((p, h) => {
 	const hourCount = 60 / measureHoliday(h)
 	const y = hourCount + p
 

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import _ from 'lodash'
+import _range from 'lodash/range'
+import _sample from 'lodash/sample'
 import { Typography, Slider, TextField } from '@material-ui/core'
 
 export type BoardLink = {
@@ -8,12 +9,12 @@ export type BoardLink = {
 }
 const ec = () => (Math.random() < 0.1 ? '１' : '！')
 const ecs = (n: number) =>
-	_.range(_.sample([n - 1, n, n + 1]) || n)
+	_range(_sample([n - 1, n, n + 1]) || n)
 		.map(ec)
 		.join('')
 
 const wcs = (n: number) =>
-	_.range(_.sample([n - 1, n, n + 1]) || n)
+	_range(_sample([n - 1, n, n + 1]) || n)
 		.map(() => 'ｗ')
 		.join('')
 
@@ -27,9 +28,9 @@ function Mikel() {
 	const [speed, setSpeed] = React.useState<number>(5)
 	const text = `${title}${ecs(speed)}${title}${ecs(speed + 3)}
 ${w1}${wcs(speed)}${w2}${wcs(speed)}
-${w2}${_.sample('でにをは'.split(''))}${w3}？${wcs(speed + 10)}
+${w2}${_sample('でにをは'.split(''))}${w3}？${wcs(speed + 10)}
 ${w4}${ecs(speed + 2)}
-${w5}${_.sample(['........', '!!!!!!!!!'])}
+${w5}${_sample(['........', '!!!!!!!!!'])}
 `
 
 	return (

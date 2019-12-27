@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _range from 'lodash/range'
 import * as React from 'react'
 
 class Syukan extends React.Component<{}> {
@@ -19,7 +19,7 @@ class Syukan extends React.Component<{}> {
 `}
 					</pre>
 				</code>
-				{_.range(1, 101)
+				{_range(1, 101)
 					.map(n => ({ n, v: Math.pow(8, n) }))
 					.map(({ n, v }) => (
 						<div key={n}>
