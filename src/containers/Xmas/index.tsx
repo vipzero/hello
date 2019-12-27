@@ -61,7 +61,9 @@ function Xmas() {
 										style={{ height: '47px' }}
 										size="large"
 									>
-										💥
+										<span role="img" aria-label="sheep">
+											💥
+										</span>
 									</Button>
 								)
 							} else if (del[`${n}_${i}`]) {
@@ -73,7 +75,9 @@ function Xmas() {
 							} else if (open[n] === i) {
 								return (
 									<Button style={{ height: '47px' }} size="large" key={part}>
-										{part}
+										<span role="img" aria-label="sheep">
+											{part}
+										</span>
 									</Button>
 								)
 							}
@@ -93,7 +97,11 @@ function Xmas() {
 										}
 									}}
 								>
-									<Typography variant="h5">🎁</Typography>
+									<Typography variant="h5">
+										<span role="img" aria-label="sheep">
+											🎁
+										</span>
+									</Typography>
 								</Button>
 							)
 						})}

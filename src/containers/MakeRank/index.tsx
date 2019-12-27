@@ -34,52 +34,54 @@ class MakeRank extends React.Component<{}, State> {
 		return (
 			<Wrap>
 				<table>
-					<tr>
-						<th>強いのどっち</th>
-						{_range(3).map(x => (
-							<th key={x}>{titles[x]}</th>
-						))}
-					</tr>
-					{_range(3).map(x => (
-						<tr key={x}>
-							<th>{titles[x]}</th>
-							{_range(3).map(y =>
-								x === y ? (
-									<td key={y}>-</td>
-								) : (
-									<td
-										key={y}
-										style={{
-											width: '100px',
-											height: '100px',
-											fontSize: '3em',
-										}}
-										onClick={() => {
-											this.setState({
-												cells: {
-													...state.cells,
-													[x]: {
-														...state.cells[`${x}`],
-														[y]: !state.cells[`${x}`][`${y}`],
-													},
-													[y]: {
-														...state.cells[`${y}`],
-														[x]: !state.cells[`${y}`][`${x}`],
-													},
-												},
-											})
-										}}
-									>
-										{state.cells[`${y}`][`${x}`] ? 'o' : 'x'}
-									</td>
-								)
-							)}
+					<tbody>
+						<tr>
+							<th>強いのどっち</th>
+							{_range(3).map(x => (
+								<th key={x}>{titles[x]}</th>
+							))}
 						</tr>
-					))}
+						{_range(3).map(x => (
+							<tr key={x}>
+								<th>{titles[x]}</th>
+								{_range(3).map(y =>
+									x === y ? (
+										<td key={y}>-</td>
+									) : (
+										<td
+											key={y}
+											style={{
+												width: '100px',
+												height: '100px',
+												fontSize: '3em',
+											}}
+											onClick={() => {
+												this.setState({
+													cells: {
+														...state.cells,
+														[x]: {
+															...state.cells[`${x}`],
+															[y]: !state.cells[`${x}`][`${y}`],
+														},
+														[y]: {
+															...state.cells[`${y}`],
+															[x]: !state.cells[`${y}`][`${x}`],
+														},
+													},
+												})
+											}}
+										>
+											{state.cells[`${y}`][`${x}`] ? 'o' : 'x'}
+										</td>
+									)
+								)}
+							</tr>
+						))}
+					</tbody>
 				</table>
 				<ul>
 					{_map(rank, (v, i) => (
-						<li>
+						<li key={i}>
 							{i + 1}
 							胃: {v.title} - {v.n}勝
 						</li>
