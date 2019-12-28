@@ -40,10 +40,9 @@ const Hikinige = styled.img`
 	width: 50%;
 `
 
-const Player = styled.img<{ x: number; y: number }>`
+const Player = styled.img`
 	width: 50%;
 	position: absolute;
-	left: ${p => p.x - 100}px;
 `
 
 const JkDiv = styled.div`
@@ -89,7 +88,13 @@ class Home extends React.Component<Props, State> {
 				<Top>
 					<Hikinige src={HikinigeImg} alt="" />
 					<PlayerArea onMouseMove={e => this._onMouseMove(e)}>
-						<Player x={state.x} y={state.y} src={PlayerImg} alt="" />
+						<Player
+							style={{
+								left: `${state.x - 100}px`,
+							}}
+							src={PlayerImg}
+							alt="irasutoya player"
+						/>
 					</PlayerArea>
 					<JkDiv>
 						<Jk src={JkImg} alt="" />

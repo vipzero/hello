@@ -14,11 +14,11 @@ class Mekisiko extends React.Component<{}, { search: string }> {
 				<div style={{ display: 'flex' }}>
 					<Item>
 						<MenuTitle>Sand 1</MenuTitle>
-						<Img src={SandImg} alt="" />
+						<Img src={SandImg} alt="send1" />
 					</Item>
 					<Item>
 						<MenuTitle>3Hands</MenuTitle>
-						<Img src={PatyImg} alt="" />
+						<Img src={PatyImg} alt="3hands" />
 					</Item>
 				</div>
 			</Page>

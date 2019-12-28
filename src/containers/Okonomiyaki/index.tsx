@@ -58,9 +58,9 @@ class Okonomiyaki extends React.Component<Props, State> {
 				<Top>
 					<Hiroshimayaki src={HiroshimayakiImg} alt="" />
 					<JkDiv>
-						<Jk src={Hera} alt="" />
+						<Jk src={Hera} alt="irasutoya jk" />
 					</JkDiv>
-					<img src={Business} alt="" />
+					<img src={Business} alt="irasutoya business" />
 				</Top>
 			</Wrap>
 		)

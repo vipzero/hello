@@ -62,7 +62,15 @@ function FaceBox() {
 		<Faces>
 			{faces.map((face, i) => (
 				<div key={i}>
-					<Icon soul={souls[i]} src={face.icon} />
+					<Icon
+						src={face.icon}
+						alt={`アイコン ${face.name}`}
+						style={{
+							borderRadius: `calc(20px + 60px * ${
+								souls[i]
+							}) 20px / 20px calc(20px + 60px * ${1 - souls[i]})`,
+						}}
+					/>
 					<Typography>{face.name}</Typography>
 				</div>
 			))}
@@ -142,10 +150,8 @@ const Links = styled.div`
 	justify-content: flex-end;
 `
 
-const Icon = styled.img<{ soul: number }>`
+const Icon = styled.img`
 	width: 100px;
-	border-radius: calc(20px + 60px * ${p => p.soul}) 20px / 20px
-		calc(20px + 60px * ${p => 1 - p.soul});
 `
 
 const Link = styled.a`

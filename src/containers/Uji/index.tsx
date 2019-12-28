@@ -62,15 +62,15 @@ class Home extends React.Component<Props> {
 		return (
 			<Wrap>
 				<Left>
-					<Uji src={Bug} alt="" />
+					<Uji src={Bug} alt="irasutoya uji" />
 				</Left>
 
 				<Wani>
 					<Open>
-						<img src={waniOpen} alt="" />
+						<img src={waniOpen} alt="irasutoya wani1" />
 					</Open>
 					<Close>
-						<img src={waniClose} alt="" />
+						<img src={waniClose} alt="irasutoya wani2" />
 					</Close>
 				</Wani>
 			</Wrap>
