@@ -1,72 +1,71 @@
-import moment from 'moment'
-import Slider from 'rc-slider'
 // eslint-disable-next-line
-import 'rc-slider/assets/index.css'
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { Slider } from '@material-ui/core'
 
 type State = {
 	timeStr: string
-	timeMili: number
 	diffMili: number
 	timer: number | null
 }
 
-class Mili extends React.Component<{}, State> {
-	state = {
-		timeStr: 'xx',
-		timeMili: 0,
-		diffMili: 0,
-		timer: null as number | null,
-	}
-	componentDidMount() {
+function Mili() {
+	const [timeStr, setTimeStr] = useState<string>('xx')
+	const [timeMili, setTimeMili] = useState<number>(0)
+	const [diffMili, setDiffMili] = useState<number>(0)
+
+	useEffect(() => {
 		const timer = setInterval(() => {
-			const m = moment().add(this.state.diffMili, 'millisecond')
+			const now = Date.now()
+			const h = Math.floor(((now / 1000 / 60 / 60) % 24) + 9) % 24
+			const m = Math.floor(now / 1000 / 60) % 60
+			const s = Math.floor(now / 1000) % 60
+			const ms = now % 1000
 
-			this.setState({
-				timeStr: m.format('HH:MM:ss.SS'),
-				timeMili: m.millisecond(),
-			})
-		}, 10)
+			setTimeStr(
+				`${h}`.padStart(2, '0') +
+					':' +
+					`:${m}`.padStart(2, '0') +
+					':' +
+					`${s}`.padStart(2, '0') +
+					`.${Math.floor(ms / 100)}`
+			)
+			setTimeMili(ms)
+		}, 100)
 
-		this.setState({ timer })
-	}
-	componentWillUnmount() {
-		const { timer } = this.state
-
-		if (timer !== null) {
+		return () => {
 			clearInterval(timer)
 		}
-	}
+	}, [])
 
-	render() {
-		return (
-			<div>
-				<TimeView>{this.state.timeStr}</TimeView>
-				<div style={{ width: '100%' }}>
-					<Bar par={Math.floor(this.state.timeMili / 10)} />
-				</div>
-				ずらし(コンマ -999〜+999)
-				<Input
-					type="number"
-					min="-999"
-					max="999"
-					value={this.state.diffMili}
-					onChange={e => {
-						this.setState({ diffMili: Number(e.target.value) })
-					}}
-				/>
-				<Slider
-					min={-1000}
-					max={1000}
-					value={this.state.diffMili}
-					onChange={diffMili => {
-						this.setState({ diffMili })
-					}}
+	return (
+		<div>
+			<TimeView>{timeStr}</TimeView>
+			<div style={{ width: '100%' }}>
+				<Bar
+					style={{ width: `${((timeMili + diffMili + 1000) % 1000) / 10}%` }}
 				/>
 			</div>
-		)
-	}
+			ずらし(コンマ -999〜+999)
+			<Input
+				type="number"
+				min="-999"
+				max="999"
+				value={diffMili}
+				onChange={e => {
+					setDiffMili(Number(e.target.value))
+				}}
+			/>
+			<Slider
+				min={-1000}
+				max={1000}
+				// value={diffMili}
+				onChangeCommitted={(e, value) => {
+					setDiffMili(Number(value))
+				}}
+			/>
+		</div>
+	)
 }
 
 const Input = styled.input`
@@ -83,10 +82,9 @@ const TimeView = styled.h4`
 	padding: 12px;
 	margin: 0;
 `
-const Bar = styled.div<{ par: number }>`
+const Bar = styled.div`
 	background: black;
 	height: 10px;
-	width: ${p => p.par}%;
 `
 
 export default Mili

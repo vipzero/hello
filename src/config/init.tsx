@@ -1,5 +1,4 @@
 // eslint-disable-next-line
-import 'moment/locale/ja'
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
@@ -10,6 +9,5 @@ body {
 }
 img {
 	width: 100%;
-	
 }
 `
