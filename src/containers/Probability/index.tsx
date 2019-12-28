@@ -1,32 +1,20 @@
 import * as React from 'react'
 import _partial from 'lodash/partial'
 import _range from 'lodash/range'
+import { Chart } from 'react-google-charts'
 import { Decimal } from 'decimal.js'
-
-import {
-	LineChart,
-	Line,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-	Legend,
-	ResponsiveContainer,
-} from 'recharts'
 
 import { Typography } from '@material-ui/core'
 
-type Plot = { x: number; y: number }
+type Plot = (number | string)[]
 
 const geometricProgressionSumPlot = (r: number, x: number) => {
 	const y = 1 - Math.pow(r, x)
 
-	return {
-		x,
-		y: y * 100,
-		z: y * Math.pow(r, x + 1) * 100,
-	}
+	return [x, y * 100, y * Math.pow(r, x + 1) * 100]
 }
+
+type Size = { height: number; width: number }
 
 const genProOneX = (n: number) =>
 	_partial(geometricProgressionSumPlot, 1 - 1 / n)
@@ -62,62 +50,50 @@ function repeatTry(n, k, p) {
 console.log(repeatTry(10, 1, 0.5).toFixed(10))
 // const res = _range(5).map(i => repeatTry(5, i, 0.5))
 // コンマゾロメが i 回でる確率
-const dataZorome: Plot[] = _range(30).map(x => ({
+const dataZorome: Plot[] = _range(30).map(x => [
 	x,
-	y: Number(repeatTry(1000, x, 0.01).toFixed(5)) * 100,
-}))
+	Number(repeatTry(1000, x, 0.01).toFixed(5)) * 100,
+])
 
-function Graph({ data, unit = '%' }: { data: Plot[]; unit?: string }) {
+function Graph({ data, size }: { data: Plot[]; size: Size }) {
 	return (
-		<ResponsiveContainer width="100%" aspect={8 / 3}>
-			<LineChart data={data}>
-				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis type="number" dataKey="x" domain={['dataMin', 'dataMax']} />
-				<YAxis unit={unit} />
-				<Tooltip />
-				<Legend />
-				<Line
-					isAnimationActive={false}
-					type="monotone"
-					dataKey="y"
-					label={false}
-					stroke="#8884d8"
-					activeDot={{ r: 8 }}
-				/>
-			</LineChart>
-		</ResponsiveContainer>
+		<Chart
+			width={`${size.width}px`}
+			height={`${size.height}px`}
+			chartType="LineChart"
+			loader={<div>Loading Chart</div>}
+			data={data}
+			options={{
+				hAxis: {
+					title: String(data[0][0]),
+				},
+				vAxis: {
+					title: String(data[0][1]),
+				},
+			}}
+			rootProps={{ 'data-testid': '1' }}
+		/>
 	)
 }
 
-function Graph2({ data, unit = '%' }: { data: Plot[]; unit?: string }) {
+function Graph2({ data, size }: { data: Plot[]; size: Size }) {
 	return (
-		<ResponsiveContainer width="100%" aspect={8 / 3}>
-			<LineChart data={data}>
-				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis type="number" dataKey="x" domain={['dataMin', 'dataMax']} />
-				<YAxis unit={unit} />
-				<Tooltip />
-				<Legend />
-				<Line
-					isAnimationActive={false}
-					type="monotone"
-					dataKey="y"
-					label={false}
-					name="到達する確率"
-					stroke="#8884d8"
-					activeDot={{ r: 8 }}
-				/>
-				<Line
-					isAnimationActive={false}
-					type="monotone"
-					dataKey="z"
-					name="で終わる確率"
-					label={false}
-					stroke="red"
-					activeDot={{ r: 8 }}
-				/>
-			</LineChart>
-		</ResponsiveContainer>
+		<Chart
+			width={`${size.width}px`}
+			height={`${size.height}px`}
+			chartType="LineChart"
+			loader={<div>Loading Chart</div>}
+			data={data}
+			options={{
+				hAxis: {
+					title: 'レス',
+				},
+				vAxis: {
+					title: '確率(%)',
+				},
+			}}
+			rootProps={{ 'data-testid': '1' }}
+		/>
 	)
 }
 
@@ -144,41 +120,61 @@ _range(24).reduce((p, h) => {
 	const hourCount = 60 / measureHoliday(h)
 	const y = hourCount + p
 
-	dataHourSpeed.push({ x: h, y })
+	dataHourSpeed.push([h, y])
 	return y
 }, 0)
 
 console.log(dataHandred)
 
 function Probability() {
+	const [size, setSize] = React.useState<Size>({ height: 100, width: 100 })
+	const ref = React.useRef<HTMLDivElement>(null)
+
+	React.useEffect(() => {
+		const width = ref.current?.clientWidth
+		const aspect = 3 / 8
+
+		if (!width) return
+		setSize({ width, height: width * aspect })
+	}, [ref.current])
+
 	return (
-		<div>
+		<div ref={ref}>
 			<Typography>ゾロ目確率</Typography>
 			<div>
 				<h2>レス回数 x コンマ2桁ゾロ目</h2>
 				<h3>一回(1/10とする)</h3>
-				<Graph2 data={dataTen} />
+				<Graph2
+					size={size}
+					data={[['確率(%)', '到達する確率', 'で終わる確率'], ...dataTen]}
+				/>
 			</div>
 			<div>
 				<h2>レス回数 x コンマ3桁ゾロ目</h2>
 				<h3>一回(1/100とする)</h3>
-				<Graph2 data={dataHandred} />
+				<Graph2
+					size={size}
+					data={[['確率(%)', '到達する確率', 'で終わる確率'], ...dataHandred]}
+				/>
 			</div>
 			<div>
 				<h2>レス回数 x 特定のコンマ</h2>
 				<h3>一回(1/1000とする)</h3>
-				<Graph2 data={dataThousand} />
+				<Graph2
+					size={size}
+					data={[['確率(%)', '到達する確率', 'で終わる確率'], ...dataThousand]}
+				/>
 			</div>
 			<div>
 				<h2>1000レスでコンマゾロ目がx回出る確率</h2>
 				<h3>ゾロ目(1/100とする)</h3>
-				<Graph data={dataZorome} />
+				<Graph size={size} data={[['レス数', '確率(%)'], ...dataZorome]} />
 			</div>
 			<Typography variant="h3">勢い目安</Typography>
 			<div>
-				<h2>時間ごとの最低勢い</h2>
+				<h2>最低限落ちないようにキープした場合のレス数</h2>
 				<h3>勢いは(post count/day)とする</h3>
-				<Graph data={dataHourSpeed} unit="レス" />
+				<Graph size={size} data={[['時間', 'レス数'], ...dataHourSpeed]} />
 			</div>
 		</div>
 	)
