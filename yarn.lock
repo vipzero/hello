@@ -825,7 +825,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.7.6":
+"@babel/runtime@^7.7.7":
   version "7.7.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
   integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
@@ -1420,10 +1420,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
   integrity sha512-u/SJDyXwuihpwjXy7hOOghagLEV1KdAST6syfnOk6QZAMzZuWZqXy5aYYZbh8Jdpd4escVFP0MvftHNDb9pruA==
 
-"@types/node@13.1.0":
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.0.tgz#225cbaac5fdb2b9ac651b02c070d8aa3c37cc812"
-  integrity sha512-zwrxviZS08kRX40nqBrmERElF2vpw4IUTd5khkhBTfFH8AOaeoLVx48EC4+ZzS2/Iga7NevncqnsUSYjM4OWYA==
+"@types/node@13.1.1":
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.1.tgz#6d11a8c2d58405b3db9388ab740106cbfa64c3c9"
+  integrity sha512-hx6zWtudh3Arsbl3cXay+JnkvVgCKzCWKv42C9J01N2T2np4h8w5X8u6Tpz5mj38kE3M9FM0Pazx8vKFFMnjLQ==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -4170,10 +4170,10 @@ escodegen@^1.11.0, escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-nzap@1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-1.4.3.tgz#f46c8a44c5547ecd18b8bd7c74e2cfb4ab1a136c"
-  integrity sha512-th4pn14946thRhvsc/XhAhQEh4bSywCpk1p+0oNMMnwrjuhSdMYdA1Hg0ZYVGtOV/TVRdKOFtg8BZy1BDP9OoQ==
+eslint-config-nzap@1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-1.4.4.tgz#a659a8444ae1cb8bb253ab783eef766ca3e7570b"
+  integrity sha512-Q+1gUQDI9Z31tnx3dzqQ4XzYWNuXP46PlnBMlY0/evaFl1g+iMySrxtoi1bTZYPT7RBFPB7ty+JBlLsbf9OEug==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.12.0"
     "@typescript-eslint/parser" "^2.12.0"
@@ -4711,6 +4711,11 @@ fast-safe-stringify@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.7.tgz#124aa885899261f68aedb42a7c080de9da608743"
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
+
+fast-shallow-equal@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/fast-shallow-equal/-/fast-shallow-equal-0.1.1.tgz#44d01324d7fd31e00a67bb02b9396e283d526c22"
+  integrity sha512-XVP6nhaXLYOH6JZCWBcNaeEer9GJ5/8cJWUP+OLmgwWgEkJp5Kpl/fdpJ01zl0mpLxrk7f5J3hIv+GmjTCi7Mg==
 
 fastest-stable-stringify@^1.0.1:
   version "1.0.1"
@@ -9611,12 +9616,12 @@ react-scripts@3.3.0:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-svg@11.0.4:
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.4.tgz#a1b37e33c373af529e5ba6845cc97c6718833d77"
-  integrity sha512-Qc2/D90hogb6FXt0ulEylKEayAlL/c9PMFQzfDcwo8W4lbGiu3lWEXYPgiLbku+AFlKhVdA0LwxndcuYdm77bQ==
+react-svg@11.0.5:
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.5.tgz#dc07c8b659591d59fec09a7a093fbf533a8f2c60"
+  integrity sha512-JteyozGjnSE/BAPOQnjT/KCpqcWFDVGsXsVjnezowX3nLTPD7la/sACwHdDF/xbok/iQZcgFwtvyCJYcsM12XA==
   dependencies:
-    "@babel/runtime" "^7.7.6"
+    "@babel/runtime" "^7.7.7"
     "@tanem/svg-injector" "^8.0.36"
     prop-types "^15.7.2"
 
@@ -9640,13 +9645,14 @@ react-use-mouse-move@1.0.4:
   resolved "https://registry.yarnpkg.com/react-use-mouse-move/-/react-use-mouse-move-1.0.4.tgz#29beee7c98297de630ed7afee6b463de577ba7c8"
   integrity sha512-yRlIo4N6NzebeHxNjKMJCk2318dQcpgY4NxKvUli52OG2sOQr7J3juHSRLUCur3JFaLTPamY2/ytW4EtNGrgaA==
 
-react-use@13.12.2:
-  version "13.12.2"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.12.2.tgz#89343a7769ed4b84f102bb371146a13ba2caae07"
-  integrity sha512-+I5kYjfsU7jel64wYa0nC7w/evhjL9fzmhEwOInB3HtrMt4Wt3jr6UYSVJExUTWEBUKSbmhyFAsR6jHvVj3vUw==
+react-use@13.13.0:
+  version "13.13.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.13.0.tgz#5d133c4d4d8d3f21f6ccf4ccbe54fbcd6fdafb36"
+  integrity sha512-J3/h5wvL6vXmecAvEnninCC3DviLMRWcQrEnouTliwws1b376DQKEgIFuTXlF8c3SKpXBQJdDDm1RpluokW6ag==
   dependencies:
     "@xobotyi/scrollbar-width" "1.5.0"
     copy-to-clipboard "^3.2.0"
+    fast-shallow-equal "^0.1.1"
     nano-css "^5.2.1"
     react-fast-compare "^2.0.4"
     resize-observer-polyfill "^1.5.1"
