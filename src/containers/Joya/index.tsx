@@ -99,7 +99,13 @@ function Joya() {
 					}
 				}}
 			>
-				<Typography variant="h2">
+				<Typography
+					variant="h2"
+					style={{
+						fontSize: '50vmin',
+						textAlign: 'center',
+					}}
+				>
 					<span role="img" aria-label="bell">
 						🔔
 					</span>
