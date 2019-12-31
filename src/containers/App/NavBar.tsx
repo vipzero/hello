@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
 import config from '../../config'
-import { MenuGroup } from './types'
+import menuGroups from './menuGroups'
 
 const Wrapper = styled.div`
 	display: flex;
@@ -46,7 +46,6 @@ const MenuItem = styled(Link)`
 `
 
 type Props = {
-	menuGroups: MenuGroup[]
 }
 function NavBar(props: Props) {
 	const location = useLocation()
@@ -55,7 +54,7 @@ function NavBar(props: Props) {
 
 	return (
 		<Wrapper data-fixed={fixed}>
-			{props.menuGroups.map(g => (
+			{menuGroups.map(g => (
 				<Group key={g.name}>
 					<Tab>{g.name}</Tab>
 					{g.menus.map(menu => (

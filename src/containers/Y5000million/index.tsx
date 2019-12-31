@@ -1,5 +1,6 @@
 import * as React from 'react'
 import _range from 'lodash/range'
+import NavBar from '../App/NavBar'
 
 type PackProps = {
 	title: string
@@ -43,13 +44,16 @@ const Pack: React.SFC<PackProps> = ({ title, size, children }) => {
 class Y500million extends React.PureComponent<{}> {
 	render() {
 		return (
-			<Pack title={'1億年'} size={1000}>
-				<Pack title={'100万年'} size={100}>
-					<Pack title={'1万年'} size={10}>
-						<Pack title={'100年'} size={1} />
+			<>
+				<NavBar />
+				<Pack title={'1億年'} size={1000}>
+					<Pack title={'100万年'} size={100}>
+						<Pack title={'1万年'} size={10}>
+							<Pack title={'100年'} size={1} />
+						</Pack>
 					</Pack>
 				</Pack>
-			</Pack>
+			</>
 		)
 	}
 }
