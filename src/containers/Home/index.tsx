@@ -141,7 +141,7 @@ const Faces = styled.div`
 	justify-content: space-evenly;
 `
 
-const Links = styled.div`
+const Links = styled.ul`
 	list-style: none;
 	padding-top: 12px;
 	color: white;

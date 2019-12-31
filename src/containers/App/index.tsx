@@ -25,6 +25,7 @@ import Othelle from '../Othelle'
 import Mikel from '../Mikel'
 import Birthday from '../Birthday'
 import Xmas from '../Xmas'
+import Joya from '../Joya'
 import NavBar from './NavBar'
 import { MenuGroup } from './types'
 
@@ -47,6 +48,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'othelle', name: 'オセレ', Component: Othelle },
 			{ path: 'birthday', name: 'バースデー', Component: Birthday },
 			{ path: 'xmas', name: 'クリスマス', Component: Xmas },
+			{ path: 'joya', name: '除夜', Component: Joya },
 		],
 	},
 	{
