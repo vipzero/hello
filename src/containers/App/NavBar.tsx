@@ -21,7 +21,6 @@ const Group = styled.div`
 	flex-wrap: wrap;
 	border-bottom: 1px solid;
 	margin-bottom: 4px;
-	border-radius: 0 0 0 0.8em;
 	margin-left: 8px !important;
 	padding-right: 8px;
 `
@@ -31,7 +30,6 @@ const Tab = styled(Typography)`
 	font-size: 20px;
 	color: white;
 	padding: 0 8px;
-	border-radius: 0 0 0 0.8em;
 `
 
 const MenuItem = styled(Link)`
@@ -45,8 +43,7 @@ const MenuItem = styled(Link)`
 	}
 `
 
-type Props = {
-}
+type Props = {}
 function NavBar(props: Props) {
 	const location = useLocation()
 
