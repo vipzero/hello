@@ -19,13 +19,21 @@ import Mikel from '../Mikel'
 import Birthday from '../Birthday'
 import Xmas from '../Xmas'
 import Joya from '../Joya'
-import NavBar from './NavBar'
+import Omikuji from '../Omikuji'
 import { MenuGroup } from './types'
 
 const menuGroups: MenuGroup[] = [
 	{
 		name: 'トップ',
 		menus: [{ path: '', name: '俺', Component: Home }],
+	},
+	{
+		name: 'ゲーム',
+		menus: [
+			{ path: 'omikuji', name: 'おみくじ', Component: Omikuji },
+			{ path: 'xmas', name: 'クリスマス', Component: Xmas },
+			{ path: 'joya', name: '除夜', Component: Joya },
+		],
 	},
 	{
 		name: '芸術',
@@ -37,8 +45,6 @@ const menuGroups: MenuGroup[] = [
 			{ path: 'mekisiko', name: 'お朝飯前', Component: Mekisiko },
 			{ path: 'othelle', name: 'オセレ', Component: Othelle },
 			{ path: 'birthday', name: 'バースデー', Component: Birthday },
-			{ path: 'xmas', name: 'クリスマス', Component: Xmas },
-			{ path: 'joya', name: '除夜', Component: Joya },
 		],
 	},
 	{
