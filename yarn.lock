@@ -1178,13 +1178,13 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@material-ui/core@4.8.1":
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.8.1.tgz#a2451739e2b4a478f8f9f364a5a87b8896c76b97"
-  integrity sha512-fAIysk8JiV+TbqI7uWo/kunmwPROEz9JvE2gE4xmAgLikF7rfoodhFL6aV5clIzWelpdRbcOUYfGaq2yAnjOoA==
+"@material-ui/core@4.8.2":
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.8.2.tgz#883a53985a0e27d4ef73775767597e498a0162bc"
+  integrity sha512-4dILME6TVCTyi9enavqbYLU8HueaX5YQxfn2IiCiGwHpqp4pIhJCVUVlBf0ADG6lL2K1tWrsawGs/hePpHxAYw==
   dependencies:
     "@babel/runtime" "^7.4.4"
-    "@material-ui/styles" "^4.7.1"
+    "@material-ui/styles" "^4.8.2"
     "@material-ui/system" "^4.7.1"
     "@material-ui/types" "^4.1.1"
     "@material-ui/utils" "^4.7.1"
@@ -1205,7 +1205,7 @@
   dependencies:
     "@babel/runtime" "^7.4.4"
 
-"@material-ui/styles@^4.7.1":
+"@material-ui/styles@^4.8.2":
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.8.2.tgz#841acbc4314accbe82a45cb1feb758d47448c802"
   integrity sha512-r5U+93pkpwQOmHTmwyn2sqTio6PHd873xvSHiKP6fdybAXXX6CZgVvh3W8saZNbYr/QXsS8OHmFv7sYJLt5Yfg==
@@ -1396,10 +1396,10 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@tanem/svg-injector@^8.0.36":
-  version "8.0.37"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.37.tgz#afb5e231e72a72e14de1e076b6d204a7999a9302"
-  integrity sha512-5qMGG913A4oR216ZkOj5GYaLPovvhUDh/1L38fxUW3yyEpce8DXTG+/As+ugg9CMHt1BDdSAn2hs9VHn0QFhxQ==
+"@tanem/svg-injector@^8.0.37":
+  version "8.0.38"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.38.tgz#b3459cbc15d0c52c82d9041d32a29d0774dde2dc"
+  integrity sha512-fDWVX0pk4b83W8pcf4E58iSsvIUpGVLOqaYszh9YfNQyq8u5mPSaNF4KSTOxgeK8TdSN1Z7wn9kyUGJaZA9OMg==
   dependencies:
     "@babel/runtime" "^7.7.7"
 
@@ -1513,10 +1513,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.2.tgz#fe94285bf5e0782e1a9e5a8c482b1c34465fa385"
   integrity sha512-B8emQA1qeKerqd1dmIsQYnXi+mmAzTB7flExjmy5X1aVAKFNNNDubkavwR13kR6JnpeLp3aLoJhwn9trWPAyFQ==
 
-"@types/node@13.1.1":
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.1.tgz#6d11a8c2d58405b3db9388ab740106cbfa64c3c9"
-  integrity sha512-hx6zWtudh3Arsbl3cXay+JnkvVgCKzCWKv42C9J01N2T2np4h8w5X8u6Tpz5mj38kE3M9FM0Pazx8vKFFMnjLQ==
+"@types/node@13.1.4":
+  version "13.1.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.4.tgz#4cfd90175a200ee9b02bd6b1cd19bc349741607e"
+  integrity sha512-Lue/mlp2egZJoHXZr4LndxDAd7i/7SQYhV0EjWfb/a4/OZ6tuVwMCVPiwkU5nsEipxEf7hmkSU7Em5VQ8P5NGA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -1545,10 +1545,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-helmet@5.0.14":
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.14.tgz#a07979ccb2cee088e74e735c84058fc8607d32e4"
-  integrity sha512-Q73FFg7+LjblfSQUNbnjrwy2T1avBP8yevEgNrkDjyz1rBbnXkuOQcEV7I5wvmAic9FLUk0CnkLieEDej84Zkw==
+"@types/react-helmet@5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.15.tgz#af0370617307e9f062c6aee0f1f5588224ce646e"
+  integrity sha512-CCjqvecDJTXRrHG8aTc2YECcQCl26za/q+NaBRvy/wtm0Uh38koM2dpv2bG1xJV4ckz3t1lm2/5KU6nt2s9BWg==
   dependencies:
     "@types/react" "*"
 
@@ -9597,13 +9597,13 @@ react-scripts@3.3.0:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-svg@11.0.5:
-  version "11.0.5"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.5.tgz#dc07c8b659591d59fec09a7a093fbf533a8f2c60"
-  integrity sha512-JteyozGjnSE/BAPOQnjT/KCpqcWFDVGsXsVjnezowX3nLTPD7la/sACwHdDF/xbok/iQZcgFwtvyCJYcsM12XA==
+react-svg@11.0.6:
+  version "11.0.6"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.6.tgz#767182903f6db913b8fcbaece6ad6e7ab7819603"
+  integrity sha512-vfjOdFBI+PczyPQP4//c+f+ZV35QyvzSPh3f322Jiecf82WoZLCofsg9JbMeMIy5WXQusOMUxIV4EZ4+xXfYnA==
   dependencies:
     "@babel/runtime" "^7.7.7"
-    "@tanem/svg-injector" "^8.0.36"
+    "@tanem/svg-injector" "^8.0.37"
     prop-types "^15.7.2"
 
 react-transition-group@^4.3.0:
@@ -9626,10 +9626,10 @@ react-use-mouse-move@1.0.4:
   resolved "https://registry.yarnpkg.com/react-use-mouse-move/-/react-use-mouse-move-1.0.4.tgz#29beee7c98297de630ed7afee6b463de577ba7c8"
   integrity sha512-yRlIo4N6NzebeHxNjKMJCk2318dQcpgY4NxKvUli52OG2sOQr7J3juHSRLUCur3JFaLTPamY2/ytW4EtNGrgaA==
 
-react-use@13.13.0:
-  version "13.13.0"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.13.0.tgz#5d133c4d4d8d3f21f6ccf4ccbe54fbcd6fdafb36"
-  integrity sha512-J3/h5wvL6vXmecAvEnninCC3DviLMRWcQrEnouTliwws1b376DQKEgIFuTXlF8c3SKpXBQJdDDm1RpluokW6ag==
+react-use@13.14.0:
+  version "13.14.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.14.0.tgz#b0c27407c52897f2e42839e0801b392f2ad2718a"
+  integrity sha512-E9tmVppagnDVMgzWwdSA7V8rHEugtF1VTYmkmiBMw1RctkvZK7ib6lzsZh5KugHNEdR/7ffYFjwZZ3NZobm9KA==
   dependencies:
     "@xobotyi/scrollbar-width" "1.5.0"
     copy-to-clipboard "^3.2.0"
