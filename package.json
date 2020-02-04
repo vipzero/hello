@@ -27,7 +27,7 @@
 		"react-use": "13.22.4",
 		"react-use-gesture": "6.0.14",
 		"react-use-mouse-move": "1.0.4",
-		"styled-components": "4.4.1",
+		"styled-components": "5.0.1",
 		"superagent": "5.2.1",
 		"zdog": "1.1.1"
 	},
