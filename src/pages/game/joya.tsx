@@ -117,7 +117,7 @@ function Joya() {
 }
 
 const JoyaPage = () => (
-	<Layout title="マイケル発狂ジェネレータ">
+	<Layout title="除夜の鐘ゲーム">
 		<Joya />
 	</Layout>
 )
