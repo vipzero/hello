@@ -31,7 +31,7 @@ const Tab = styled(Typography)`
 	padding: 0 8px;
 `
 
-const MenuItem = styled(Link)`
+const MenuItem = styled.div`
 	margin-left: 10px;
 	text-decoration: none;
 	color: #555;
@@ -54,8 +54,10 @@ function NavBar(_: Props) {
 				<Group key={g.name}>
 					<Tab>{g.name}</Tab>
 					{g.menus.map(menu => (
-						<MenuItem key={menu.path} href={`/${menu.path}`}>
-							<Typography>{menu.name}</Typography>
+						<MenuItem key={menu.path}>
+							<Link href={`/${menu.path}`}>
+								<Typography>{menu.name}</Typography>
+							</Link>
 						</MenuItem>
 					))}
 				</Group>

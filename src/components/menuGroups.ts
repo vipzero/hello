@@ -1,6 +1,6 @@
 import AnkaChord from '../containers/AnkaChord'
 import EroJS from '../containers/EroJS'
-import Home from '../containers/Home'
+import Home from '../pages'
 import Jiko from '../containers/Jiko'
 import LaiarGame from '../containers/LaiarGame'
 import MakeRank from '../containers/MakeRank'

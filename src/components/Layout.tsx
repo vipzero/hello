@@ -22,9 +22,12 @@ const Layout: React.FunctionComponent<Props> = ({
 		</Head>
 		<CssBaseline />
 		<GlobalStyle />
-		<MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
-		<NavBar />
-		<footer></footer>
+		<MuiThemeProvider theme={theme}>
+			<main>{children}</main>
+			<footer>
+				<NavBar />
+			</footer>
+		</MuiThemeProvider>
 	</div>
 )
 

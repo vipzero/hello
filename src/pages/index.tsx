@@ -3,7 +3,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
 
-import config from '../../config'
+import config from '../config'
+import Layout from '../components/Layout'
 import IconVipzero from './res/vipzero.png'
 import IconAno from './res/ano.png'
 import IconMosha from './res/mosha.png'
@@ -137,4 +138,10 @@ const Link = styled.a`
 	}
 `
 
-export default Home
+const HomePage = () => (
+	<Layout title="">
+		<Home />
+	</Layout>
+)
+
+export default HomePage
