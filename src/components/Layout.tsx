@@ -8,11 +8,13 @@ import NavBar from './NavBar'
 
 type Props = {
 	title?: string
+	hasNavbar?: false
 }
 
 const Layout: FC<Props> = ({
 	children,
 	title = 'This is the default title',
+	hasNavbar = true,
 }) => (
 	<div>
 		<Head>
@@ -23,14 +25,18 @@ const Layout: FC<Props> = ({
 		<CssBaseline />
 		<GlobalStyle />
 		<MuiThemeProvider theme={theme}>
-			<Screen>
-				<div>
-					<main>{children}</main>
-					<footer>
-						<NavBar />
-					</footer>
-				</div>
-			</Screen>
+			{hasNavbar ? (
+				<Screen>
+					<div>
+						<main>{children}</main>
+						<footer>
+							<NavBar />
+						</footer>
+					</div>
+				</Screen>
+			) : (
+				<main>{children}</main>
+			)}
 		</MuiThemeProvider>
 	</div>
 )
