@@ -32,6 +32,8 @@ const Tab = styled(Typography)`
 `
 
 const MenuItem = styled.div`
+	cursor: pointer;
+	padding-top: 4px;
 	margin-left: 10px;
 	text-decoration: none;
 	color: #555;
