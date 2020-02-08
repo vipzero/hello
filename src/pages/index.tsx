@@ -5,17 +5,14 @@ import { Typography } from '@material-ui/core'
 
 import config from '../config'
 import Layout from '../components/Layout'
-import IconVipzero from './res/vipzero.png'
-import IconAno from './res/ano.png'
-import IconMosha from './res/mosha.png'
 
 const HEIGHT = '300px'
 const WIDTH = '400px'
 
 const faces: { name: string; icon: string }[] = [
-	{ name: 'あの', icon: IconAno },
-	{ name: 'vipzero', icon: IconVipzero },
-	{ name: 'もしゃ', icon: IconMosha },
+	{ name: 'あの', icon: '/static/img/faces/ano.png' },
+	{ name: 'vipzero', icon: '/static/img/faces/vipzero.png' },
+	{ name: 'もしゃ', icon: '/static/img/faces/mosha.png' },
 ]
 
 const LinkItem: React.SFC<{ id: string; link: string }> = ({

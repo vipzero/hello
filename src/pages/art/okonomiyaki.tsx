@@ -2,15 +2,11 @@ import * as React from 'react'
 
 import styled, { keyframes } from 'styled-components'
 
-import Business from '../../res/irasutoya/business_group_shock.png'
-import Hera from '../../res/irasutoya/cooking_okonomiyaki_hera.png'
-import HiroshimayakiImg from '../../res/irasutoya/food_hiroshimayaki.png'
 import Layout from '../../components/Layout'
 import NavBar from '../../components/NavBar'
 
 const Wrap = styled.div``
 const Top = styled.div`
-	height: 100vh;
 	width: 100vw;
 `
 
@@ -44,23 +40,25 @@ const Jk = styled.img`
 	animation: ${move} 0.5s ease infinite alternate;
 `
 
-type Props = {}
-
-type State = {
-	x: number
-	y: number
-}
-
 const Okonomiyaki = () => (
 	<Layout title="okonomiyakijksyakai">
 		<NavBar />
 		<Wrap>
 			<Top>
-				<Hiroshimayaki src={HiroshimayakiImg} alt="" />
+				<Hiroshimayaki
+					src={'/static/img/irasutoya/food_hiroshimayaki.png'}
+					alt=""
+				/>
 				<JkDiv>
-					<Jk src={Hera} alt="irasutoya jk" />
+					<Jk
+						src={'/static/img/irasutoya/cooking_okonomiyaki_hera.png'}
+						alt="irasutoya jk"
+					/>
 				</JkDiv>
-				<img src={Business} alt="irasutoya business" />
+				<img
+					src="/static/img/irasutoya/business_group_shock.png"
+					alt="irasutoya business"
+				/>
 			</Top>
 		</Wrap>
 	</Layout>

@@ -3,9 +3,6 @@ import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import Layout from '../../components/Layout'
-import PlayerImg from '../../res/irasutoya/figure_tousenbo.png'
-import HikinigeImg from '../../res/irasutoya/jiko_car_hikinige.png'
-import JkImg from '../../res/irasutoya/smartphone_schoolgirl_stand_smile.png'
 
 const Wrap = styled.div``
 const Top = styled.div`
@@ -69,18 +66,18 @@ const Jiko = () => (
 	<Layout title="事故だ！">
 		<Wrap>
 			<Top>
-				<Hikinige src={HikinigeImg} alt="" />
+				<Hikinige src={'/static/img/irasutoya/jiko_car_hikinige.png'} alt="" />
 				<PlayerArea>
 					<Player
 						style={{
 							left: `${400 - 100}px`,
 						}}
-						src={PlayerImg}
+						src={'/static/img/irasutoya/smartphone_schoolgirl_stand_smile.png'}
 						alt="irasutoya player"
 					/>
 				</PlayerArea>
 				<JkDiv>
-					<Jk src={JkImg} alt="" />
+					<Jk src={'/static/img/irasutoya/'} alt="" />
 				</JkDiv>
 			</Top>
 		</Wrap>

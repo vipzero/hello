@@ -1,8 +1,6 @@
 import * as React from 'react'
 
 import styled, { keyframes } from 'styled-components'
-import PatyImg from '../../res/paty.jpeg'
-import SandImg from '../../res/sand.jpg'
 import Layout from '../../components/Layout'
 
 const Mekisiko = () => (
@@ -12,11 +10,11 @@ const Mekisiko = () => (
 			<div style={{ display: 'flex' }}>
 				<Item>
 					<MenuTitle>Sand 1</MenuTitle>
-					<Img src={SandImg} alt="send1" />
+					<Img src={'/static/img/sand.jpg'} alt="send1" />
 				</Item>
 				<Item>
 					<MenuTitle>3Hands</MenuTitle>
-					<Img src={PatyImg} alt="3hands" />
+					<Img src={'/static/img/paty.jpeg'} alt="3hands" />
 				</Item>
 			</div>
 		</Page>
