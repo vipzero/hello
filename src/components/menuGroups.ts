@@ -17,7 +17,6 @@ const menuGroups: MenuGroup[] = [
 		name: '芸術',
 		menus: [
 			{ path: 'art/jiko', name: '事故' },
-			{ path: 'art/uji', name: 'uji' },
 			{ path: 'art/ero.js', name: 'ero.js' },
 			{ path: 'art/okonomiyaki', name: 'お好み焼き' },
 			{ path: 'art/mekisiko', name: 'お朝飯前' },
