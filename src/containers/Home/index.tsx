@@ -1,16 +1,12 @@
 import * as React from 'react'
 
 import styled from 'styled-components'
-import { useWindowSize, useMedia } from 'react-use'
 import { Typography } from '@material-ui/core'
 
 import config from '../../config'
 import IconVipzero from './res/vipzero.png'
 import IconAno from './res/ano.png'
 import IconMosha from './res/mosha.png'
-// import { useMouseMove } from 'react-use-mouse-move'
-
-const useMouseMove = (_v: number) => ({ x: 0, y: 0 })
 
 const HEIGHT = '300px'
 const WIDTH = '400px'
@@ -35,32 +31,7 @@ const LinkItem: React.SFC<{ id: string; link: string }> = ({
 	</li>
 )
 
-const soul = (
-	wx: number,
-	wy: number,
-	px: number,
-	py: number
-): [number, number, number] => {
-	const distance = (a: number, b: number) => Math.abs(a - b)
-	const overcut = (v: number, min: number, max: number) =>
-		Math.min(Math.max(v, min), max)
-	const normalize = (v: number, min: number, max: number) => {
-		return (v - min) / (max - min)
-	}
-
-	const wp = (v: number) =>
-		normalize(overcut((0.5 - distance(v, 0.5)) * 2, 0.2, 0.8), 0.2, 0.8)
-
-	return [wp(px / wx), 1, wp(py / wy)]
-}
-
 function FaceBox() {
-	const { width, height } = useWindowSize()
-	const pos = useMouseMove(2)
-	const isWide = useMedia('(min-width: 480px)')
-
-	const souls = isWide ? soul(width, height, pos.x, pos.y) : [1, 1, 1]
-
 	return (
 		<Faces>
 			{faces.map((face, i) => (
@@ -68,11 +39,7 @@ function FaceBox() {
 					<Icon
 						src={face.icon}
 						alt={`アイコン ${face.name}`}
-						style={{
-							borderRadius: `calc(20px + 60px * ${
-								souls[i]
-							}) 20px / 20px calc(20px + 60px * ${1 - souls[i]})`,
-						}}
+						style={{ borderRadius: `60px 20px / 20px 60px` }}
 					/>
 					<Typography>{face.name}</Typography>
 				</div>
