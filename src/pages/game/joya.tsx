@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { Typography } from '@material-ui/core'
+import { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
 
 export type BoardLink = {
@@ -8,10 +8,10 @@ export type BoardLink = {
 }
 
 function Noise({ active }: { active: boolean }) {
-	const [timeout, setTimeout] = React.useState<number | null>(null)
-	const [numstr, setNumstr] = React.useState<string>('00')
+	const [timeout, setTimeout] = useState<number | null>(null)
+	const [numstr, setNumstr] = useState<string>('00')
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (!active) {
 			if (timeout) {
 				clearInterval(timeout)
@@ -41,13 +41,13 @@ const timeStr = (time: number, showMs = false) => {
 }
 
 function Joya() {
-	const [startTime, setStart] = React.useState<number>(0)
-	const [time, setTime] = React.useState<number>(0)
-	const [count, setCount] = React.useState<number>(0)
-	const [result, setResult] = React.useState<number>(0)
-	const [bomb, setBomb] = React.useState<boolean>(false)
+	const [startTime, setStart] = useState<number>(0)
+	const [time, setTime] = useState<number>(0)
+	const [count, setCount] = useState<number>(0)
+	const [result, setResult] = useState<number>(0)
+	const [bomb, setBomb] = useState<boolean>(false)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (!startTime) {
 			return
 		}

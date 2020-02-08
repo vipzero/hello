@@ -1,7 +1,6 @@
-import * as React from 'react'
-
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
+import { FC } from 'react'
 
 import config from '../config'
 import Layout from '../components/Layout'
@@ -15,11 +14,7 @@ const faces: { name: string; icon: string }[] = [
 	{ name: 'もしゃ', icon: '/static/img/faces/mosha.png' },
 ]
 
-const LinkItem: React.SFC<{ id: string; link: string }> = ({
-	id,
-	link,
-	children,
-}) => (
+const LinkItem: FC<{ id: string; link: string }> = ({ id, link, children }) => (
 	<li>
 		<Typography variant="h6">
 			<Link data-content={id} href={link}>

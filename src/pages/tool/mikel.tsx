@@ -1,7 +1,7 @@
-import * as React from 'react'
 import _range from 'lodash/range'
 import _sample from 'lodash/sample'
 import { Typography, Slider, TextField } from '@material-ui/core'
+import { useState } from 'react'
 import Layout from '../../components/Layout'
 
 export type BoardLink = {
@@ -20,13 +20,13 @@ const wcs = (n: number) =>
 		.join('')
 
 function Mikel() {
-	const [title, setTitle] = React.useState<string>('タイトル')
-	const [w1, setW1] = React.useState<string>('りんご')
-	const [w2, setW2] = React.useState<string>('タンゴ')
-	const [w3, setW3] = React.useState<string>('A5')
-	const [w4, setW4] = React.useState<string>('英語')
-	const [w5, setW5] = React.useState<string>('ｱｱｱｱｱ')
-	const [speed, setSpeed] = React.useState<number>(5)
+	const [title, setTitle] = useState<string>('タイトル')
+	const [w1, setW1] = useState<string>('りんご')
+	const [w2, setW2] = useState<string>('タンゴ')
+	const [w3, setW3] = useState<string>('A5')
+	const [w4, setW4] = useState<string>('英語')
+	const [w5, setW5] = useState<string>('ｱｱｱｱｱ')
+	const [speed, setSpeed] = useState<number>(5)
 	const text = `${title}${ecs(speed)}${title}${ecs(speed + 3)}
 ${w1}${wcs(speed)}${w2}${wcs(speed)}
 ${w2}${_sample('でにをは'.split(''))}${w3}？${wcs(speed + 10)}

@@ -1,15 +1,15 @@
-import * as React from 'react'
 import _range from 'lodash/range'
+import { FC, ReactElement } from 'react'
 import NavBar from '../../components/NavBar'
 import Layout from '../../components/Layout'
 
 type PackProps = {
 	title: string
 	size: number
-	children?: React.ReactElement<PackProps>
+	children?: ReactElement<PackProps>
 }
 
-const Pack: React.SFC<PackProps> = ({ title, size, children }) => {
+const Pack: FC<PackProps> = ({ title, size, children }) => {
 	const e = `${size}`.length
 	const height = `${(size * 1.2) / 3}vmax`
 	const width = `${size / 3}vmax`

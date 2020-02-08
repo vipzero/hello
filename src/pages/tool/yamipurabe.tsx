@@ -1,8 +1,7 @@
-import * as React from 'react'
-
 import styled from 'styled-components'
 
 import { TextField, Typography } from '@material-ui/core'
+import { useState } from 'react'
 import { weponList } from '../../data/splatoon-wepons'
 import Layout from '../../components/Layout'
 
@@ -15,7 +14,7 @@ const weponText = weponList
 	.join(',')
 
 function YamiPrabe() {
-	const [num, setNum] = React.useState<string>('')
+	const [num, setNum] = useState<string>('')
 
 	return (
 		<Layout title="闇プラベ武器チェッカー">

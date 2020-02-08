@@ -1,8 +1,7 @@
-import * as React from 'react'
-
 import _range from 'lodash/range'
 import { Typography, Button } from '@material-ui/core'
 import styled from 'styled-components'
+import { useState } from 'react'
 import Layout from '../../components/Layout'
 
 // eslint-disable-next-line
@@ -29,9 +28,9 @@ const StoneButton = styled(Button)`
 `
 
 function Othelle() {
-	const [hand, setHand] = React.useState<Stone>('b')
+	const [hand, setHand] = useState<Stone>('b')
 	const handRev = hand === 'w' ? 'b' : 'w'
-	const [board, setBoard] = React.useState<Board>(initialBoard)
+	const [board, setBoard] = useState<Board>(initialBoard)
 
 	return (
 		<div style={{ margin: '0 20px' }}>

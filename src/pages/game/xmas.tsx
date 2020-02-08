@@ -1,6 +1,6 @@
-import * as React from 'react'
 import _shuffle from 'lodash/shuffle'
 import { Typography, Button } from '@material-ui/core'
+import { useMemo, useState } from 'react'
 import Layout from '../../components/Layout'
 
 export type BoardLink = {
@@ -9,7 +9,7 @@ export type BoardLink = {
 }
 
 function Xmas() {
-	const presents = React.useMemo(() => {
+	const presents = useMemo(() => {
 		const v = [
 			{ title: '昼　飯', items: _shuffle(['🍩', '🍔', '🦞', '💩', '🍖']) },
 			{ title: '夕　飯', items: _shuffle(['🍖', '🍕', '🍡', '💩', '🌷']) },
@@ -22,9 +22,9 @@ function Xmas() {
 		return v
 	}, [])
 
-	const [open, setOpen] = React.useState<Record<number, number>>({})
-	const [bomb, setBomb] = React.useState<Record<string, boolean>>({})
-	const [del, setDel] = React.useState<Record<string, boolean>>({})
+	const [open, setOpen] = useState<Record<number, number>>({})
+	const [bomb, setBomb] = useState<Record<string, boolean>>({})
+	const [del, setDel] = useState<Record<string, boolean>>({})
 	const genRect = (h: number, w: number, val: boolean) => {
 		const range = [-1, 0, 1]
 		const k: { [k: string]: boolean } = {}

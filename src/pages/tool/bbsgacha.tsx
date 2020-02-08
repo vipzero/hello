@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import {
 	ListItem,
 	Button,
@@ -10,6 +8,7 @@ import {
 } from '@material-ui/core'
 
 import _sampleSize from 'lodash/sampleSize'
+import { useState } from 'react'
 import Layout from '../../components/Layout'
 
 // eslint-disable-next-line
@@ -21,8 +20,8 @@ export type BoardLink = {
 }
 
 function BBSGacha() {
-	const [boards, setBoards] = React.useState<BoardLink[]>([])
-	const [num, setNum] = React.useState<number>(5)
+	const [boards, setBoards] = useState<BoardLink[]>([])
+	const [num, setNum] = useState<number>(5)
 
 	return (
 		<Layout title="5ch 板ガチャ話題ツール">

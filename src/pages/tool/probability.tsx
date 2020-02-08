@@ -1,10 +1,10 @@
-import * as React from 'react'
 import _partial from 'lodash/partial'
 import _range from 'lodash/range'
 import { Chart } from 'react-google-charts'
 import { Decimal } from 'decimal.js'
 
 import { Typography } from '@material-ui/core'
+import { useRef, useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
 
 type Plot = (number | string)[]
@@ -128,10 +128,10 @@ _range(24).reduce((p, h) => {
 console.log(dataHandred)
 
 function Probability() {
-	const [size, setSize] = React.useState<Size>({ height: 100, width: 100 })
-	const ref = React.useRef<HTMLDivElement>(null)
+	const [size, setSize] = useState<Size>({ height: 100, width: 100 })
+	const ref = useRef<HTMLDivElement>(null)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const width = ref.current?.clientWidth
 		const aspect = 3 / 8
 

@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'

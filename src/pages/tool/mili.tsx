@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Slider } from '@material-ui/core'
 import Layout from '../../components/Layout'

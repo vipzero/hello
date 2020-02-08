@@ -1,7 +1,6 @@
-import * as React from 'react'
-
 import genTrip from '2ch-trip'
 import styled, { keyframes } from 'styled-components'
+import { useState } from 'react'
 import Layout from '../../components/Layout'
 
 const hands = [
@@ -25,62 +24,69 @@ hands.forEach(h1 =>
 	})
 )
 
-class LaiarGame extends React.Component<{}, { search: string }> {
-	state = { search: '' }
+function LaiarGame() {
+	const [search, setSearch] = useState<string>('')
 
-	render() {
-		const { search } = this.state
-
-		return (
-			<div>
-				<table style={{ minWidth: '1000px' }}>
-					<thead>
-						<tr>
-							<th />
-							{hands.map(hand => (
-								<th key={hand}>{hand}</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{hands.map(h1 => (
-							<tr key={h1}>
-								<th style={{ width: '10vw' }}>{h1}</th>
-								{hands.map(h2 => {
-									const key = `#${h1}${h2}`
-									const trip = tripTable[`#${h1}${h2}`]
-
-									return (
-										<td key={h2}>
-											<Trip
-												name={key}
-												trip={trip}
-												search={search !== ''}
-												hit={trip.includes(search)}
-											/>
-										</td>
-									)
-								})}
-							</tr>
+	return (
+		<Style>
+			<table>
+				<thead>
+					<tr>
+						<th />
+						{hands.map(hand => (
+							<th key={hand}>{hand}</th>
 						))}
-					</tbody>
-				</table>
-				<div style={{ margin: '4px 20px' }}>
-					検索:{' '}
-					<input
-						type="text"
-						style={{ fontSize: '1.3em' }}
-						onChange={e => {
-							const search = e.target.value
+					</tr>
+				</thead>
+				<tbody>
+					{hands.map(h1 => (
+						<tr key={h1}>
+							<th className="first">{h1}</th>
+							{hands.map(h2 => {
+								const key = `#${h1}${h2}`
+								const trip = tripTable[`#${h1}${h2}`]
 
-							this.setState({ search })
-						}}
-					/>
-				</div>
+								return (
+									<td key={h2}>
+										<Trip
+											name={key}
+											trip={trip}
+											search={search !== ''}
+											hit={trip.includes(search)}
+										/>
+									</td>
+								)
+							})}
+						</tr>
+					))}
+				</tbody>
+			</table>
+			<div>
+				検索:{' '}
+				<input
+					type="text"
+					onChange={({ target: { value } }) => setSearch(value)}
+				/>
 			</div>
-		)
-	}
+		</Style>
+	)
 }
+
+const Style = styled.div`
+	table {
+		min-width: 1000px;
+		th.first {
+			width: 10vw;
+		}
+	}
+	> div {
+		margin: 4px 20px;
+		input {
+			font-size: 1.3em;
+		}
+	}
+`
+
 const Trip = (props: {
 	name: string
 	trip: string

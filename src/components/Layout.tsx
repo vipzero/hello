@@ -1,8 +1,7 @@
-import * as React from 'react'
-
 import Head from 'next/head'
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core'
 import styled from 'styled-components'
+import { FC } from 'react'
 import theme from '../theme'
 import { GlobalStyle } from '../config/init'
 import NavBar from './NavBar'
@@ -11,7 +10,7 @@ type Props = {
 	title?: string
 }
 
-const Layout: React.FunctionComponent<Props> = ({
+const Layout: FC<Props> = ({
 	children,
 	title = 'This is the default title',
 }) => (

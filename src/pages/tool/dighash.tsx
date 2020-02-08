@@ -1,6 +1,6 @@
-import * as React from 'react'
 import { Button, Typography, TextField } from '@material-ui/core'
 import genTrip from '2ch-trip'
+import { useState } from 'react'
 import Layout from '../../components/Layout'
 
 type HashPair = {
@@ -9,12 +9,12 @@ type HashPair = {
 }
 
 function DigHash() {
-	const [search, setSearch] = React.useState<string>('aa|bb')
-	const [prefix, setPrefix] = React.useState<string>(String(Math.random()))
-	const [speed, setSpeed] = React.useState<number>(10)
-	const [runId, setRunId] = React.useState<number | null>(null)
-	const [hashs, setHashs] = React.useState<HashPair[]>([])
-	const [lastTri, setLastTri] = React.useState<HashPair>({
+	const [search, setSearch] = useState<string>('aa|bb')
+	const [prefix, setPrefix] = useState<string>(String(Math.random()))
+	const [speed, setSpeed] = useState<number>(10)
+	const [runId, setRunId] = useState<number | null>(null)
+	const [hashs, setHashs] = useState<HashPair[]>([])
+	const [lastTri, setLastTri] = useState<HashPair>({
 		source: '---',
 		tri: '---',
 	})

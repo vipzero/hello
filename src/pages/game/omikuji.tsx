@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { Typography, Button } from '@material-ui/core'
 import { useLocalStorage } from 'react-use'
 import Layout from '../../components/Layout'
