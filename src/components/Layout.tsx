@@ -35,6 +35,18 @@ const Layout: FC<Props> = ({
 	</div>
 )
 
-const Screen = styled.div``
+const Screen = styled.div`
+	> div {
+		min-height: 100vh;
+		display: grid;
+		grid-template-rows: 1fr auto;
+	}
+	main {
+	}
+	footer {
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+`
 
 export default Layout
