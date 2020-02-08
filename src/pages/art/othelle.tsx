@@ -3,6 +3,7 @@ import * as React from 'react'
 import _range from 'lodash/range'
 import { Typography, Button } from '@material-ui/core'
 import styled from 'styled-components'
+import Layout from '../../components/Layout'
 
 // eslint-disable-next-line
 
@@ -94,5 +95,10 @@ function Othelle() {
 		</div>
 	)
 }
+const OthellePage = () => (
+	<Layout title="オセレ">
+		<Othelle />
+	</Layout>
+)
 
-export default Othelle
+export default OthellePage

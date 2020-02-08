@@ -6,6 +6,7 @@ import Business from '../../res/irasutoya/business_group_shock.png'
 import Hera from '../../res/irasutoya/cooking_okonomiyaki_hera.png'
 import HiroshimayakiImg from '../../res/irasutoya/food_hiroshimayaki.png'
 import Layout from '../../components/Layout'
+import NavBar from '../../components/NavBar'
 
 const Wrap = styled.div``
 const Top = styled.div`
@@ -52,6 +53,7 @@ type State = {
 
 const Okonomiyaki = () => (
 	<Layout title="okonomiyakijksyakai">
+		<NavBar />
 		<Wrap>
 			<Top>
 				<Hiroshimayaki src={HiroshimayakiImg} alt="" />

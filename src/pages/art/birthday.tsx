@@ -12,14 +12,16 @@ const Fire = styled.div`
 
 	div {
 		width: 100%;
-		height: 100vh;
-		transform: translateY(20%);
+		height: 90vh;
+		/* transform: translateY(20%); */
 	}
 
 	span {
 		width: 100%;
 		background-image: url('https://dl.dropbox.com/s/r2s8s2r17wi0xm6/flame.png?dl=0');
 		background-position: 0 -1000px;
+		background-clip: text;
+		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		animation: fire 4s linear infinite;
 	}

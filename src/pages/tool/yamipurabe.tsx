@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { TextField, Typography } from '@material-ui/core'
-import { weponList } from '../../data'
+import { weponList } from '../../data/splatoon-wepons'
 import Layout from '../../components/Layout'
 
 const Wrap = styled.div`

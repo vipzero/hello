@@ -13,7 +13,7 @@ import _sampleSize from 'lodash/sampleSize'
 import Layout from '../../components/Layout'
 
 // eslint-disable-next-line
-const boardlist: BoardLink[] = require('../res/boardlist.json')
+const boardlist: BoardLink[] = require('../../data/boardlist.json')
 
 export type BoardLink = {
 	name: string

@@ -1,5 +1,6 @@
 import _range from 'lodash/range'
 import * as React from 'react'
+import Layout from '../../components/Layout'
 
 class Syukan extends React.Component<{}> {
 	render() {
@@ -30,5 +31,10 @@ class Syukan extends React.Component<{}> {
 		)
 	}
 }
+const SyukanPage = () => (
+	<Layout title="週間計算">
+		<Syukan />
+	</Layout>
+)
 
-export default Syukan
+export default SyukanPage
