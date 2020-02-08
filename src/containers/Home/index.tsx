@@ -3,12 +3,14 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { useWindowSize, useMedia } from 'react-use'
 import { Typography } from '@material-ui/core'
-import { useMouseMove } from 'react-use-mouse-move'
 
 import config from '../../config'
 import IconVipzero from './res/vipzero.png'
 import IconAno from './res/ano.png'
 import IconMosha from './res/mosha.png'
+// import { useMouseMove } from 'react-use-mouse-move'
+
+const useMouseMove = (_v: number) => ({ x: 0, y: 0 })
 
 const HEIGHT = '300px'
 const WIDTH = '400px'

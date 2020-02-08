@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
-import qs from 'query-string'
+import { useRouter } from 'next/router'
 
 const Fire = styled.div`
 	margin: 0px;
@@ -20,7 +19,6 @@ const Fire = styled.div`
 		width: 100%;
 		background-image: url('https://dl.dropbox.com/s/r2s8s2r17wi0xm6/flame.png?dl=0');
 		background-position: 0 -1000px;
-		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		animation: fire 4s linear infinite;
 	}
@@ -45,15 +43,14 @@ const Fire = styled.div`
 `
 
 function Birthday() {
-	const { search } = useLocation()
-	const q = qs.parse(search)
+	const { name } = useRouter().query
 
 	return (
 		<Fire>
 			<div>
 				<h1>
 					<p>
-						<span>{q.name}</span>
+						<span>{name}</span>
 					</p>
 					<span>おめでとう</span>
 				</h1>

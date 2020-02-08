@@ -2,10 +2,13 @@ import * as React from 'react'
 
 import styled, { keyframes } from 'styled-components'
 
-import { useMouseMove } from 'react-use-mouse-move'
+// import { useMouseMove } from 'react-use-mouse-move'
+
 import PlayerImg from './res/figure_tousenbo.png'
 import HikinigeImg from './res/jiko_car_hikinige.png'
 import JkImg from './res/smartphone_schoolgirl_stand_smile.png'
+
+const useMouseMove = (_v?: number) => ({ x: 0, y: 0 })
 
 const Wrap = styled.div``
 const Top = styled.div`

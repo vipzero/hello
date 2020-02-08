@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
 import menuGroups from './menuGroups'
@@ -43,9 +44,9 @@ const MenuItem = styled(Link)`
 
 type Props = {}
 function NavBar(_: Props) {
-	const location = useLocation()
+	const { pathname } = useRouter()
 
-	const fixed = location.pathname === '/'
+	const fixed = pathname === '/'
 
 	return (
 		<Wrapper data-fixed={fixed}>
@@ -53,7 +54,7 @@ function NavBar(_: Props) {
 				<Group key={g.name}>
 					<Tab>{g.name}</Tab>
 					{g.menus.map(menu => (
-						<MenuItem key={menu.path} to={`/${menu.path}`}>
+						<MenuItem key={menu.path} href={`/${menu.path}`}>
 							<Typography>{menu.name}</Typography>
 						</MenuItem>
 					))}
