@@ -26,7 +26,7 @@ function Xmas() {
 	const [del, setDel] = React.useState<Record<string, boolean>>({})
 	const genRect = (h: number, w: number, val: boolean) => {
 		const range = [-1, 0, 1]
-		const k = {}
+		const k: { [k: string]: boolean } = {}
 
 		range.forEach(hw =>
 			range.forEach(dw => {

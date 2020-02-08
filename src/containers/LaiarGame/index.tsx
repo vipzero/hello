@@ -14,7 +14,7 @@ const hands = [
 	'騎士',
 ]
 
-const tripTable = {}
+const tripTable: Record<string, string> = {}
 
 hands.forEach(h1 =>
 	hands.forEach(h2 => {
@@ -55,7 +55,7 @@ class LaiarGame extends React.Component<{}, { search: string }> {
 												name={key}
 												trip={trip}
 												search={search !== ''}
-												hit={trip.indexOf(search) !== -1}
+												hit={trip.includes(search)}
 											/>
 										</td>
 									)

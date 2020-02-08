@@ -2,14 +2,12 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { Typography } from '@material-ui/core'
-import config from '../../config'
 import menuGroups from './menuGroups'
 
 const Wrapper = styled.div`
 	display: flex;
 	overflow: hidden;
 	flex-wrap: wrap;
-	/* height: ${config.headerHeihgt}; */
 	background: #eee;
 	&[data-fiexed='true'] {
 		position: 'absolute';
@@ -44,7 +42,7 @@ const MenuItem = styled(Link)`
 `
 
 type Props = {}
-function NavBar(props: Props) {
+function NavBar(_: Props) {
 	const location = useLocation()
 
 	const fixed = location.pathname === '/'

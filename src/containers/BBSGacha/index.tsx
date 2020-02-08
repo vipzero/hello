@@ -53,7 +53,7 @@ function BBSGacha() {
 						aria-labelledby="discrete-slider"
 						valueLabelDisplay="auto"
 						marks
-						onChange={(e, v) => {
+						onChange={(_e, v) => {
 							if (typeof v === 'number') {
 								setNum(v)
 							}

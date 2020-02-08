@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import styled, { keyframes } from 'styled-components'
 
+import { useMouseMove } from 'react-use-mouse-move'
 import PlayerImg from './res/figure_tousenbo.png'
 import HikinigeImg from './res/jiko_car_hikinige.png'
 import JkImg from './res/smartphone_schoolgirl_stand_smile.png'
@@ -64,45 +65,28 @@ const Jk = styled.img`
 	animation: ${move} 3s linear infinite;
 `
 
-type Props = {}
+function Jiko() {
+	const { x } = useMouseMove()
 
-type State = {
-	x: number
-	y: number
+	return (
+		<Wrap>
+			<Top>
+				<Hikinige src={HikinigeImg} alt="" />
+				<PlayerArea>
+					<Player
+						style={{
+							left: `${x - 100}px`,
+						}}
+						src={PlayerImg}
+						alt="irasutoya player"
+					/>
+				</PlayerArea>
+				<JkDiv>
+					<Jk src={JkImg} alt="" />
+				</JkDiv>
+			</Top>
+		</Wrap>
+	)
 }
 
-class Home extends React.Component<Props, State> {
-	state = { x: 0, y: 0 }
-
-	_onMouseMove(e) {
-		console.log(e)
-		console.log(e.clientX, e.clientY)
-		this.setState({ x: e.clientX, y: e.clientY })
-	}
-
-	render() {
-		const { state } = this
-
-		return (
-			<Wrap>
-				<Top>
-					<Hikinige src={HikinigeImg} alt="" />
-					<PlayerArea onMouseMove={e => this._onMouseMove(e)}>
-						<Player
-							style={{
-								left: `${state.x - 100}px`,
-							}}
-							src={PlayerImg}
-							alt="irasutoya player"
-						/>
-					</PlayerArea>
-					<JkDiv>
-						<Jk src={JkImg} alt="" />
-					</JkDiv>
-				</Top>
-			</Wrap>
-		)
-	}
-}
-
-export default Home
+export default Jiko

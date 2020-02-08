@@ -39,13 +39,14 @@ const soul = (
 	px: number,
 	py: number
 ): [number, number, number] => {
-	const distance = (a, b) => Math.abs(a - b)
-	const overcut = (v, min, max) => Math.min(Math.max(v, min), max)
-	const normalize = (v, min, max) => {
+	const distance = (a: number, b: number) => Math.abs(a - b)
+	const overcut = (v: number, min: number, max: number) =>
+		Math.min(Math.max(v, min), max)
+	const normalize = (v: number, min: number, max: number) => {
 		return (v - min) / (max - min)
 	}
 
-	const wp = v =>
+	const wp = (v: number) =>
 		normalize(overcut((0.5 - distance(v, 0.5)) * 2, 0.2, 0.8), 0.2, 0.8)
 
 	return [wp(px / wx), 1, wp(py / wy)]

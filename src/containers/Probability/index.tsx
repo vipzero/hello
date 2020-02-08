@@ -30,14 +30,14 @@ const dataThousand: Plot[] = [..._range(100), ..._range(100, 5001, 100)].map(
 	proOneThousand
 )
 
-function permutation(n, r) {
+function permutation(n: number, r: number) {
 	return _range(0, r).reduce((d, i) => d.times(n - i), new Decimal(1))
 }
 
-function combination(n, r) {
+function combination(n: number, r: number) {
 	return permutation(n, r).div(permutation(r, r))
 }
-function repeatTry(n, k, p) {
+function repeatTry(n: number, k: number, p: number) {
 	const a = combination(n, k)
 	const b = Decimal.pow(p, k)
 	const c = Decimal.pow(1 - p, n - k)
@@ -97,7 +97,7 @@ function Graph2({ data, size }: { data: Plot[]; size: Size }) {
 	)
 }
 
-const measureHoliday = h => {
+const measureHoliday = (h: number) => {
 	if (h < 2) return 10
 	if (h < 4) return 20
 	if (h < 9) return 40

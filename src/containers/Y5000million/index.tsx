@@ -1,6 +1,6 @@
 import * as React from 'react'
 import _range from 'lodash/range'
-import NavBar from '../App/NavBar'
+import NavBar from '../../components/NavBar'
 
 type PackProps = {
 	title: string

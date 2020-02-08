@@ -5,6 +5,7 @@
 		"sort-imports": "off",
 		"no-restricted-globals": "off",
 		"react-hooks/exhaustive-deps": "off",
-		"@typescript-eslint/explicit-function-return-type": 0
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"react/react-in-jsx-scope": "off"
 	}
 }

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Typography, Button } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 export type BoardLink = {
 	name: string
