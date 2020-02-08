@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import Head from 'next/head'
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core'
+import styled from 'styled-components'
 import theme from '../theme'
 import { GlobalStyle } from '../config/init'
 import NavBar from './NavBar'
@@ -23,12 +24,18 @@ const Layout: React.FunctionComponent<Props> = ({
 		<CssBaseline />
 		<GlobalStyle />
 		<MuiThemeProvider theme={theme}>
-			<main>{children}</main>
-			<footer>
-				<NavBar />
-			</footer>
+			<Screen>
+				<div>
+					<main>{children}</main>
+					<footer>
+						<NavBar />
+					</footer>
+				</div>
+			</Screen>
 		</MuiThemeProvider>
 	</div>
 )
+
+const Screen = styled.div``
 
 export default Layout
