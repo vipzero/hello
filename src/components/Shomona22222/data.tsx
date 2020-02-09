@@ -42,16 +42,40 @@ export const teams: Team[] = [
 	},
 ]
 
-export type GameRule =
-	| '初期ギアのみ'
-	| '下の人の得意ブキを使う'
-	| 'サブ禁止'
-	| 'キル取ったらリスジャン'
-	| 'デスしたらリスポンから5秒間マップを開き続ける'
-	| 'デスしたらサブのみ使える状態になる(キル/アシストで解除)'
-	| '俺の得意ブキを使う'
+export const gameRules = [
+	'初期ギアのみ',
+	'下の人の得意ブキを使う',
+	'サブ禁止',
+	'キル取ったらリスジャン',
+	'デスしたらリスポンから5秒間マップを開き続ける',
+	'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
+	'俺の得意ブキを使う',
+] as const
+export type GameRule = typeof gameRules[number] | undefined
 
 export type Game = {
+	rule: GameRule
 	order: number
-	win: -1 | 0 | 1
+	win: undefined | 0 | 1
+	winText: string
 }
+export const games: Game[] = [
+	{
+		order: 1,
+		rule: 'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
+		win: 1,
+		winText: 'KO',
+	},
+	{
+		order: 2,
+		rule: 'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
+		win: 0,
+		winText: '90',
+	},
+	{
+		order: 2,
+		rule: 'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
+		win: undefined,
+		winText: '',
+	},
+]

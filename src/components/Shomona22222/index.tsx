@@ -7,7 +7,7 @@ import GameSection from './GameSection'
 function Shomona22222() {
 	return (
 		<Style>
-			<Container>
+			<Container maxWidth="md">
 				<header>
 					<h1>
 						<a href="#">SHOMONA CUP</a>
@@ -54,10 +54,19 @@ function Shomona22222() {
 							</a>
 						</li>
 						<li>
-							<a href="https://hello.vipper.dev">made by vip000000</a>
+							<a href="https://hello.vipper.dev" style={{ color: 'green' }}>
+								made by vip000000
+							</a>
 						</li>
 						<li>
-							<a href="https://google.com">主催: やまおか</a>
+							<a href="https://github.com/vipzero/hello/tree/master/src/components/Shomona22222">
+								このサイトのコード
+							</a>
+						</li>
+						<li>
+							<a href="https://google.com" style={{ color: 'orange' }}>
+								主催: やまおか
+							</a>
 						</li>
 					</ul>
 				</footer>
