@@ -62,19 +62,19 @@ export type Game = {
 export const games: Game[] = [
 	{
 		order: 1,
-		rule: 'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
-		win: 1,
+		rule: undefined,
+		win: undefined,
 		winText: 'KO',
 	},
 	{
 		order: 2,
-		rule: 'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
-		win: 0,
+		rule: undefined,
+		win: undefined,
 		winText: '90',
 	},
 	{
-		order: 2,
-		rule: 'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
+		order: 3,
+		rule: undefined,
 		win: undefined,
 		winText: '',
 	},

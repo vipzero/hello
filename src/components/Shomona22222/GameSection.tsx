@@ -5,14 +5,14 @@ const TeamSection = () => (
 	<Style>
 		<div>
 			<h2>ゲーム</h2>
-			{games.map(game => {
+			{games.map((game, i) => {
 				const awin = game.win === 0
 				const bwin = game.win === 1
 
 				return (
-					<div key={game.order} className="game">
-						<h3>Match {game.order}</h3>
-						<p className="rule">{game.rule}</p>
+					<div key={i} className="game">
+						<h3>Match {i}</h3>
+						<p className="rule">{game.rule || '準備中'}</p>
 						<div>
 							<div className="alpha" data-win={awin}>
 								<div className="point">{awin ? game.winText : '(x x )'}</div>
@@ -31,6 +31,7 @@ const TeamSection = () => (
 	</Style>
 )
 
+const size = 150
 const Style = styled.div`
 	.game {
 		background: white;
@@ -42,7 +43,7 @@ const Style = styled.div`
 			grid-template-columns: 1fr max-content 1fr;
 			> div {
 				display: flex;
-				line-height: 180px;
+				line-height: ${size}px;
 				&.alpha {
 					flex-flow: row-reverse;
 				}
@@ -61,18 +62,18 @@ const Style = styled.div`
 		img {
 			width: 80px;
 			height: 80px;
-			margin: 50px 0;
+			margin: ${(size - 80) / 2}px 0;
 			font-size: 1rem;
 		}
 		.vs {
-			line-height: 180px;
+			line-height: ${size}px;
 			font-size: 20px;
 			margin: 0 12px;
 		}
 		[data-win='true'] {
 			img {
-				width: 180px;
-				height: 180px;
+				width: ${size}px;
+				height: ${size}px;
 				margin: 0;
 			}
 			div {

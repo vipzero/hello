@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
-import { teams, members } from './data'
 import TeamSection from './TeamSection'
 import GameSection from './GameSection'
 
@@ -18,7 +17,7 @@ function Shomona22222() {
 							<span className="stop">月第</span>2回
 						</a>
 					</h1>
-					<h3>2/9(日) 21:00</h3>
+					<h3 style={{ textAlign: 'right' }}>2020/02/09(日) 21:00</h3>
 				</header>
 				<div>
 					<h2>大会について</h2>
