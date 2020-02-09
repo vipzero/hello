@@ -8,7 +8,15 @@ function Shomona22222() {
 		<Style>
 			<Container>
 				<header>
-					<h1>SHOMONA CUP 2020年令和2年2月第2回</h1>
+					<h1>
+						<a href="#">SHOMONA CUP</a>
+						<a href="#">
+							2<span className="stop">0</span>2<span className="stop">0</span>
+							<span className="stop">年令和</span>2
+							<span className="stop">年</span>2
+							<span className="stop">月第</span>2回
+						</a>
+					</h1>
 					<h3>2/9(日) 21:00</h3>
 				</header>
 				<div>
@@ -62,12 +70,53 @@ function Shomona22222() {
 const Style = styled.div`
 	padding: 0;
 	margin: 0;
-	background-color: #4bb0b8;
-	background-image: liner-gradient(45deg, transparent 48%, #bfdece 48%),
-		liner-gradient(135deg, transparent 48%, #bfdece 48%);
+	background-color: #000;
+	color: white;
 
-	background-size: 100px 100px;
+	background: repeating-linear-gradient(
+		90deg,
+		#030303,
+		#030303 100px,
+		#404040 100px,
+		#404040 102px
+	);
 	display: grid;
+
+	h1 {
+		text-align: center;
+		color: white;
+		text-transform: uppercase;
+		padding: 1px;
+		margin-top: 10vh;
+		margin-bottom: 10vh;
+		font-family: 'Raleway', cursive;
+		font-weight: 100;
+		position: relative;
+		background: linear-gradient(left, black, #eee, black);
+		background: -webkit-linear-gradient(left, black, #eee, black);
+		span.stop {
+			font-size: 0.2rem;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: -50px;
+			width: 100%;
+			margin-left: -300px;
+			margin-top: -220px;
+			height: 600px;
+			z-index: -1;
+		}
+	}
+	h1 a {
+		background: black;
+		display: block;
+		padding: 20px;
+		text-decoration: none;
+		letter-spacing: 10px;
+		color: white;
+	}
 `
 
 export default Shomona22222

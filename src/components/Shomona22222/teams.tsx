@@ -7,9 +7,8 @@ const TeamSection = () => (
 		<div className="teams">
 			{teams.map(team => (
 				<div key={team.name}>
-					<h3>{team.name}</h3>
 					<img src={team.logo} />
-					<h4>メンバ</h4>
+					<h3>{team.name}</h3>
 					<div className="members">
 						{team.members.map(mid => (
 							<div key={mid}>
@@ -32,12 +31,17 @@ const TeamSection = () => (
 
 const Style = styled.div`
 	.teams {
+		color: black;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 4px;
 		justify-content: space-evenly;
 		text-align: center;
 		> div {
+			padding-top: 1rem;
+			h3 {
+				font-size: 1.4rem;
+			}
 			background: white;
 			> img {
 				width: 50%;
