@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import { teams, members } from './data'
-import TeamSection from './teams'
+import TeamSection from './TeamSection'
+import GameSection from './GameSection'
 
 function Shomona22222() {
 	return (
@@ -30,9 +31,7 @@ function Shomona22222() {
 					</ul>
 				</div>
 				<TeamSection />
-				<div>
-					<h2>ゲーム</h2>
-				</div>
+				<GameSection />
 				<div>
 					<h2>勝者</h2>
 				</div>
@@ -40,7 +39,7 @@ function Shomona22222() {
 					<ul>
 						<li>
 							<a href="http://hebi.5ch.net/test/read.cgi/news4vip/1581209829/l50">
-								スレ
+								VIPスレ
 							</a>
 						</li>
 						<li>
@@ -55,7 +54,7 @@ function Shomona22222() {
 							</a>
 						</li>
 						<li>
-							<a href="https://hello.vipper.dev">0000-00 vip0</a>
+							<a href="https://hello.vipper.dev">made by vip000000</a>
 						</li>
 						<li>
 							<a href="https://google.com">主催: やまおか</a>
@@ -108,14 +107,32 @@ const Style = styled.div`
 			height: 600px;
 			z-index: -1;
 		}
+		a {
+			background: black;
+			display: block;
+			padding: 20px;
+			text-decoration: none;
+			letter-spacing: 10px;
+			color: white;
+		}
 	}
-	h1 a {
-		background: black;
-		display: block;
-		padding: 20px;
-		text-decoration: none;
-		letter-spacing: 10px;
-		color: white;
+	h2 {
+		position: relative;
+		margin-bottom: 2rem;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0.5rem;
+			height: 4px;
+			background: yellow;
+			bottom: -8px;
+		}
+	}
+	ul > li {
+		a {
+			color: yellow;
+		}
 	}
 `
 

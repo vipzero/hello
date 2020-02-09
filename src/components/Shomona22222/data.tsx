@@ -50,3 +50,8 @@ export type GameRule =
 	| 'デスしたらリスポンから5秒間マップを開き続ける'
 	| 'デスしたらサブのみ使える状態になる(キル/アシストで解除)'
 	| '俺の得意ブキを使う'
+
+export type Game = {
+	order: number
+	win: -1 | 0 | 1
+}
