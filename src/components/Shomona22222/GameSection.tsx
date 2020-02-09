@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { teams, games } from './data'
+import { members, teams, games } from './data'
 
 const TeamSection = () => (
 	<Style>
@@ -17,11 +17,21 @@ const TeamSection = () => (
 							<div className="alpha" data-win={awin}>
 								<div className="point">{awin ? game.winText : '(x x )'}</div>
 								<img src={teams[0].logo} />
+								<ul>
+									{game.aMembers.map(mid => (
+										<li key={mid}>{members[mid].name}</li>
+									))}
+								</ul>
 							</div>
 							<div className="vs">vs</div>
 							<div data-win={bwin}>
 								<div className="point">{bwin ? game.winText : '( x x)'}</div>
 								<img src={teams[1].logo} />
+								<ul>
+									{game.bMembers.map(mid => (
+										<li key={mid}>{members[mid].name}</li>
+									))}
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -63,7 +73,7 @@ const Style = styled.div`
 			width: 80px;
 			height: 80px;
 			margin: ${(size - 80) / 2}px 0;
-			font-size: 1rem;
+			font-size: 1.4rem;
 		}
 		.vs {
 			line-height: ${size}px;
@@ -79,6 +89,16 @@ const Style = styled.div`
 			div {
 				font-size: 60px;
 			}
+		}
+		ul {
+			margin: 40px;
+			padding: 0;
+		}
+		li {
+			margin: 0;
+			padding: 0;
+			line-height: 1.4rem;
+			list-style: none;
 		}
 		p.rule {
 			padding: 12px;

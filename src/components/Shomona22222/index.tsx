@@ -28,6 +28,8 @@ function Shomona22222() {
 						</li>
 						<li>その状況下で試合する</li>
 						<li>最終的に勝ち数で優勝を決める</li>
+						<li>4×4=16(試合)</li>
+						<li>タチウオガンガゼBバスは除外</li>
 					</ul>
 				</div>
 				<TeamSection />
