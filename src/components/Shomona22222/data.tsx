@@ -14,7 +14,7 @@ export const members: Record<MemberId, Member> = {
 		comment: 'スプラトゥーーーーーーーン',
 		wepon: 'ハンコ',
 	},
-	yam: { name: 'やまおか', comment: '', wepon: '' },
+	yam: { name: 'やまおか', comment: '竹・プライム', wepon: 'しょうもな' },
 	lem: {
 		name: 'lemon',
 		comment: 'もし寝過したらごめんね♡',
