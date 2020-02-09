@@ -55,27 +55,35 @@ export type GameRule = typeof gameRules[number] | undefined
 
 export type Game = {
 	rule: GameRule
-	order: number
+	order: string
 	win: undefined | 0 | 1
 	winText: string
+	aMembers: MemberId[]
+	bMembers: MemberId[]
 }
 export const games: Game[] = [
 	{
-		order: 1,
+		order: '1-1',
 		rule: undefined,
 		win: undefined,
 		winText: 'KO',
-	},
-	{
-		order: 2,
-		rule: undefined,
-		win: undefined,
-		winText: '90',
-	},
-	{
-		order: 3,
-		rule: undefined,
-		win: undefined,
-		winText: '',
+		aMembers: ['ano'],
+		bMembers: [],
 	},
 ]
+
+const memberPointsList: Record<MemberId, number>[] = []
+const memberPoints = {} as Record<MemberId, number>
+
+games.forEach(game => {
+	const winMembers = [game.aMembers, game.bMembers][game.win || -1]
+
+	if (winMembers) {
+		winMembers.map(id => {
+			memberPoints[id] = (memberPoints[id] || 0) + 1
+		})
+	}
+	memberPointsList.push({ ...memberPoints })
+})
+
+export { memberPointsList }

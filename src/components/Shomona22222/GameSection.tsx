@@ -11,7 +11,7 @@ const TeamSection = () => (
 
 				return (
 					<div key={i} className="game">
-						<h3>Match {i}</h3>
+						<h3>Match {game.order}</h3>
 						<p className="rule">{game.rule || '準備中'}</p>
 						<div>
 							<div className="alpha" data-win={awin}>

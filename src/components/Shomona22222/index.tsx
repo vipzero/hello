@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import TeamSection from './TeamSection'
 import GameSection from './GameSection'
+import BoardSection from './BoardSection'
 
 function Shomona22222() {
 	return (
@@ -31,6 +32,7 @@ function Shomona22222() {
 				</div>
 				<TeamSection />
 				<GameSection />
+				<BoardSection />
 				<div>
 					<h2>勝者</h2>
 				</div>
