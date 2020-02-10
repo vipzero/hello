@@ -43,7 +43,6 @@ export const teams: Team[] = [
 ]
 
 export const gameRules = [
-	'初期ギアのみ',
 	'下の人の得意ブキを使う',
 	'サブ禁止',
 	'キル取ったらリスジャン',
@@ -51,12 +50,18 @@ export const gameRules = [
 	'デスしたらリスポンから5秒間マップを開き続ける',
 	'デスしたらサブのみ使える状態になる(キル/アシストで解除)',
 	'山岡以外デスしたらサブのみ使える状態になる(キル/アシストで解除)',
+	'アルファの1～3とブラボーの3, 4は 次の人の得意ブキを使う',
+	'スプラトゥーンが嫌いなやつ全員は サブ禁止',
 	'山岡以外初期ギア',
+	'山岡だけキル取ったらリスジャン',
 	'2勢は相手チームの得意武器',
 	'俺の得意ブキを使う',
 	'得意武器以外を使う',
-	'?',
+	'健常者は初期ギアサブなし',
+	'両チームの2, 3は 苦手ブキを使う',
 	'α全員&β12の2400以上はサブスペ禁止',
+	'初期ギアのみ',
+	'アルファの1, 4とブラボーの2, 3は スペシャル禁止',
 ] as const
 export type GameRule = typeof gameRules[number] | undefined
 
@@ -126,27 +131,27 @@ export const games: Game[] = [
 	{
 		// ヤグラスメシ
 		order: '2-3',
-		rule: '?',
+		rule: 'アルファの1～3とブラボーの3, 4は 次の人の得意ブキを使う',
 		win: 0,
 		winText: '?',
-		aMembers: ['y', 'm', 'a', 'g'],
-		bMembers: ['f', 'l', 's', 'e'],
+		aMembers: ['y', 'e', 'a', 'g'],
+		bMembers: ['f', 'l', 's', 'm'],
 	},
 	{
 		// アサリ
 		order: '2-4',
-		rule: '?',
+		rule: '山岡だけキル取ったらリスジャン',
 		win: 0,
 		winText: '?',
 		aMembers: ['m', 'y', 'a', 'l'],
-		bMembers: ['s', 'm', 'f', 'g'],
+		bMembers: ['s', 'e', 'f', 'g'],
 	},
 	{
 		// アサリ
 		order: '3-1',
-		rule: '?',
+		rule: '両チームの2, 3は 苦手ブキを使う',
 		win: 0,
-		winText: '',
+		winText: '88',
 		aMembers: ['y', 'f', 'm', 'a'],
 		bMembers: ['l', 's', 'g', 'e'],
 	},
@@ -162,20 +167,20 @@ export const games: Game[] = [
 	{
 		// アサリ
 		order: '3-3',
-		rule: '?',
+		rule: 'アルファの1, 4とブラボーの2, 3は スペシャル禁止',
 		win: 0,
-		winText: '',
+		winText: '84',
 		aMembers: ['y', 'a', 'l', 'g'],
 		bMembers: ['m', 'f', 's', 'e'],
 	},
 	{
 		// アサリ
 		order: '3-4',
-		rule: '?',
+		rule: '健常者は初期ギアサブなし',
 		win: 1,
-		winText: '',
+		winText: '94',
 		aMembers: ['m', 'f', 'a', 's'],
-		bMembers: ['y', 'l', 'g', 'm'],
+		bMembers: ['y', 'l', 'g', 'e'],
 	},
 ]
 

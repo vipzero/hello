@@ -37,6 +37,9 @@ function Shomona22222() {
 				<BoardSection />
 				<div>
 					<h2>勝者</h2>
+					<div>1位 やまおか</div>
+					<div>2位 あの</div>
+					<div>3位 むめい</div>
 				</div>
 				<footer>
 					<ul>
@@ -46,7 +49,7 @@ function Shomona22222() {
 							</a>
 						</li>
 						<li>
-							<a href="">配信？</a>
+							<a href="https://www.twitch.tv/videos/549277349">配信: むめい</a>
 						</li>
 						<li>
 							<a href="https://shomona.vipper.dev/">2019-05 しょうもな杯</a>

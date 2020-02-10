@@ -19,7 +19,7 @@ const TeamSection = () => (
 								<img src={teams[0].logo} />
 								<ul>
 									{game.aMembers.map(mid => (
-										<li key={mid}>{members[mid].name}</li>
+										<li key={mid}>{members[mid].name.substr(0, 5)}</li>
 									))}
 								</ul>
 							</div>
@@ -29,7 +29,7 @@ const TeamSection = () => (
 								<img src={teams[1].logo} />
 								<ul>
 									{game.bMembers.map(mid => (
-										<li key={mid}>{members[mid].name}</li>
+										<li key={mid}>{members[mid].name.substr(0, 5)}</li>
 									))}
 								</ul>
 							</div>
@@ -54,6 +54,10 @@ const Style = styled.div`
 			> div {
 				display: flex;
 				line-height: ${size}px;
+				@media screen and (max-width: 896px) {
+					line-height: ${size / 3}px;
+				}
+
 				&.alpha {
 					flex-flow: row-reverse;
 				}
@@ -73,10 +77,16 @@ const Style = styled.div`
 			width: 80px;
 			height: 80px;
 			margin: ${(size - 80) / 2}px 0;
+			@media screen and (max-width: 896px) {
+				margin: ${(size / 4 - 80) / 2}px 0;
+			}
 			font-size: 1.4rem;
 		}
 		.vs {
 			line-height: ${size}px;
+			@media screen and (max-width: 896px) {
+				line-height: ${size / 4}px;
+			}
 			font-size: 20px;
 			margin: 0 12px;
 		}
@@ -84,14 +94,24 @@ const Style = styled.div`
 			img {
 				width: ${size}px;
 				height: ${size}px;
+				@media screen and (max-width: 896px) {
+					width: ${size / 4}px;
+					height: ${size / 4}px;
+				}
 				margin: 0;
 			}
 			div {
 				font-size: 60px;
+				@media screen and (max-width: 896px) {
+					font-size: 30px;
+				}
 			}
 		}
 		ul {
 			margin: 40px;
+			@media screen and (max-width: 896px) {
+				margin: 0;
+			}
 			padding: 0;
 		}
 		li {
