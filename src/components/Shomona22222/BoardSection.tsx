@@ -23,10 +23,12 @@ const BoardSection = () => {
 				<h2>ボード</h2>
 				<table>
 					<thead>
-						<th />
-						{Object.keys(members).map(id => (
-							<td key={id}>{members[id].name.substr(0, 5)}</td>
-						))}
+						<tr>
+							<th />
+							{Object.keys(members).map(id => (
+								<th key={id}>{members[id].name.substr(0, 5)}</th>
+							))}
+						</tr>
 					</thead>
 					<tbody>
 						{memberPointsList.map((points, i) => (

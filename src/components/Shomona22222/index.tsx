@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
+import Head from 'next/head'
 import TeamSection from './TeamSection'
 import GameSection from './GameSection'
 import BoardSection from './BoardSection'
@@ -7,6 +8,20 @@ import BoardSection from './BoardSection'
 function Shomona22222() {
 	return (
 		<Style>
+			<Head>
+				<meta property="og:title" content="第二回しょうもな杯 Splatoon2" />
+				<meta property="og:type" content="website " />
+				<meta
+					property="og:url"
+					content="https://hello.vipper.dev/shomona22222"
+				/>
+				<meta
+					property="og:image"
+					content="https://hello.vipper.dev/shomona22222/thumbnail.png"
+				/>
+				<meta property="og:site_name" content="第二回しょうもな杯 Splatoon2" />
+				<meta name="twitter:card" content="summary_large_image" />
+			</Head>
 			<Container maxWidth="md">
 				<header>
 					<h1>
