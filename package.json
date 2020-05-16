@@ -24,7 +24,7 @@
 		"react-google-charts": "3.0.15",
 		"react-router-dom": "5.1.2",
 		"react-svg": "11.0.21",
-		"react-use": "13.27.1",
+		"react-use": "14.3.0",
 		"styled-components": "5.1.0",
 		"superagent": "5.2.2",
 		"zdog": "1.1.2"
