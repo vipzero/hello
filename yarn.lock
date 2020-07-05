@@ -3249,10 +3249,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-nzap@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-2.0.0.tgz#2a6e7d6ef5fedfb9a0a820159cfcdfaa13ad7cda"
-  integrity sha512-RZUm8lGBBgpem5E4IuwRVXqn8a9hcrCmCfDR/OaZ227SA6Dg/ydtEsa9WD3F2ryE/5ld4sV1Se/yUe6UYErghw==
+eslint-config-nzap@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-3.1.1.tgz#93068e2631acf52c716ef6ca039fa67553a275ad"
+  integrity sha512-ZdjqMjZA0gAs9q84v1Q2ghy68nWh5BfuRPInPyFbOt+VPAnfntloZFFZD39+hctrbp49JXr+lT3J4XGM5d05DA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^3.0.2"
     "@typescript-eslint/parser" "^3.0.2"
