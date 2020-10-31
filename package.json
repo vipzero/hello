@@ -19,7 +19,7 @@
 		"noisejs": "2.1.0",
 		"prettier": "1.19.1",
 		"react": "16.13.1",
-		"react-dev-utils": "10.2.1",
+		"react-dev-utils": "11.0.0",
 		"react-dom": "16.13.1",
 		"react-google-charts": "3.0.15",
 		"react-router-dom": "5.1.2",
