@@ -26,7 +26,7 @@
 		"react-svg": "11.0.21",
 		"react-use": "13.27.1",
 		"styled-components": "5.1.0",
-		"superagent": "5.2.2",
+		"superagent": "6.1.0",
 		"zdog": "1.1.2"
 	},
 	"devDependencies": {
