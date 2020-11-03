@@ -45,7 +45,7 @@
 		"next-images": "1.4.0",
 		"typescript": "3.8.3",
 		"url-loader": "3.0.0",
-		"webpack": "4.43.0"
+		"webpack": "5.4.0"
 	},
 	"homepage": "https://hello.vipper.dev",
 	"lint-staged": {
