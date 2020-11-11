@@ -78,7 +78,7 @@ const Style = styled.div`
 		h1 {
 			text-align: center;
 			font-family: 'Baloo Bhaina', cursive; /* 使うgoogle fontによって変更 */
-			font-size: 5rem;
+			font-size: 10vw;
 			font-weight: bold;
 			margin: 0px;
 			text-shadow: 3px 3px 0 #f7d572, 6px 6px 0 #f6c561, 9px 9px 0 #f5b461;
