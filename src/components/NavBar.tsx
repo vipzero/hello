@@ -56,7 +56,7 @@ function NavBar(_: Props) {
 					<Tab>{g.name}</Tab>
 					{g.menus.map((menu) => (
 						<MenuItem key={menu.path}>
-							<Link href={`/${menu.path}`}>
+							<Link href={`${menu.path}`}>
 								<Typography>{menu.name}</Typography>
 							</Link>
 						</MenuItem>
