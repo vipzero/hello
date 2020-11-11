@@ -37,7 +37,7 @@ function DigHash() {
 					value={search}
 					label="検索文字列(正規表現)"
 					helperText="aaaa|bbbb→aaaaかbbbb。◆ab→abから始まる。"
-					onChange={e => {
+					onChange={(e) => {
 						setSearch(e.target.value)
 						stop()
 					}}
@@ -46,7 +46,7 @@ function DigHash() {
 					variant="outlined"
 					value={prefix}
 					label="prefix"
-					onChange={e => {
+					onChange={(e) => {
 						setPrefix(e.target.value)
 						stop()
 					}}
@@ -56,7 +56,7 @@ function DigHash() {
 					value={speed}
 					label="速度(ms)"
 					type="number"
-					onChange={e => {
+					onChange={(e) => {
 						setSpeed(Number(e.target.value))
 						stop()
 					}}
@@ -82,7 +82,7 @@ function DigHash() {
 
 							setLastTri(pair)
 							if (regex.exec(tri)) {
-								setHashs(v => v.concat(pair))
+								setHashs((v) => v.concat(pair))
 							}
 						}, 10)
 					)
@@ -106,7 +106,7 @@ function DigHash() {
 					</tr>
 				</thead>
 				<tbody>
-					{hashs.map(p => (
+					{hashs.map((p) => (
 						<tr key={p.source}>
 							<td>{p.source}</td>
 							<td>{p.tri}</td>

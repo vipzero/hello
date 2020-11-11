@@ -18,7 +18,7 @@ const TeamSection = () => (
 								<div className="point">{awin ? game.winText : '(x x )'}</div>
 								<img src={teams[0].logo} />
 								<ul>
-									{game.aMembers.map(mid => (
+									{game.aMembers.map((mid) => (
 										<li key={mid}>{members[mid].name.substr(0, 5)}</li>
 									))}
 								</ul>
@@ -28,7 +28,7 @@ const TeamSection = () => (
 								<div className="point">{bwin ? game.winText : '( x x)'}</div>
 								<img src={teams[1].logo} />
 								<ul>
-									{game.bMembers.map(mid => (
+									{game.bMembers.map((mid) => (
 										<li key={mid}>{members[mid].name.substr(0, 5)}</li>
 									))}
 								</ul>

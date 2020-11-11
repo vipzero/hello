@@ -51,10 +51,10 @@ function NavBar(_: Props) {
 
 	return (
 		<Wrapper data-fixed={fixed}>
-			{menuGroups.map(g => (
+			{menuGroups.map((g) => (
 				<Group key={g.name}>
 					<Tab>{g.name}</Tab>
-					{g.menus.map(menu => (
+					{g.menus.map((menu) => (
 						<MenuItem key={menu.path}>
 							<Link href={`/${menu.path}`}>
 								<Typography>{menu.name}</Typography>

@@ -62,8 +62,10 @@ function Othelle() {
 								const reversible = (h1: Stone, h2: Stone) =>
 									h1 === h2 && h2 !== '-'
 
-								if (_range(i + 1, b.length).some(j => reversible(hand, b[j]))) {
-									_range(i + 1, b.length).every(j => {
+								if (
+									_range(i + 1, b.length).some((j) => reversible(hand, b[j]))
+								) {
+									_range(i + 1, b.length).every((j) => {
 										if (reversible(hand, b[j])) {
 											return false
 										}
@@ -72,8 +74,8 @@ function Othelle() {
 										return true
 									})
 								}
-								if (_range(i - 1, -1).some(j => reversible(hand, b[j]))) {
-									_range(i - 1, -1).every(j => {
+								if (_range(i - 1, -1).some((j) => reversible(hand, b[j]))) {
+									_range(i - 1, -1).every((j) => {
 										if (reversible(hand, b[j])) {
 											return false
 										}

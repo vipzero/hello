@@ -5,12 +5,12 @@ const TeamSection = () => (
 	<Style>
 		<h2>チーム</h2>
 		<div className="teams">
-			{teams.map(team => (
+			{teams.map((team) => (
 				<div key={team.name}>
 					<img src={team.logo} />
 					<h3>{team.name}</h3>
 					<div className="members">
-						{team.members.map(mid => (
+						{team.members.map((mid) => (
 							<div key={mid}>
 								<img
 									src={`https://avatars.dicebear.com/v2/bottts/${mid}.svg`}

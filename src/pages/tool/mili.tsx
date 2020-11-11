@@ -1,14 +1,8 @@
 // eslint-disable-next-line
-import { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { Slider } from '@material-ui/core'
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import Layout from '../../components/Layout'
-
-type State = {
-	timeStr: string
-	diffMili: number
-	timer: number | null
-}
 
 function Mili() {
 	const [timeStr, setTimeStr] = useState<string>('xx')
@@ -53,7 +47,7 @@ function Mili() {
 				min="-999"
 				max="999"
 				value={diffMili}
-				onChange={e => {
+				onChange={(e) => {
 					setDiffMili(Number(e.target.value))
 				}}
 			/>

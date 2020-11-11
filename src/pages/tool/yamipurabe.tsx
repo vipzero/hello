@@ -1,16 +1,15 @@
-import styled from 'styled-components'
-
 import { TextField, Typography } from '@material-ui/core'
 import { useState } from 'react'
-import { weponList } from '../../data/splatoon-wepons'
+import styled from 'styled-components'
 import Layout from '../../components/Layout'
+import { weponList } from '../../data/splatoon-wepons'
 
 const Wrap = styled.div`
 	width: 400px;
 	padding: 20px;
 `
 const weponText = weponList
-	.map(wepon => `${wepon.name}.${wepon.start}-${wepon.end}`)
+	.map((wepon) => `${wepon.name}.${wepon.start}-${wepon.end}`)
 	.join(',')
 
 function YamiPrabe() {
@@ -25,13 +24,13 @@ function YamiPrabe() {
 					variant="outlined"
 					label="コンマ"
 					helperText="0~999"
-					onChange={e => {
+					onChange={(e) => {
 						if (e.target) {
 							setNum(e.target.value)
 						}
 					}}
 				></TextField>
-				{weponList.map(wepon => (
+				{weponList.map((wepon) => (
 					<div key={wepon.name}>
 						{wepon.start <= Number(num) && Number(num) <= wepon.end && (
 							<Typography variant="h3">{wepon.name}</Typography>

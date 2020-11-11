@@ -18,7 +18,7 @@ function Xmas() {
 			{ title: '旅行先', items: _shuffle(['⛩', '⛰', '🕋', '🌕', '🏛']) },
 		]
 
-		v.forEach(v => (v.items[3] = '🗿'))
+		v.forEach((v) => (v.items[3] = '🗿'))
 		return v
 	}, [])
 
@@ -29,8 +29,8 @@ function Xmas() {
 		const range = [-1, 0, 1]
 		const k: { [k: string]: boolean } = {}
 
-		range.forEach(hw =>
-			range.forEach(dw => {
+		range.forEach((hw) =>
+			range.forEach((dw) => {
 				k[`${h + hw}_${w + dw}`] = val
 			})
 		)
@@ -88,12 +88,14 @@ function Xmas() {
 									size="large"
 									onClick={() => {
 										if (open[n] === undefined) {
-											setOpen(s => ({ ...s, [n]: i }))
+											setOpen((s) => ({ ...s, [n]: i }))
 										} else {
-											setBomb(s => Object.assign({}, s, genRect(n, i, true)))
+											setBomb((s) => Object.assign({}, s, genRect(n, i, true)))
 											setTimeout(() => {
-												setBomb(s => Object.assign({}, s, genRect(n, i, false)))
-												setDel(s => Object.assign({}, s, genRect(n, i, true)))
+												setBomb((s) =>
+													Object.assign({}, s, genRect(n, i, false))
+												)
+												setDel((s) => Object.assign({}, s, genRect(n, i, true)))
 											}, 1000)
 										}
 									}}

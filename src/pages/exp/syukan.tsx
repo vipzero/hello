@@ -19,7 +19,7 @@ function Syukan() {
 				</pre>
 			</code>
 			{_range(1, 101)
-				.map(n => ({ n, v: Math.pow(8, n) }))
+				.map((n) => ({ n, v: Math.pow(8, n) }))
 				.map(({ n, v }) => (
 					<div key={n}>
 						8 ^ {n} % 7 = {v % 7} ({v})

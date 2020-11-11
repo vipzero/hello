@@ -60,32 +60,32 @@ ${w5}${_sample(['........', '!!!!!!!!!'])}
 				<TextField
 					label="タイトル(カタカナ)"
 					value={title}
-					onChange={e => setTitle(e.target.value)}
+					onChange={(e) => setTitle(e.target.value)}
 				/>
 				<TextField
 					label="ワード1"
 					value={w1}
-					onChange={e => setW1(e.target.value)}
+					onChange={(e) => setW1(e.target.value)}
 				/>
 				<TextField
 					label="ワード2"
 					value={w2}
-					onChange={e => setW2(e.target.value)}
+					onChange={(e) => setW2(e.target.value)}
 				/>
 				<TextField
 					label="ワード3"
 					value={w3}
-					onChange={e => setW3(e.target.value)}
+					onChange={(e) => setW3(e.target.value)}
 				/>
 				<TextField
 					label="ワード4"
 					value={w4}
-					onChange={e => setW4(e.target.value)}
+					onChange={(e) => setW4(e.target.value)}
 				/>
 				<TextField
 					label="締め(半角)"
 					value={w5}
-					onChange={e => setW5(e.target.value)}
+					onChange={(e) => setW5(e.target.value)}
 				/>
 			</div>
 			<div>

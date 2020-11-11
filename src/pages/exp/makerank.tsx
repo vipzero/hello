@@ -19,7 +19,7 @@ const initialCells: Cells = {
 
 function MakeRank() {
 	const [cells, setCells] = useState<Cells>(initialCells)
-	const rank = _range(3).map(i => ({
+	const rank = _range(3).map((i) => ({
 		n: _sum(Object.values(cells[`${i}`])),
 		title: titles[i],
 	}))
@@ -33,14 +33,14 @@ function MakeRank() {
 				<tbody>
 					<tr>
 						<th>強いのどっち</th>
-						{_range(3).map(x => (
+						{_range(3).map((x) => (
 							<th key={x}>{titles[x]}</th>
 						))}
 					</tr>
-					{_range(3).map(x => (
+					{_range(3).map((x) => (
 						<tr key={x}>
 							<th>{titles[x]}</th>
-							{_range(3).map(y =>
+							{_range(3).map((y) =>
 								x === y ? (
 									<td key={y}>-</td>
 								) : (

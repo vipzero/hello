@@ -51,7 +51,7 @@ function repeatTry(n: number, k: number, p: number) {
 console.log(repeatTry(10, 1, 0.5).toFixed(10))
 // const res = _range(5).map(i => repeatTry(5, i, 0.5))
 // コンマゾロメが i 回でる確率
-const dataZorome: Plot[] = _range(30).map(x => [
+const dataZorome: Plot[] = _range(30).map((x) => [
 	x,
 	Number(repeatTry(1000, x, 0.01).toFixed(5)) * 100,
 ])

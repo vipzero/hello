@@ -6,11 +6,11 @@ const BoardSection = () => {
 	const memberPointsList: Record<MemberId, number>[] = []
 	const memberPoints = {} as Record<MemberId, number>
 
-	games.forEach(game => {
+	games.forEach((game) => {
 		const winMembers = [game.aMembers, game.bMembers][game.win]
 
 		if (winMembers) {
-			winMembers.forEach(id => {
+			winMembers.forEach((id) => {
 				memberPoints[id] = (memberPoints[id] || 0) + 1
 			})
 		}
@@ -25,7 +25,7 @@ const BoardSection = () => {
 					<thead>
 						<tr>
 							<th />
-							{Object.keys(members).map(id => (
+							{Object.keys(members).map((id) => (
 								<th key={id}>{members[id].name.substr(0, 5)}</th>
 							))}
 						</tr>
@@ -34,7 +34,7 @@ const BoardSection = () => {
 						{memberPointsList.map((points, i) => (
 							<tr key={i}>
 								<th>{games[i].order}</th>
-								{Object.keys(members).map(id => (
+								{Object.keys(members).map((id) => (
 									<td key={id}>{points[id]}</td>
 								))}
 							</tr>

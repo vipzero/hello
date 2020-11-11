@@ -16,8 +16,8 @@ const hands = [
 
 const tripTable: Record<string, string> = {}
 
-hands.forEach(h1 =>
-	hands.forEach(h2 => {
+hands.forEach((h1) =>
+	hands.forEach((h2) => {
 		const key = `#${h1}${h2}`
 
 		tripTable[key] = genTrip(key)
@@ -33,16 +33,16 @@ function LaiarGame() {
 				<thead>
 					<tr>
 						<th />
-						{hands.map(hand => (
+						{hands.map((hand) => (
 							<th key={hand}>{hand}</th>
 						))}
 					</tr>
 				</thead>
 				<tbody>
-					{hands.map(h1 => (
+					{hands.map((h1) => (
 						<tr key={h1}>
 							<th className="first">{h1}</th>
-							{hands.map(h2 => {
+							{hands.map((h2) => {
 								const key = `#${h1}${h2}`
 								const trip = tripTable[`#${h1}${h2}`]
 

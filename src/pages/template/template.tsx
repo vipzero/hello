@@ -7,7 +7,7 @@ function Base() {
 
 	return (
 		<div>
-			<Button onClick={() => setCount(c => c + 1)}>+1</Button>
+			<Button onClick={() => setCount((c) => c + 1)}>+1</Button>
 			{count}
 		</div>
 	)
