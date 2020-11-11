@@ -43,7 +43,7 @@ function PockyFes2020() {
 							<ul>
 								メンバー毎に
 								<li>塗りポイントに含まれる1の数 x 1pt</li>
-								<li>キル数デス数スペシャル回数に含まれる1の数 x 1pt</li>
+								<li>キル/デス/スペ回数に含まれる1の数 x 1pt</li>
 							</ul>
 						</ul>
 					</section>
@@ -63,6 +63,9 @@ const GlobalStyle = createGlobalStyle`
 const Style = styled.div`
 	section {
 		padding: 8px 1rem;
+	}
+	ul {
+		padding-left: 20px;
 	}
 	.board {
 		margin: 20px 0;
