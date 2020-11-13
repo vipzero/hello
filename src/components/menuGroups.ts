@@ -48,7 +48,7 @@ const menuGroups: MenuGroup[] = [
 	{
 		name: 'LP',
 		menus: [
-			{ path: '/pockyfes2020', name: 'ポッキーフェス2020' },
+			{ path: '/pockeyfes2020', name: 'ポッキーフェス2020' },
 			{ path: '/shomona22222', name: 'しょうもな杯2' },
 			{ path: 'https://shomona.vipper.dev', name: 'しょうもな杯' },
 			{

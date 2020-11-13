@@ -135,7 +135,6 @@ const Style = styled.div`
 			margin-left: -300px;
 			margin-top: -220px;
 			height: 600px;
-			z-index: -1;
 		}
 		a {
 			background: black;

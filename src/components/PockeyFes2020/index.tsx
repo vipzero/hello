@@ -2,10 +2,11 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import Container from '@material-ui/core/Container'
 import Head from 'next/head'
+import Background from './Background'
 
 const title = 'VIPポッキーフェス2020 Splatoon2'
 
-function PockyFes2020() {
+function PockeyFes2020() {
 	return (
 		<Style>
 			<Head>
@@ -16,8 +17,9 @@ function PockyFes2020() {
 			</Head>
 			<GlobalStyle />
 			<Container maxWidth="md">
+				<Background />
 				<section className="board">
-					<h1>PockyFes2020</h1>
+					<h1>PockeyFes2020</h1>
 					<section>
 						<h3>日時場所</h3>
 						<p>
@@ -82,7 +84,7 @@ const Style = styled.div`
 		h1 {
 			text-align: center;
 			font-family: 'Baloo Bhaina', cursive; /* 使うgoogle fontによって変更 */
-			font-size: 10vw;
+			font-size: 9vw;
 			font-weight: bold;
 			margin: 0px;
 			text-shadow: 3px 3px 0 #f7d572, 6px 6px 0 #f6c561, 9px 9px 0 #f5b461;
@@ -112,4 +114,4 @@ const Style = styled.div`
 	}
 `
 
-export default PockyFes2020
+export default PockeyFes2020
