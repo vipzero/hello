@@ -38,8 +38,9 @@ function PockyFes2020() {
 					<section>
 						<h3>得点計算</h3>
 						<ul>
-							<li>チャーロラ武器の数 x 1pt</li>
 							<li>試合勝利 + 11pt</li>
+							<li>チャーロラ武器の数 x 1pt</li>
+							<li>ホッケかめんの数 x 1pt</li>
 							<ul>
 								メンバー毎に
 								<li>塗りポイントに含まれる1の数 x 1pt</li>
