@@ -3409,10 +3409,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-nzap@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-4.3.0.tgz#c7c4669d7d7059a81ff5fc26d6412fccb742c2e0"
-  integrity sha512-NLfsCoTHN/1ucgM0elTOpQO5lIrmgQhoYGHlkRmZv/6qz3hrsdMMGfnCPkLOpxA+O3haV8JrI30YrLtBLb+9MA==
+eslint-config-nzap@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-nzap/-/eslint-config-nzap-4.3.1.tgz#2cf8d5493c77c60e65c070f0eecaef9618363448"
+  integrity sha512-U9IiHx93bOas39a5jy6kM8f7vAAitFytuW+VCVnatRBsbS2C7pGqoXKsEIKQVXtOXrtyghYDT21JIIeoVxBQPw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.6.1"
     "@typescript-eslint/parser" "^4.6.1"
