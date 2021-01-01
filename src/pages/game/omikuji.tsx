@@ -100,7 +100,15 @@ function Omikuji() {
 							引く
 						</Button>
 					) : (
-						<Typography variant="h5">{unit}</Typography>
+						<Typography variant="h5">
+							<a
+								href={`https://www.google.co.jp/search?q=${
+									money || 1
+								}${unit}%20円`}
+							>
+								{unit}
+							</a>
+						</Typography>
 					)}
 				</div>
 			</div>
