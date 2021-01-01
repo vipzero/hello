@@ -47,9 +47,11 @@ const list = [
 // return x (1 <= x <= N)
 const randNum = (n: number) => Math.ceil(Math.random() * n)
 
+const year = 2021
+
 function Omikuji() {
-	const [money, setMoney] = useLocalStorage<number>('2021-money', 0)
-	const [unit, setUnit] = useLocalStorage<string>('2021-unit', '')
+	const [money, setMoney] = useLocalStorage<number>(`${year}-money`, 0)
+	const [unit, setUnit] = useLocalStorage<string>(`${year}-unit`, '')
 
 	return (
 		<div
@@ -60,7 +62,7 @@ function Omikuji() {
 			}}
 		>
 			<Typography variant="h5" style={{ color: 'white' }}>
-				お年玉だよー
+				お年玉だよー({year})
 			</Typography>
 			<div style={{ display: 'flex', padding: '10vh 1vh' }}>
 				{money === 0 ? (
