@@ -48,8 +48,8 @@ const list = [
 const randNum = (n: number) => Math.ceil(Math.random() * n)
 
 function Omikuji() {
-	const [money, setMoney] = useLocalStorage<number>('money', 0)
-	const [unit, setUnit] = useLocalStorage<string>('unit', '')
+	const [money, setMoney] = useLocalStorage<number>('2021-money', 0)
+	const [unit, setUnit] = useLocalStorage<string>('2021-unit', '')
 
 	return (
 		<div
