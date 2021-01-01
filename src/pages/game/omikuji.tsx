@@ -47,7 +47,7 @@ const list = [
 // return x (1 <= x <= N)
 const randNum = (n: number) => Math.ceil(Math.random() * n)
 
-const year = 2021
+const year = new Date().getFullYear()
 
 function Omikuji() {
 	const [money, setMoney] = useLocalStorage<number>(`${year}-money`, 0)
