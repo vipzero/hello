@@ -38,6 +38,7 @@ const menuGroups: MenuGroup[] = [
 		name: 'ツール',
 		menus: [
 			{ path: '/tool/mili', name: 'コンママスター' },
+			{ path: '/tool/flushese', name: 'フラッシュ暗算' },
 			{ path: '/tool/yamipurabe', name: '闇プラベ' },
 			{ path: '/tool/probability', name: 'コンマ確率グラフ' },
 			{ path: '/tool/dighash', name: 'Hash採掘' },
