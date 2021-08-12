@@ -40,6 +40,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: '/tool/mili', name: 'コンママスター' },
 			{ path: '/tool/flushese', name: 'フラッシュ暗算' },
 			{ path: '/tool/yamipurabe', name: '闇プラベ' },
+			{ path: '/tool/splatoon-shuffle8', name: 'シャッフルプラベ' },
 			{ path: '/tool/probability', name: 'コンマ確率グラフ' },
 			{ path: '/tool/dighash', name: 'Hash採掘' },
 			{ path: '/tool/bbsgacha', name: '板ガチャ' },
