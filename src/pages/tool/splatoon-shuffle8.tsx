@@ -1,6 +1,7 @@
 import { TextareaAutosize, TextField } from '@material-ui/core'
 import { range, shuffle } from 'lodash'
 import { useMemo, useState } from 'react'
+import { useLocalStorage } from 'react-use'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
 
@@ -15,16 +16,19 @@ const Wrap = styled.div`
 		padding: 0.5rem 1rem;
 		p {
 			&:nth-child(4n),
-			&:nth-child(4n + 1) {
+			&:nth-child(4n + 1),
+			&:nth-child(4n + 2),
+			&:nth-child(4n + 3) {
 				background: #c7c7c7;
 			}
 		}
 	}
 `
 
-function YamiPrabe() {
-	const [text, setText] = useState<string>('')
-	const items = text.trim().split('\n')
+function Shuffle8() {
+	const [text, setText] = useLocalStorage<string>('shuffle8_text', '')
+
+	const items = (text || '').trim().split('\n')
 	const shuffles = useMemo(() => {
 		return range(16).map(() => shuffle([...items]))
 	}, [items])
@@ -32,14 +36,18 @@ function YamiPrabe() {
 	return (
 		<Layout title="シャッフルプラベ">
 			<Wrap>
-				<TextareaAutosize
-					maxRows={8}
-					onChange={(e) => setText(e.target.value)}
-				/>
-				<div>
-					{items.map((item) => (
-						<p key={item}>{item}</p>
-					))}
+				<div style={{ display: 'flex' }}>
+					<TextareaAutosize
+						maxRows={8}
+						onChange={(e) => setText(e.target.value)}
+					/>
+					<div>
+						{items.map((item) => (
+							<p key={item} style={{ border: 'gray 1px' }}>
+								{item}
+							</p>
+						))}
+					</div>
 				</div>
 
 				<div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -47,7 +55,10 @@ function YamiPrabe() {
 						<div key={i} className="box">
 							<h3 style={{ margin: 0 }}>#{i + 1}</h3>
 							{items.map((item) => (
-								<p key={item}>{item}</p>
+								<p key={item}>
+									{i % 4}
+									{item}
+								</p>
 							))}
 						</div>
 					))}
@@ -57,4 +68,4 @@ function YamiPrabe() {
 	)
 }
 
-export default YamiPrabe
+export default Shuffle8
