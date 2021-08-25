@@ -45,6 +45,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: '/tool/dighash', name: 'Hash採掘' },
 			{ path: '/tool/bbsgacha', name: '板ガチャ' },
 			{ path: '/tool/mikel', name: 'マイコーズ' },
+			{ path: '/tool/words-regex', name: '正規表現メーカー' },
 		],
 	},
 	{
