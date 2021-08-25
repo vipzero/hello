@@ -8,7 +8,7 @@ export type BoardLink = {
 }
 
 function Noise({ active }: { active: boolean }) {
-	const [timeout, setTimeout] = useState<number | null>(null)
+	const [timeout, setTimeout] = useState<NodeJS.Timer | null>(null)
 	const [numstr, setNumstr] = useState<string>('00')
 
 	useEffect(() => {
@@ -23,12 +23,10 @@ function Noise({ active }: { active: boolean }) {
 			setNumstr(randNumOneStr() + randNumOneStr())
 		}, 10)
 
-		setTimeout(newTimeout)
-
 		return () => {
 			clearInterval(newTimeout)
 		}
-	}, [active])
+	}, [active, timeout])
 	return <>{numstr}</>
 }
 

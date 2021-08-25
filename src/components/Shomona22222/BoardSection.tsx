@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
 import styled from 'styled-components'
 import { members, games, MemberId } from './data'
 

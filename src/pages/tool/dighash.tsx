@@ -12,7 +12,7 @@ function DigHash() {
 	const [search, setSearch] = useState<string>('aa|bb')
 	const [prefix, setPrefix] = useState<string>(String(Math.random()))
 	const [speed, setSpeed] = useState<number>(10)
-	const [runId, setRunId] = useState<number | null>(null)
+	const [runId, setRunId] = useState<NodeJS.Timer | null>(null)
 	const [hashs, setHashs] = useState<HashPair[]>([])
 	const [lastTri, setLastTri] = useState<HashPair>({
 		source: '---',
@@ -72,20 +72,19 @@ function DigHash() {
 					const regex = new RegExp(search)
 
 					console.log(regex)
-					setRunId(
-						setInterval(() => {
-							i++
-							console.log(i)
-							const source = `#${prefix}${i}`
-							const tri: string = genTrip(source)
-							const pair = { tri, source }
+					const t = setInterval(() => {
+						i++
+						console.log(i)
+						const source = `#${prefix}${i}`
+						const tri: string = genTrip(source)
+						const pair = { tri, source }
 
-							setLastTri(pair)
-							if (regex.exec(tri)) {
-								setHashs((v) => v.concat(pair))
-							}
-						}, 10)
-					)
+						setLastTri(pair)
+						if (regex.exec(tri)) {
+							setHashs((v) => v.concat(pair))
+						}
+					}, 10)
+					setRunId(t)
 				}}
 			>
 				開始
