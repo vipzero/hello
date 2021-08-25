@@ -1,9 +1,9 @@
 import indigo from '@material-ui/core/colors/indigo'
 import orange from '@material-ui/core/colors/orange'
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 // import lime from '@material-ui/core/colors/lime'
 
-const theme = createMuiTheme({
+const theme = createTheme({
 	palette: {
 		primary: { ...indigo, main: '#5C6BC0' },
 		error: orange,

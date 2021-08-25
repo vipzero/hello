@@ -14,7 +14,7 @@ function Shuffle8() {
 			<Wrap>
 				<div style={{ display: 'flex', gap: '8px' }}>
 					<textarea
-						defaultValue={text}
+						value={text}
 						rows={30}
 						style={{ minWidth: '50%', maxWidth: '100%' }}
 						onChange={(e) => setText(e.target.value)}
