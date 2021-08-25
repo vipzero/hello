@@ -1,4 +1,3 @@
-import { TextareaAutosize } from '@material-ui/core'
 import { useLocalStorage } from 'react-use'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
@@ -8,13 +7,14 @@ const Wrap = styled.div`
 `
 
 function Shuffle8() {
-	const [text, setText] = useLocalStorage<string>('shuffle8_text', '')
+	const [text, setText] = useLocalStorage<string>('words-regex', '')
 
 	return (
 		<Layout title="正規表現メーカー">
 			<Wrap>
 				<div style={{ display: 'flex', gap: '8px' }}>
 					<textarea
+						defaultValue={text}
 						rows={30}
 						style={{ minWidth: '50%', maxWidth: '100%' }}
 						onChange={(e) => setText(e.target.value)}
