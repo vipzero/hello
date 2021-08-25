@@ -13,7 +13,7 @@ function Shuffle8() {
 		'[{"w":"chmate"}, {"w": "辞書"}]'
 	)
 
-	if (!text || !chtext) return 'loading'
+	if (text === undefined || chtext === undefined) return 'loading'
 
 	return (
 		<Layout title="正規表現メーカー">
