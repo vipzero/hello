@@ -8,6 +8,12 @@ const Wrap = styled.div`
 
 function Shuffle8() {
 	const [text, setText] = useLocalStorage<string>('words-regex', '')
+	const [chtext, setChText] = useLocalStorage<string>(
+		'words-regex-ch',
+		'[{"w":"chmate"}, {"w": "辞書"}]'
+	)
+
+	if (!text || !chtext) return 'loading'
 
 	return (
 		<Layout title="正規表現メーカー">
@@ -26,9 +32,31 @@ function Shuffle8() {
 						<pre>{text?.replace(/[ 　\n]/g, '|').replace(/\|\|/g, '')}</pre>
 					</div>
 				</div>
+				<p>chmate type</p>
+				<div style={{ display: 'flex', gap: '8px' }}>
+					<textarea
+						value={chtext}
+						rows={30}
+						style={{ minWidth: '50%', maxWidth: '100%' }}
+						onChange={(e) => setChText(e.target.value)}
+					/>
+					<div>
+						<pre>{trans(chtext)}</pre>
+					</div>
+				</div>
 			</Wrap>
 		</Layout>
 	)
+}
+function trans(json: string) {
+	try {
+		// @ts-ignore
+		const a = JSON.parse(json) as { w: string }[]
+
+		return a.map((v) => v.w).join('|')
+	} catch {
+		return 'parse error'
+	}
 }
 
 export default Shuffle8
