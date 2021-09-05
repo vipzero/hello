@@ -6,7 +6,7 @@
 		"@material-ui/core": "4.12.3",
 		"@material-ui/icons": "4.11.2",
 		"@next/bundle-analyzer": "11.1.0",
-		"axios": "0.21.1",
+		"axios": "0.21.3",
 		"bluebird": "3.7.2",
 		"decimal.js": "10.3.1",
 		"emoji-toolkit": "6.6.0",
@@ -23,8 +23,8 @@
 		"react-dom": "17.0.2",
 		"react-google-charts": "3.0.15",
 		"react-router-dom": "5.2.0",
-		"react-svg": "14.0.10",
-		"react-use": "17.2.4",
+		"react-svg": "14.0.11",
+		"react-use": "17.3.1",
 		"styled-components": "5.3.1",
 		"superagent": "6.1.0",
 		"zdog": "1.1.2"
@@ -46,7 +46,7 @@
 		"next-images": "1.8.1",
 		"typescript": "4.4.2",
 		"url-loader": "4.1.1",
-		"webpack": "5.51.1"
+		"webpack": "5.52.0"
 	},
 	"homepage": "https://hello.vipper.dev",
 	"lint-staged": {
