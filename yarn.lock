@@ -127,10 +127,17 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.15.4", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.7":
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
   integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.0.tgz#e27b977f2e2088ba24748bf99b5e1dece64e4f0b"
+  integrity sha512-Nht8L0O8YCktmsDV6FqFue7vQLRx3Hb0B37lS5y0jDRqRxlBG4wIJHnf9/bgSE2UyipKFA01YtS+npRdTWBUyw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -430,12 +437,12 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.7.tgz#82f83dcc2eb9b1e1d559b3aca96783e285eb8592"
   integrity sha512-3Zi2LGbCLDz4IIL7ir6wD0u/ggHotLkK5SlVzFzTcYaNgPR4MAt/9JYZqXWKcofPWEoptfpnCJU8Bq9sxw8QUg==
 
-"@tanem/svg-injector@^10.1.7":
-  version "10.1.8"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-10.1.8.tgz#33546c84fe184a641fb639d50300959ffa2465ac"
-  integrity sha512-ah4bpbU2Kqp24+xDywBisxL0BNEkDO7qXKsYtY68xY63JMxRiLug1EecKo0aiFLC+wig46QRhv386HzuNfE0/g==
+"@tanem/svg-injector@^10.1.8":
+  version "10.1.9"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-10.1.9.tgz#b5db174b70c79a402fbde779ed668c2680803537"
+  integrity sha512-R0fsOCehvKc8y9dKbPW5U75S48ktJLoeRWCwhHB0U1vtuFj53CDJN8llbVEUv/Bt2tO/vwWtV05/5c9aPQ+xLA==
   dependencies:
-    "@babel/runtime" "^7.15.4"
+    "@babel/runtime" "^7.16.0"
     content-type "^1.0.4"
     tslib "^2.3.1"
 
@@ -2765,10 +2772,10 @@ he@1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-history@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/history/-/history-5.0.1.tgz#de35025ed08bce0db62364b47ebbf9d97b5eb06a"
-  integrity sha512-5qC/tFUKfVci5kzgRxZxN5Mf1CV8NmJx9ByaPX0YTLx5Vz3Svh7NYp6eA4CpDq4iA9D0C1t8BNIfvQIrUI3mVw==
+history@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/history/-/history-5.1.0.tgz#2e93c09c064194d38d52ed62afd0afc9d9b01ece"
+  integrity sha512-zPuQgPacm2vH2xdORvGGz1wQMuHSIB56yNAy5FnLuwOwgSYyPKptJtcMm6Ev+hRGeS+GzhbmRacHzvlESbFwDg==
   dependencies:
     "@babel/runtime" "^7.7.6"
 
@@ -4558,13 +4565,13 @@ react-router@5.2.1:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-svg@14.0.17:
-  version "14.0.17"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-14.0.17.tgz#2fb666ba961f5487bc60e7f67060a39dad46baba"
-  integrity sha512-m2PufOk/78fE8ey10EC8UVVJQ4y2XhoTfDR1aYqqyhicuxpo+YV0qFnPom4GBNszOqaCIZQIEh3rCIPgm3mc7Q==
+react-svg@14.1.1:
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-14.1.1.tgz#d534d004afa774d22666bc73e2238f2089c9b26c"
+  integrity sha512-Wq1DK448Lg7SucksS6ZbMeGTwxouEtUmZ6WjmhxNJsnoIWf+iSIp/NL/0b3ubkK3IekdC2ORI6cDCM9tlvvE5A==
   dependencies:
-    "@babel/runtime" "^7.15.4"
-    "@tanem/svg-injector" "^10.1.7"
+    "@babel/runtime" "^7.16.0"
+    "@tanem/svg-injector" "^10.1.8"
     "@types/prop-types" "^15.7.4"
     prop-types "^15.7.2"
 
@@ -5740,10 +5747,10 @@ webpack-sources@^3.2.0:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.1.tgz#251a7d9720d75ada1469ca07dbb62f3641a05b6d"
   integrity sha512-t6BMVLQ0AkjBOoRTZgqrWm7xbXMBzD+XDq2EZ96+vMfn3qKgsvdXZhbPZ4ElUOpdv4u+iiGe+w3+J75iy/bYGA==
 
-webpack@5.61.0:
-  version "5.61.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.61.0.tgz#fa827f0ee9bdfd141dd73c3e891e955ebd52fe7f"
-  integrity sha512-fPdTuaYZ/GMGFm4WrPi2KRCqS1vDp773kj9S0iI5Uc//5cszsFEDgHNaX4Rj1vobUiU1dFIV3mA9k1eHeluFpw==
+webpack@5.62.1:
+  version "5.62.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.62.1.tgz#06f09b56a7b1bb13ed5137ad4b118358a90c9505"
+  integrity sha512-jNLtnWChS2CMZ7vqWtztv0G6fYB5hz11Zsadp5tE7e4/66zVDj7/KUeQZOsOl8Hz5KrLJH1h2eIDl6AnlyE12Q==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.50"
