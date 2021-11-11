@@ -10,6 +10,7 @@ function Mili() {
 	const [timeStr, setTimeStr] = useState<string>('xx')
 	const [timeMili, setTimeMili] = useState<number>(0)
 	const [diffMili, setDiffMili] = useState<number>(0)
+	const [soundOn, setSoundOn] = useState<boolean>(false)
 	const { sound } = useSynth()
 
 	const [time] = useSeconds(diffMili)
@@ -17,7 +18,9 @@ function Mili() {
 	const now = +just
 
 	useEffect(() => {
-		sound()
+		if (soundOn) {
+			sound()
+		}
 	}, [+time])
 
 	useEffect(() => {
@@ -64,6 +67,15 @@ function Mili() {
 						setDiffMili(Number(e.target.value))
 					}}
 				/>
+				<div>
+					<input
+						id="sound"
+						type="checkbox"
+						checked={soundOn}
+						onChange={(e) => setSoundOn(e.target.checked)}
+					/>
+					<label htmlFor="sound">音</label>
+				</div>
 			</div>
 			<Slider
 				min={-1000}
