@@ -3,54 +3,68 @@ import { Slider } from '@material-ui/core'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
+import { useSynth } from '../../components/tone'
+import { useSeconds } from 'use-seconds'
 
 function Mili() {
 	const [timeStr, setTimeStr] = useState<string>('xx')
 	const [timeMili, setTimeMili] = useState<number>(0)
 	const [diffMili, setDiffMili] = useState<number>(0)
+	const { sound } = useSynth()
+
+	const [time] = useSeconds(diffMili)
+	const [just] = useSeconds(0, 10)
+	const now = +just
 
 	useEffect(() => {
-		const timer = setInterval(() => {
-			const now = Date.now()
-			const h = Math.floor(((now / 1000 / 60 / 60) % 24) + 9) % 24
-			const m = Math.floor(now / 1000 / 60) % 60
-			const s = Math.floor(now / 1000) % 60
-			const ms = now % 1000
+		sound()
+	}, [+time])
 
-			setTimeStr(
-				`${h}`.padStart(2, '0') +
-					':' +
-					`:${m}`.padStart(2, '0') +
-					':' +
-					`${s}`.padStart(2, '0') +
-					`.${Math.floor(ms / 100)}`
-			)
-			setTimeMili(ms)
-		}, 100)
+	useEffect(() => {
+		console.log('tick')
 
-		return () => {
-			clearInterval(timer)
-		}
-	}, [])
+		const h = Math.floor(((now / 1000 / 60 / 60) % 24) + 9) % 24
+		const m = Math.floor(now / 1000 / 60) % 60
+		const s = Math.floor(now / 1000) % 60
+		const ms = now % 1000
+
+		setTimeStr(
+			`${h}`.padStart(2, '0') +
+				':' +
+				`${m}`.padStart(2, '0') +
+				':' +
+				`${s}`.padStart(2, '0') +
+				`.${Math.floor(ms / 100)}`
+		)
+		setTimeMili(ms)
+	}, [now])
 
 	return (
 		<Layout title="コンママスター">
 			<TimeView>{timeStr}</TimeView>
 			<div style={{ width: '100%' }}>
+				<Bar style={{ width: `${timeMili / 10}%` }} />
+			</div>
+			<div style={{ width: '100%' }}>
 				<Bar
-					style={{ width: `${((timeMili + diffMili + 1000) % 1000) / 10}%` }}
+					style={{
+						width: `${((timeMili - diffMili + 1000) % 1000) / 10}%`,
+						background: 'red',
+					}}
 				/>
 			</div>
-			ずらし(コンマ -999〜+999)
-			<Input
-				type="number"
-				min="-999"
-				max="999"
-				value={diffMili}
-				onChange={(e) => {
-					setDiffMili(Number(e.target.value))
-				}}
-			/>
+			<div style={{ padding: '8px' }}>
+				ずらし(コンマ -999〜+999)
+				<Input
+					type="number"
+					min="-999"
+					max="999"
+					value={diffMili}
+					onChange={(e) => {
+						setDiffMili(Number(e.target.value))
+					}}
+				/>
+			</div>
 			<Slider
 				min={-1000}
 				max={1000}
