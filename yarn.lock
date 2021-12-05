@@ -820,10 +820,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@tanem/svg-injector@^10.1.10":
-  version "10.1.11"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-10.1.11.tgz#10ee47473a7b7f24b0eb622adfc24bbc07ae7222"
-  integrity sha512-sRGAfVLpmxOwshsYU5adaatSgGxHHxRLH4Zk3q9TPs5l4Ah3tqsAprXuAKyQ3y7ELADifwMnDF6xi6ntHbi1CA==
+"@tanem/svg-injector@^10.1.11":
+  version "10.1.12"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-10.1.12.tgz#9aaf0b696802d89ea54ae5a9dbd05ab9ca37de46"
+  integrity sha512-hFuuqGBBkKfPBVA2wnNTlRV56Qk+n9hqCE/HB6/5UERRklFoSz6Sl0PDbCLliJkK/r71L5uSqfve6E/neF2mdA==
   dependencies:
     "@babel/runtime" "^7.16.3"
     content-type "^1.0.4"
@@ -5166,10 +5166,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-images@1.8.2:
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/next-images/-/next-images-1.8.2.tgz#5d2da95db70874c14e5b8ec79c0c5cf90c5d4d25"
-  integrity sha512-D2UBfrFY4X61zVYLc0Nd0QYqMvk4p9A9gmapBW9vUVEVzoVVDADK52hCP2KGIYMJqeQx5+YP9Y6WxNO5iHUlCw==
+next-images@1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/next-images/-/next-images-1.8.4.tgz#3b3d4840dae50893fc2a15906266532ec5fa58f0"
+  integrity sha512-E6JV+aMxeUCh8A+cwn1xgmlh/zINSW4JC/XLNbM+PWQd5LBdfB+m1IDCAfNnGOKMo96kzw+4LsKxnX/Kldw78Q==
   dependencies:
     file-loader "^6.2.0"
     url-loader "^4.1.0"
@@ -5733,10 +5733,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
-  integrity sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==
+prettier@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
+  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
 pretty-format@^27.4.2:
   version "27.4.2"
@@ -5979,13 +5979,13 @@ react-router@5.2.1:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-svg@14.1.3:
-  version "14.1.3"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-14.1.3.tgz#1a136d4f1311bf9e2afc4286d06709d6181633b5"
-  integrity sha512-UnQmVmJuqvyZu/XaSm7Un1oltJVjyCtANa1gxXYw0an0UhK50hZVBCBX9jXO6HMX2oE6rRgT+8SPQPgC6WQhYg==
+react-svg@14.1.4:
+  version "14.1.4"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-14.1.4.tgz#9afc24ae56191a2f6b0b29fa2cb544840ada38df"
+  integrity sha512-WNkT9+bb5ue9yH4tdnEaFq4iuxEo78Nr5Fl8bd0Tbddliyqm4yZmqnw/u2eFt541E1OOF9fDwu3PZoK3W/KWVA==
   dependencies:
     "@babel/runtime" "^7.16.3"
-    "@tanem/svg-injector" "^10.1.10"
+    "@tanem/svg-injector" "^10.1.11"
     "@types/prop-types" "^15.7.4"
     prop-types "^15.7.2"
 
@@ -7284,7 +7284,7 @@ watchpack@2.1.1:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-watchpack@^2.2.0:
+watchpack@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.3.0.tgz#a41bca3da6afaff31e92a433f4c856a0c25ea0c4"
   integrity sha512-MnN0Q1OsvB/GGHETrFeZPQaOelWh/7O+EiFlj8sM9GPjtQkis7k01aAxrg/18kTfoIVcLL+haEVFlXDaSRwKRw==
@@ -7327,10 +7327,10 @@ webpack-sources@^3.2.2:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.2.tgz#d88e3741833efec57c4c789b6010db9977545260"
   integrity sha512-cp5qdmHnu5T8wRg2G3vZZHoJPN14aqQ89SyQ11NpGH5zEMDCclt49rzo+MaRazk7/UeILhAI+/sEtcM+7Fr0nw==
 
-webpack@5.64.2:
-  version "5.64.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.64.2.tgz#152e28d4712a6223b06c06cba0d3e622a61611a0"
-  integrity sha512-4KGc0+Ozi0aS3EaLNRvEppfZUer+CaORKqL6OBjDLZOPf9YfN8leagFzwe6/PoBdHFxc/utKArl8LMC0Ivtmdg==
+webpack@5.64.4:
+  version "5.64.4"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.64.4.tgz#e1454b6a13009f57cc2c78e08416cd674622937b"
+  integrity sha512-LWhqfKjCLoYJLKJY8wk2C3h77i8VyHowG3qYNZiIqD6D0ZS40439S/KVuc/PY48jp2yQmy0mhMknq8cys4jFMw==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.50"
@@ -7354,7 +7354,7 @@ webpack@5.64.2:
     schema-utils "^3.1.0"
     tapable "^2.1.1"
     terser-webpack-plugin "^5.1.3"
-    watchpack "^2.2.0"
+    watchpack "^2.3.0"
     webpack-sources "^3.2.2"
 
 whatwg-encoding@^1.0.5:
