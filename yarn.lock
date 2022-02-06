@@ -5924,10 +5924,10 @@ react-router@5.2.1:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-svg@14.1.9:
-  version "14.1.9"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-14.1.9.tgz#50f00eea5beccf9838b589d7971e361d7a64b6d7"
-  integrity sha512-bppSZlXzRKOx3urMBwtCbcKaXS9zjM2epx9rLCJ9q4ONbc13KMavy5tZxtR72XSirNA3By4josvEQSmd3bxWhg==
+react-svg@14.1.10:
+  version "14.1.10"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-14.1.10.tgz#a43e8cb2e1501479f0e6fcdf7ef831fc579839a4"
+  integrity sha512-fiJP7KfNMHkqM2fVS785fo4IMk3mWFOImssz0fD/iY7EZjdcraZTO35n5GBXii48TtQfsk5wMpJWHtjNukEG7w==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@tanem/svg-injector" "^10.1.15"
@@ -7283,10 +7283,10 @@ webpack-sources@^3.2.3:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack@5.67.0:
-  version "5.67.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.67.0.tgz#cb43ca2aad5f7cc81c4cd36b626e6b819805dbfd"
-  integrity sha512-LjFbfMh89xBDpUMgA1W9Ur6Rn/gnr2Cq1jjHFPo4v6a79/ypznSYbAyPgGhwsxBtMIaEmDD1oJoA7BEYw/Fbrw==
+webpack@5.68.0:
+  version "5.68.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.68.0.tgz#a653a58ed44280062e47257f260117e4be90d560"
+  integrity sha512-zUcqaUO0772UuuW2bzaES2Zjlm/y3kRBQDVFVCge+s2Y8mwuUTdperGaAv65/NtRL/1zanpSJOq/MD8u61vo6g==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.50"
