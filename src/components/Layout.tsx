@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core'
+import { ThemeProvider, CssBaseline } from '@mui/material'
 import styled from 'styled-components'
 import { FC } from 'react'
 import theme from '../theme'
@@ -24,7 +24,7 @@ const Layout: FC<Props> = ({
 		</Head>
 		<CssBaseline />
 		<GlobalStyle />
-		<MuiThemeProvider theme={theme}>
+		<ThemeProvider theme={theme}>
 			{hasNavbar ? (
 				<Screen>
 					<div>
@@ -37,7 +37,7 @@ const Layout: FC<Props> = ({
 			) : (
 				<main>{children}</main>
 			)}
-		</MuiThemeProvider>
+		</ThemeProvider>
 	</div>
 )
 

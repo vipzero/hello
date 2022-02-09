@@ -1,4 +1,4 @@
-import { Button, Typography, TextField } from '@material-ui/core'
+import { Button, Typography, TextField } from '@mui/material'
 import genTrip from '2ch-trip'
 import { useState } from 'react'
 import Layout from '../../components/Layout'

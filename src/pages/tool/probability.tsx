@@ -3,7 +3,7 @@ import _range from 'lodash/range'
 import { Chart } from 'react-google-charts'
 import { Decimal } from 'decimal.js'
 
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 import { useRef, useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import Container from '@material-ui/core/Container'
+import Container from '@mui/material/Container'
 import Head from 'next/head'
 import Background from './Background'
 

@@ -1,4 +1,4 @@
-import { TextField, Typography } from '@material-ui/core'
+import { TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'

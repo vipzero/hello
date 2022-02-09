@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Container from '@material-ui/core/Container'
+import Container from '@mui/material/Container'
 import Head from 'next/head'
 import TeamSection from './TeamSection'
 import GameSection from './GameSection'

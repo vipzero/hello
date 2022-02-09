@@ -1,7 +1,5 @@
-import indigo from '@material-ui/core/colors/indigo'
-import orange from '@material-ui/core/colors/orange'
-import { createTheme } from '@material-ui/core/styles'
-// import lime from '@material-ui/core/colors/lime'
+import { createTheme } from '@mui/material'
+import { indigo, orange } from '@mui/material/colors'
 
 const theme = createTheme({
 	palette: {
@@ -10,22 +8,28 @@ const theme = createTheme({
 		// secondary: lime,
 	},
 	typography: {},
-	overrides: {
+	components: {
 		MuiPaper: {
-			root: {
-				padding: '10px',
-				marginBottom: '10px',
+			styleOverrides: {
+				root: {
+					padding: '10px',
+					marginBottom: '10px',
+				},
 			},
 		},
 		MuiSvgIcon: {
-			root: {
-				marginTop: '5px',
-				marginRight: '5px',
+			styleOverrides: {
+				root: {
+					marginTop: '5px',
+					marginRight: '5px',
+				},
 			},
 		},
 		MuiFormControl: {
-			root: {
-				width: '100%',
+			styleOverrides: {
+				root: {
+					width: '100%',
+				},
 			},
 		},
 	},

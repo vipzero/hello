@@ -1,5 +1,5 @@
 import _range from 'lodash/range'
-import { Typography, Button } from '@material-ui/core'
+import { Typography, Button } from '@mui/material'
 import styled from 'styled-components'
 import { useState } from 'react'
 import Layout from '../../components/Layout'

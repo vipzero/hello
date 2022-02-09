@@ -1,4 +1,4 @@
-import { Typography, Button } from '@material-ui/core'
+import { Typography, Button } from '@mui/material'
 import { useLocalStorage } from 'react-use'
 import Layout from '../../components/Layout'
 

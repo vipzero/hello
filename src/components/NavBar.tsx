@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router'
+import { Typography } from '@mui/material'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { Typography } from '@material-ui/core'
 import menuGroups from './menuGroups'
 
 const Wrapper = styled.div`

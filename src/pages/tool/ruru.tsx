@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { Button, Container, TextField, Typography } from '@material-ui/core'
+import { Button, Container, TextField, Typography } from '@mui/material'
 import { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import TinySegmenter from 'tiny-segmenter'
@@ -45,8 +45,8 @@ function Ruru() {
 
 	return (
 		<Layout title="るるツイーター">
-			<Style>
-				<Container>
+			<Container maxWidth="md">
+				<Style>
 					<Typography variant="h4">るるツイーター</Typography>
 					<TextField
 						label="ツイート文章"
@@ -79,8 +79,8 @@ function Ruru() {
 							</div>
 						))}
 					</div>
-				</Container>
-			</Style>
+				</Style>
+			</Container>
 		</Layout>
 	)
 }

@@ -1,5 +1,5 @@
 import _shuffle from 'lodash/shuffle'
-import { Typography, Button } from '@material-ui/core'
+import { Typography, Button } from '@mui/material'
 import { useMemo, useState } from 'react'
 import Layout from '../../components/Layout'
 

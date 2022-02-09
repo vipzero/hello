@@ -1,6 +1,6 @@
 import _range from 'lodash/range'
 import _sample from 'lodash/sample'
-import { Typography, Slider, TextField } from '@material-ui/core'
+import { Typography, Slider, TextField } from '@mui/material'
 import { useState } from 'react'
 import Layout from '../../components/Layout'
 

@@ -5,7 +5,7 @@ import {
 	List,
 	Slider,
 	ListItemText,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import _sampleSize from 'lodash/sampleSize'
 import { useState } from 'react'

@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { Slider } from '@material-ui/core'
+import { Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'

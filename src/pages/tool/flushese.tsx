@@ -1,4 +1,4 @@
-import { Button, Typography } from '@material-ui/core'
+import { Button, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'

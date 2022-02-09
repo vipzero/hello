@@ -1,4 +1,4 @@
-import { TextareaAutosize, TextField } from '@material-ui/core'
+import { TextareaAutosize, TextField } from '@mui/material'
 import { range, shuffle } from 'lodash'
 import { useMemo, useState } from 'react'
 import { useLocalStorage } from 'react-use'
