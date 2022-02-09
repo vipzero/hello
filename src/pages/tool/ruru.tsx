@@ -27,11 +27,9 @@ function Ruru() {
 		if (tokens.length === 1) return [[text], ['', text]]
 		if (tokens.length === 2) return [tokens, [text], ['', text]]
 
-		return [...Array(tokens.length).keys()]
-			.map(() => [
-				rand(tokens.length / 2),
-				Math.floor(tokens.length / 2) + rand(tokens.length / 2),
-			])
+		return [0, 1, 2, 3]
+			.map((i1) => [1, 2, 3, 4].map((i2) => [i1, i1 + i2]))
+			.flat()
 			.map(([s1, s2]) => [
 				tokens.slice(0, s1).join(''),
 				tokens.slice(s1, s2).join(''),
