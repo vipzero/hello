@@ -12,6 +12,7 @@
 		"emoji-toolkit": "6.6.0",
 		"history": "5.2.0",
 		"husky": "7.0.4",
+		"kuromoji": "^0.1.2",
 		"lint-staged": "11.2.6",
 		"lodash": "4.17.21",
 		"next": "11.1.4",
@@ -27,6 +28,7 @@
 		"react-use": "17.3.2",
 		"styled-components": "5.3.3",
 		"superagent": "6.1.0",
+		"tiny-segmenter": "^0.2.0",
 		"tone": "14.7.77",
 		"use-seconds": "1.6.0",
 		"zdog": "1.1.3"
