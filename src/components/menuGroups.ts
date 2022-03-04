@@ -47,6 +47,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: '/tool/mikel', name: 'マイコーズ' },
 			{ path: '/tool/words-regex', name: '正規表現メーカー' },
 			{ path: '/tool/ruru', name: 'るるさん' },
+			{ path: '/tool/uraru', name: 'yuuaarueru' },
 		],
 	},
 	{
