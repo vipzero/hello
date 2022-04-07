@@ -48,6 +48,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: '/tool/words-regex', name: '正規表現メーカー' },
 			{ path: '/tool/ruru', name: 'るるさん' },
 			{ path: '/tool/uraru', name: 'yuuaarueru' },
+			{ path: '/tool/column', name: '2列テキストツール' },
 		],
 	},
 	{
