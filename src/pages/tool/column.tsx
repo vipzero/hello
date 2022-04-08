@@ -1,36 +1,57 @@
-import {
-	Box,
-	Container,
-	Grid,
-	Slider,
-	TextField,
-	Typography,
-} from '@mui/material'
-import { range } from 'lodash'
+import { Container, Grid, Slider, TextField, Typography } from '@mui/material'
+import { groupBy, range, rangeRight } from 'lodash'
 import { useState } from 'react'
 import { useLocalStorage } from 'react-use'
 import styled from 'styled-components'
-import TinySegmenter from 'tiny-segmenter'
 import Layout from '../../components/Layout'
 
-const segmenter = new TinySegmenter() // インスタンス生成
+const charLen = (c: string) => (c.match(/[\x01-\x7E\uFF65-\uFF9F]/) ? 2 : 1)
 
-const genText = (l1: string, l2: string, l3: string) =>
-	`
-`.trim()
+const textLen = (s: string) =>
+	s
+		.split('')
+		.map(charLen)
+		.reduce((a, b) => a + b, 0)
+const columnText = (text: string, col: number): string => {
+	const lines = Object.entries(text.split('\n')).map(([line, text]) => ({
+		line: Number(line),
+		text,
+	}))
+	const rows = Object.entries(
+		groupBy(lines, ({ line }) => Math.floor(line / col))
+	).map(([col, words]) => ({ col, words }))
 
-const rand = (n: number) => Math.floor(Math.random() * n)
+	// TODO order: ↓→↓、→↓→
+
+	const lens = range(rows[0].words.length).map((ci) =>
+		rows
+			.map(({ words }) => textLen(words[ci]?.text || ''))
+			.reduce((a, b) => Math.max(a, b), 0)
+	)
+	console.log(lens)
+
+	const results = Object.values(rows).map(({ words }) => {
+		return words
+			.map(({ text }, i) => {
+				return text + '.'.repeat((lens[i] + 2 - textLen(text)) / 2)
+			})
+			.join('')
+	})
+
+	return results.join('\n')
+}
+
 function Ruru() {
 	const [text, setText] = useLocalStorage<string>(
 		'column-text',
-		'あいうえお\nかきくけこ\nさしすせそ'
+		'あい\nうえお\nかき\nくけこ\nさし\nすせそ'
 	)
 	const [col, setCol] = useState<number>(2)
 
 	const onChange = (v) => setText(v.currentTarget.value)
 	if (text === undefined) return null
 	const cn = text.split('').length
-	const result = text
+	const result = columnText(text, col)
 
 	return (
 		<Layout title="2列テキストツール">
@@ -80,6 +101,7 @@ const Style = styled.div`
 		margin: 4px; */
 	}
 	.result {
+		font-family: 'MS Pゴシック', 'MS PGothic', sans-serif;
 		flex-wrap: wrap;
 		gap: 1rem;
 		font-size: 0.6rem;
