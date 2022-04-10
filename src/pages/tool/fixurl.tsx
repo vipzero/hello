@@ -3,6 +3,8 @@ import { Box, Card, Container, Typography } from '@mui/material'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+const urlRegex =
+	/(https?:\/\/)?[-_a-zA-Z0-9]+[.][-_a-zA-Z0-9]+([\/][-_a-zA-Z0-9;\/?:\@&=+\$,%#]*)?/g
 function parseUrl(s: string | string[] | undefined) {
 	if (typeof s !== 'string') return null
 
@@ -10,18 +12,15 @@ function parseUrl(s: string | string[] | undefined) {
 	lines.pop()
 	lines.pop()
 
-	const m = lines
-		.join('')
-		.match(/(https?:\/\/)?[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)
+	const m = lines.join('').matchAll(urlRegex)
 
-	if (m === null) return null
-	return m[0]
+	return [...m].map((v) => v[0])
 }
 
 function FixurlApp() {
 	const { query } = useRouter()
 	console.log(query)
-	const url = parseUrl(query.text)
+	const urls = parseUrl(query.text)
 
 	return (
 		<Container>
@@ -35,8 +34,12 @@ function FixurlApp() {
 			</Box>
 			<Box m={1} p={1} component={Card}>
 				<Typography>URL</Typography>
-				{!url && 'なし'}
-				{url && <a href={url}>{url}</a>}
+				{!urls && 'なし'}
+				{urls?.map((url, i) => (
+					<a key={i} href={url}>
+						{url}
+					</a>
+				))}
 			</Box>
 		</Container>
 	)
