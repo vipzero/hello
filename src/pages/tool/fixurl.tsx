@@ -1,11 +1,11 @@
 // eslint-disable-next-line
 import { Box, Card, Container, Typography } from '@mui/material'
-import { range } from 'lodash'
+import { range, uniq } from 'lodash'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 const deleteChars = '●△○◎◯■□◆'
-const ignoreRe = new RegExp(deleteChars, 'g')
+const ignoreRe = new RegExp(`[${deleteChars}]`, 'g')
 const urlRe =
 	/(https?:\/\/)?[-_a-zA-Z0-9]+([.][-_a-zA-Z0-9]+){1,}([\/][-_a-zA-Z0-9;\/?:\@&=+\$,%#]*)?/g
 function parseUrl(s: string | string[] | undefined, shift = 0) {
@@ -17,14 +17,16 @@ function parseUrl(s: string | string[] | undefined, shift = 0) {
 	const texts = range(lines.length - 1).map((i) => lines[i] + lines[i + 1])
 	console.log(texts)
 
-	return texts
-		.map((text) => {
-			const m = text.matchAll(urlRe)
-			return [...m].map((v) => v[0])
-		})
-		.flat()
-		.map((v) => (v.startsWith('http') ? v : [`https://${v}`, `http://${v}`]))
-		.flat()
+	return uniq(
+		[...texts, ...lines]
+			.map((text) => {
+				const m = text.matchAll(urlRe)
+				return [...m].map((v) => v[0])
+			})
+			.flat()
+			.map((v) => (v.startsWith('http') ? v : [`https://${v}`, `http://${v}`]))
+			.flat()
+	)
 }
 
 function FixurlApp() {
@@ -36,7 +38,7 @@ function FixurlApp() {
 		<Container>
 			<Typography variant="h5">URL修正</Typography>
 			<Typography>共有ボタンから使ってください{`(?q=text)`}</Typography>
-			<Typography>詳細: 先頭2行消す, 改行と{deleteChars}を消す</Typography>
+			<Typography>詳細: 改行と{deleteChars}を消す</Typography>
 
 			<Box m={1} p={1} component={Card}>
 				<Typography>元テキスト</Typography>
