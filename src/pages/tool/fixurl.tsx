@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 const urlRegex =
-	/(https?:\/\/)?[-_a-zA-Z0-9]+[.][-_a-zA-Z0-9]+([\/][-_a-zA-Z0-9;\/?:\@&=+\$,%#]*)?/g
+	/(https?:\/\/)?[-_a-zA-Z0-9]+([.][-_a-zA-Z0-9]+){1,}([\/][-_a-zA-Z0-9;\/?:\@&=+\$,%#]*)?/g
 function parseUrl(s: string | string[] | undefined) {
 	if (typeof s !== 'string') return null
 
