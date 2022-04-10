@@ -1,0 +1,22 @@
+{
+	"short_name": "fixurl",
+	"name": "fixurl",
+	"icons": [
+		{
+			"src": "fixurl/favicon.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		}
+	],
+	"start_url": "./tool/fixurl",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff",
+	"share_target": {
+		"action": "/tool/fixurl",
+		"method": "GET",
+		"params": {
+			"text": "text"
+		}
+	}
+}

@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }: AppProps) => (
 			/>
 			<link rel="shortcut icon" href="/favicon.png" key="shortcutIcon" />
 			<meta name="theme-color" content="#000" key="themeColor" />
-			<link rel="manifest" href="/manifest.json" />
+			{/* <link rel="manifest" href="/manifest.json" /> */}
 			<link
 				href="https://fonts.googleapis.com/css?family=Nova+Mono"
 				rel="stylesheet"
