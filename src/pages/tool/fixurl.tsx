@@ -23,6 +23,8 @@ function parseUrl(s: string | string[] | undefined, shift = 0) {
 			return [...m].map((v) => v[0])
 		})
 		.flat()
+		.map((v) => (v.startsWith('http') ? v : [`https://${v}`, `http://${v}`]))
+		.flat()
 }
 
 function FixurlApp() {
