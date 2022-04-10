@@ -12,7 +12,7 @@ function parseUrl(s: string | string[] | undefined) {
 
 	const m = lines
 		.join('')
-		.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)
+		.match(/(https?:\/\/)?[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)
 
 	if (m === null) return null
 	return m[0]
