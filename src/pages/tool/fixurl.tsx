@@ -1,20 +1,28 @@
 // eslint-disable-next-line
 import { Box, Card, Container, Typography } from '@mui/material'
+import { range } from 'lodash'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-const urlRegex =
+const deleteChars = '●△○◎◯■□◆'
+const ignoreRe = new RegExp(deleteChars, 'g')
+const urlRe =
 	/(https?:\/\/)?[-_a-zA-Z0-9]+([.][-_a-zA-Z0-9]+){1,}([\/][-_a-zA-Z0-9;\/?:\@&=+\$,%#]*)?/g
-function parseUrl(s: string | string[] | undefined) {
+function parseUrl(s: string | string[] | undefined, shift = 0) {
 	if (typeof s !== 'string') return null
 
-	const lines = s.replace(/●/g, '').split('\n')
-	lines.pop()
-	lines.pop()
+	const lines = s.replace(ignoreRe, '').split('\n')
+	range(shift).forEach(() => lines.shift())
 
-	const m = lines.join('').matchAll(urlRegex)
+	const texts = range(lines.length - 1).map((i) => lines[i] + lines[i + 1])
+	console.log(texts)
 
-	return [...m].map((v) => v[0])
+	return texts
+		.map((text) => {
+			const m = text.matchAll(urlRe)
+			return [...m].map((v) => v[0])
+		})
+		.flat()
 }
 
 function FixurlApp() {
@@ -26,7 +34,7 @@ function FixurlApp() {
 		<Container>
 			<Typography variant="h5">URL修正</Typography>
 			<Typography>共有ボタンから使ってください{`(?q=text)`}</Typography>
-			<Typography>詳細: 先頭2行消す, 改行と●を消す</Typography>
+			<Typography>詳細: 先頭2行消す, 改行と{deleteChars}を消す</Typography>
 
 			<Box m={1} p={1} component={Card}>
 				<Typography>元テキスト</Typography>
@@ -36,9 +44,9 @@ function FixurlApp() {
 				<Typography>URL</Typography>
 				{!urls && 'なし'}
 				{urls?.map((url, i) => (
-					<a key={i} href={url}>
-						{url}
-					</a>
+					<Typography key={i}>
+						<a href={url}>{url}</a>
+					</Typography>
 				))}
 			</Box>
 		</Container>
