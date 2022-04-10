@@ -48,9 +48,15 @@ function Fixurl() {
 	return (
 		<div>
 			<Head>
+				<title>{title}</title>
+				<link
+					rel="shortcut icon"
+					href="/fixurl-res/icon.png"
+					key="shortcutIcon"
+				/>
+				<link rel="manifest" href="/fixurl-res/manifest.json" />
+				<meta name="theme-color" content="#000" key="themeColor" />
 				<meta property="og:title" content={title} />
-				<meta property="og:type" content="website " />
-				<meta property="og:site_name" content={title} />
 			</Head>
 			<FixurlApp />
 		</div>
