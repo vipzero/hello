@@ -2,7 +2,13 @@
 name: Build and Deploy to Netlify
 on:
   push:
+    branchs:
+      - master
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -24,7 +30,7 @@ jobs:
           publish-dir: './out'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
+          deploy-message: 'Deploy from GitHub Actions'
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
@@ -32,4 +38,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
-
