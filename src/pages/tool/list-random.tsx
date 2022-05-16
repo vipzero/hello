@@ -51,6 +51,7 @@ function ListRandom() {
 					<TextField
 						label="単語リスト"
 						multiline
+						defaultValue={text}
 						variant="outlined"
 						onChange={onChange}
 					/>
