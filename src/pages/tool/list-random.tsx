@@ -7,7 +7,7 @@ import Layout from '../../components/Layout'
 
 const rand = (n: number) => Math.floor(Math.random() * n)
 function ListRandom() {
-	const [text, setText] = useState<string>('apple,banana,cherry')
+	const [text, setText] = useState<string>('apple\nbanana\ncherry')
 	const [retry, setRetry] = useState<number>(0)
 	const [num, setNum] = useState<number>(3)
 	const [words, setWords] = useState<string[][]>([])
@@ -16,14 +16,16 @@ function ListRandom() {
 	const onChangeNum = (v) => setNum(Number(v.currentTarget.value))
 
 	const shuffle = () => {
-		const lines = text.split('\n')
+		const lines = text.split('\n').filter((v) => v.length > 0)
 
 		setWords(
 			range(10).map(() => {
 				const rands = lines
 					.map((line) => [line, Math.random()] as const)
 					.sort((a, b) => a[1] - b[1])
-				return [...Array(num).keys()].map((i) => rands[i][0])
+				return [...Array(Math.min(num, lines.length)).keys()].map(
+					(i) => rands[i][0]
+				)
 			})
 		)
 	}
@@ -40,9 +42,7 @@ function ListRandom() {
 						value={num}
 						onChange={onChangeNum}
 					/>
-					<Button disabled={text.length <= 3} onClick={shuffle}>
-						シャッフル
-					</Button>
+					<Button onClick={shuffle}>シャッフル</Button>
 					<div className="results">
 						{words.map((ws, i) => (
 							<p key={i}>{ws.join(' ')}</p>
