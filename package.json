@@ -3,8 +3,8 @@
 	"version": "0.1.0",
 	"dependencies": {
 		"2ch-trip": "1.0.1",
-		"@emotion/react": "11.7.1",
-		"@emotion/styled": "11.6.0",
+		"@emotion/react": "11.9.3",
+		"@emotion/styled": "11.9.3",
 		"@mui/material": "5.4.3",
 		"@mui/styled-engine-sc": "5.4.2",
 		"@next/bundle-analyzer": "11.1.4",
