@@ -1,6 +1,7 @@
 import {
 	Box,
 	Button,
+	Card,
 	Checkbox,
 	FormControl,
 	FormControlLabel,
@@ -16,7 +17,6 @@ import { useCopyToClipboard, useLocalStorage } from 'react-use'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
 import { weponList } from '../../data/splatoon-wepons'
-import { members } from '../../components/Shomona22222/data'
 
 const Wrap = styled.div`
 	width: 400px;
@@ -35,7 +35,7 @@ type ButtleLog = {
 	teams: { [id: string]: 'A' | 'B' | undefined | 'N' }
 	win: string
 }
-const initBattle: ButtleLog = { win: 'a', teams: {} }
+const initBattle: ButtleLog = { win: 'A', teams: {} }
 const DummyRadio = () => <Radio size="small" style={{ visibility: 'hidden' }} />
 
 function TrueSkillRateTabs() {
@@ -98,8 +98,8 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 				Object.entries(b.teams)
 					.filter(([_, v]) => v === 'B')
 					.map(([k]) => k),
-				b.win === 'a' ? 'A' : 'B',
-				i
+				b.win,
+				Number(i) + 1
 			)
 		)
 		.join('\n')
@@ -123,10 +123,10 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 					</Wrap>
 					<div>
 						メンバー
-						<ul>
-							{members.map((m) => (
-								<li key={m}>
-									<Box display={'flex'}>
+						<Box display={'flex'} flexWrap={'wrap'}>
+							{membersAll.map((m) => (
+								<Card key={m}>
+									<Box>
 										<Typography style={{}}>{m}</Typography>
 										<FormControlLabel
 											control={
@@ -142,9 +142,9 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 											label="退室"
 										/>
 									</Box>
-								</li>
+								</Card>
 							))}
-						</ul>
+						</Box>
 					</div>
 				</Box>
 				<Button variant="contained" onClick={addBattle}>
@@ -166,7 +166,9 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 								}}
 							>
 								<Box>
-									<FormLabel style={{ width: '6rem' }}>{i}試合目</FormLabel>
+									<FormLabel style={{ width: '6rem' }}>
+										{Number(i) + 1}試合目
+									</FormLabel>
 									<RadioGroup>
 										{/* 行を揃えるため */}
 										<FormControlLabel
@@ -182,6 +184,32 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 										<FormControlLabel control={<DummyRadio />} label="-" />
 									</RadioGroup>
 								</Box>
+								<FormControl style={{ background: '#ddd' }}>
+									<FormLabel>勝ち</FormLabel>
+									<RadioGroup
+										value={b.win}
+										onChange={(e) => {
+											const win = e.target.value
+											setButtles({ ...battles, [i]: { ...b, win } })
+										}}
+									>
+										<FormControlLabel
+											value="A"
+											control={<Radio size="small" />}
+											label=""
+										/>
+										<FormControlLabel
+											value="B"
+											control={<Radio size="small" />}
+											label=""
+										/>
+										<FormControlLabel
+											value="N"
+											control={<Radio size="small" />}
+											label=""
+										/>
+									</RadioGroup>
+								</FormControl>
 								{members.map((m) => (
 									<FormControl
 										key={m}
@@ -190,7 +218,6 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 										<FormLabel>{m}</FormLabel>
 										<RadioGroup
 											value={b.teams[m] || 'N'}
-											name="radio-buttons-group"
 											onChange={(e) => {
 												const team = e.target.value
 												const nb = {
