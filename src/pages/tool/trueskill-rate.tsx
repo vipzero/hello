@@ -7,6 +7,8 @@ import {
 	FormLabel,
 	Radio,
 	RadioGroup,
+	Tab,
+	Tabs,
 	TextField,
 	Typography,
 } from '@mui/material'
@@ -35,16 +37,41 @@ type ButtleLog = {
 }
 const initBattle: ButtleLog = { win: 'a', teams: {} }
 const DummyRadio = () => <Radio size="small" style={{ visibility: 'hidden' }} />
-const SmallRadio = () => <Radio size="small" />
 
-function YamiPrabe() {
-	const [memtext, setMemtext] = useLocalStorage<string>('vpw-members', '')
+function TrueSkillRateTabs() {
+	const [tabs, setTabs] = useLocalStorage<number[]>('vpw-tabs', [0])
+	const [tab, setTab] = useLocalStorage<number>('vpw-tabs-select', 0)
+	if (!tabs || tab === undefined) return null
+	const addTab = () => setTabs([...tabs, tabs[tabs.length - 1] + 1])
+	return (
+		<Box sx={{ width: '100%' }}>
+			<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+				<Tabs value={tab} onChange={(e, nv) => setTab(nv)}>
+					{tabs.map((v) => (
+						<Tab key={v} label={`Tab ${v}`} />
+					))}
+				</Tabs>
+			</Box>
+
+			<Button variant="contained" onClick={addTab}>
+				タブ追加
+			</Button>
+
+			<TrueSkillRate tabId={tab} />
+		</Box>
+	)
+}
+function TrueSkillRate({ tabId }: { tabId: number }) {
+	const [memtext, setMemtext] = useLocalStorage<string>(
+		`vpw-members-${tabId}`,
+		''
+	)
 	const [rests, setRests] = useLocalStorage<Record<string, boolean>>(
-		'vpw-members-rest',
+		`vpw-members-rest-${tabId}`,
 		{}
 	)
 	const [battles, setButtles] = useLocalStorage<{ [i: number]: ButtleLog }>(
-		'vpw-note-list',
+		`vpw-battles-${tabId}`,
 		{}
 	)
 	const membersAll = (memtext ?? '').split('\n').filter(Boolean)
@@ -224,7 +251,6 @@ function YamiPrabe() {
 				</div>
 				{Object.values(battles).length > 0 && (
 					<Button variant="contained" onClick={addBattle}>
-						{' '}
 						試合追加
 					</Button>
 				)}
@@ -241,4 +267,4 @@ function YamiPrabe() {
 	)
 }
 
-export default YamiPrabe
+export default TrueSkillRateTabs
