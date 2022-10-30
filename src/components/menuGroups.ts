@@ -50,6 +50,7 @@ const menuGroups: MenuGroup[] = [
 			{ path: '/tool/uraru', name: 'yuuaarueru' },
 			{ path: '/tool/column', name: '2列テキストツール' },
 			{ path: '/tool/pastable-url', name: 'レスできるURL生成' },
+			{ path: '/tool/trueskill-rate', name: 'TrueSkill' },
 		],
 	},
 	{
