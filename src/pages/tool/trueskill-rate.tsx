@@ -27,10 +27,11 @@ const weponText = weponList
 	.join(',')
 
 const parenWrap = (v) => `'${v}'`
-const template = (team1, team2, win, note) =>
-	`r.add_result([${team1.map(parenWrap).join(', ')}], [${team2
+const template = (team1, team2, win, note, commentout) =>
+	`${commentout ? '#' : ''}  [${note}, [${team1
 		.map(parenWrap)
-		.join(', ')}], '${win}') // ${note}`
+		.join(', ')}], [${team2.map(parenWrap).join(', ')}], '${win}']`
+
 type ButtleLog = {
 	teams: { [id: string]: 'A' | 'B' | undefined | 'N' }
 	win: string
@@ -89,20 +90,29 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 			[Object.values(battles).length]: initBattle,
 		})
 	}
-	const codeText = Object.entries(battles)
-		.map(([i, b]) =>
-			template(
-				Object.entries(b.teams)
+	const codeText =
+		`buttles = [\n` +
+		Object.entries(battles)
+			.map(([i, b]) => {
+				const teamAMems = Object.entries(b.teams)
 					.filter(([_, v]) => v === 'A')
-					.map(([k]) => k),
-				Object.entries(b.teams)
+					.map(([k]) => k)
+				const teamBMems = Object.entries(b.teams)
 					.filter(([_, v]) => v === 'B')
-					.map(([k]) => k),
-				b.win,
-				Number(i) + 1
-			)
-		)
-		.join('\n')
+					.map(([k]) => k)
+
+				return template(
+					teamAMems,
+					teamBMems,
+					b.win,
+					Number(i) + 1,
+					teamAMems.length !== 4 || teamBMems.length !== 4
+				)
+			})
+			.join(',\n') +
+		`\n]
+for [i, team_a, team_b, win] in buttles:
+  r.add_result(team_a, team_b, win)`
 
 	return (
 		<Layout title="Vipower code gen">
