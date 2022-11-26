@@ -220,10 +220,9 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 											value={b.teams[m] || 'N'}
 											onChange={(e) => {
 												const team = e.target.value
-												const nb = {
-													...b,
-													teams: { ...b.teams, [m]: team },
-												}
+
+												const nb = JSON.parse(JSON.stringify(b))
+												nb.teams[m] = team
 
 												// 今設定したチームが4人になったら別チームを自動入力する
 												const teamA = selectableMembers.filter(
