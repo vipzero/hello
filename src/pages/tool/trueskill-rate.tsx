@@ -111,7 +111,7 @@ function TrueSkillRate({ tabId }: { tabId: number }) {
 			})
 			.join(',\n') +
 		`\n]
-for [i, team_a, team_b, win] in buttles:
+for i, team_a, team_b, win in buttles:
   r.add_result(team_a, team_b, win)`
 
 	return (
