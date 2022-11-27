@@ -13,7 +13,7 @@ import {
 	TextField,
 	Typography,
 } from '@mui/material'
-import { groupBy } from 'lodash'
+import { clamp, groupBy } from 'lodash'
 import { useCopyToClipboard, useLocalStorage } from 'react-use'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
@@ -161,7 +161,7 @@ for i, team_a, team_b, win in buttles:
 				<Button variant="contained" onClick={addBattle}>
 					試合追加
 				</Button>
-				<div>
+				<Wrapper>
 					{Object.entries(battles || {}).map(([i, b]) => {
 						const an = members.filter((k) => b.teams[k] === 'A').length
 						const bn = members.filter((k) => b.teams[k] === 'B').length
@@ -175,27 +175,26 @@ for i, team_a, team_b, win in buttles:
 									m: 1,
 									p: 1,
 								}}
+								className="cols"
 							>
-								<Box>
-									<FormLabel style={{ width: '6rem' }}>
-										{Number(i) + 1}試合目
-									</FormLabel>
+								<Box className="head">
+									<div style={{ width: '6rem' }}>{Number(i) + 1}試合目</div>
 									<RadioGroup>
 										{/* 行を揃えるため */}
 										<FormControlLabel
 											control={<DummyRadio />}
 											label={`A(${an})`}
-											style={{ background: an === 4 ? 'lime' : 'orange' }}
+											style={{ background: an === 4 ? '#a7ffa7' : '#ffcf77' }}
 										/>
 										<FormControlLabel
 											control={<DummyRadio />}
 											label={`B(${bn})`}
-											style={{ background: bn === 4 ? 'lime' : 'orange' }}
+											style={{ background: bn === 4 ? '#a7ffa7' : '#ffcf77' }}
 										/>
 										<FormControlLabel control={<DummyRadio />} label="-" />
 									</RadioGroup>
 								</Box>
-								<FormControl style={{ background: '#ddd' }}>
+								<FormControl className="head2">
 									<FormLabel>勝ち</FormLabel>
 									<RadioGroup
 										value={b.win}
@@ -222,10 +221,7 @@ for i, team_a, team_b, win in buttles:
 									</RadioGroup>
 								</FormControl>
 								{members.map((m) => (
-									<FormControl
-										key={m}
-										style={{ background: rests[m] ? 'gray' : 'white' }}
-									>
+									<FormControl key={m} data-rest={!!rests[m]}>
 										<FormLabel>{m}</FormLabel>
 										<RadioGroup
 											value={b.teams[m] || 'N'}
@@ -262,29 +258,39 @@ for i, team_a, team_b, win in buttles:
 
 												setButtles({ ...battles, [i]: nb })
 											}}
+											className="radios"
+											data-an={clamp(an - 4, -1, 1)}
+											data-bn={clamp(bn - 4, -1, 1)}
+											data-select={b.teams[m] || 'N'}
 										>
-											<FormControlLabel
-												value="A"
-												control={<Radio size="small" />}
-												label=""
-											/>
-											<FormControlLabel
-												value="B"
-												control={<Radio size="small" />}
-												label=""
-											/>
-											<FormControlLabel
-												value="N"
-												control={<Radio size="small" />}
-												label=""
-											/>
+											<div data-team="a">
+												<FormControlLabel
+													value="A"
+													control={<Radio size="small" />}
+													label=""
+												/>
+											</div>
+											<div data-team="b">
+												<FormControlLabel
+													value="B"
+													control={<Radio size="small" />}
+													label=""
+												/>
+											</div>
+											<div>
+												<FormControlLabel
+													value="N"
+													control={<Radio size="small" />}
+													label=""
+												/>
+											</div>
 										</RadioGroup>
 									</FormControl>
 								))}
 							</Box>
 						)
 					})}
-				</div>
+				</Wrapper>
 				{Object.values(battles).length > 0 && (
 					<Button variant="contained" onClick={addBattle}>
 						試合追加
@@ -302,5 +308,44 @@ for i, team_a, team_b, win in buttles:
 		</Layout>
 	)
 }
+const Wrapper = styled.div`
+	[data-rest='true'] {
+		background: #aaa;
+	}
+	.cols {
+		> div:nth-child(2n) {
+			background: #eee;
+		}
+		.head {
+			label {
+				width: 100%;
+			}
+		}
+		.head2 {
+			/* background: #ddd; */
+			border-right: 1px double black;
+		}
+	}
+	.radios {
+		> div {
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+		}
+		&[data-an='1'][data-select='A'] [data-team='a'] {
+			background: #f88;
+		}
+		&[data-bn='1'][data-select='B'] [data-team='b'] {
+			background: #f88;
+		}
+
+		&[data-an='-1']:not([data-select='A']) [data-team='a'] {
+			background: #ff8;
+		}
+		&[data-bn='-1']:not([data-select='B']) [data-team='b'] {
+			background: #ff8;
+		}
+	}
+`
 
 export default TrueSkillRateTabs
