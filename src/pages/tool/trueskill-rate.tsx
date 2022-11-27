@@ -13,6 +13,7 @@ import {
 	TextField,
 	Typography,
 } from '@mui/material'
+import { groupBy } from 'lodash'
 import { useCopyToClipboard, useLocalStorage } from 'react-use'
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
@@ -234,16 +235,15 @@ for i, team_a, team_b, win in buttles:
 												const nb = JSON.parse(JSON.stringify(b))
 												nb.teams[m] = team
 
+												const {
+													A: teamA = [],
+													B: teamB = [],
+													N: teamN = [],
+												} = groupBy(
+													selectableMembers,
+													(k) => nb.teams[k] || 'N'
+												)
 												// 今設定したチームが4人になったら別チームを自動入力する
-												const teamA = selectableMembers.filter(
-													(k) => nb.teams[k] === 'A'
-												)
-												const teamB = selectableMembers.filter(
-													(k) => nb.teams[k] === 'B'
-												)
-												const teamN = selectableMembers.filter(
-													(k) => !nb.teams[k] || nb.teams[k] === 'N'
-												)
 
 												if (
 													team === 'A' &&
