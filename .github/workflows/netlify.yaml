@@ -3,7 +3,7 @@ name: Build and Deploy to Netlify
 on:
   push:
     branchs:
-      - master
+      - main
   pull_request:
     types:
       - opened
