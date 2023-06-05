@@ -56,10 +56,19 @@ function Home() {
 								<rt>GitHub</rt>
 							</ruby>
 						</LinkItem>
-						<LinkItem id="twitter" link="https://twitter.com/vip_a_no">
+						<LinkItem id="twitter" link="https://twitter.com/ano_v0">
 							<ruby>
 								{'o('}ツイ{')'}
 								<rt>Twitter</rt>
+							</ruby>
+						</LinkItem>
+						<LinkItem
+							id="chichi-pui"
+							link="https://www.chichi-pui.com/users/ano_v0/"
+						>
+							<ruby>
+								{'[/'}チチ{'/]'}
+								<rt>chichi-pui</rt>
 							</ruby>
 						</LinkItem>
 					</Links>
@@ -127,6 +136,9 @@ const Link = styled.a`
 	}
 	&[data-content='twitter'] {
 		color: #49cdff;
+	}
+	&[data-content='chichi-pui'] {
+		color: #fbfc54;
 	}
 `
 
