@@ -40,7 +40,7 @@ function Sp3Aniv1() {
 			</Head>
 			<Box
 				className="eyecatch"
-				sx={{ background: '#2b202e', marginBottom: '160px' }}
+				sx={{ background: '#2b202e', marginBottom: '180px' }}
 			>
 				<Container maxWidth="md">
 					<div>
@@ -91,12 +91,14 @@ function Sp3Aniv1() {
 				<div>
 					<h2>大会ルール</h2>
 					<ul>
-						<li>ドラフト制</li>
-						<li>ステージ: ランダム</li>
-						<li></li>
+						<li>チーム: ドラフト制</li>
+						<li>マッチ: 総当たり</li>
+						<li>ステージ: ランダム(重複なし)</li>
 					</ul>
 				</div>
+				<BoardSection />
 				<footer>
+					<h2>リンク</h2>
 					<ul>
 						<li>
 							{/* <a href="http://hebi.5ch.net/test/read.cgi/news4vip/1581209829/l50">
@@ -235,15 +237,15 @@ const Style = styled.div`
 		&:before {
 			content: '';
 			position: absolute;
-			width: 0.5rem;
+			width: 3rem;
 			height: 4px;
-			background: yellow;
+			background: orange;
 			bottom: -8px;
 		}
 	}
 	ul > li {
 		a {
-			color: yellow;
+			color: purple;
 		}
 	}
 `
