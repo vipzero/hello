@@ -4,7 +4,7 @@ import Head from 'next/head'
 import TeamSection from './TeamSection'
 import GameSection from './GameSection'
 import BoardSection from './BoardSection'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 
 const Waves = () => (
 	<div className="wave">
@@ -106,7 +106,7 @@ function Sp3Aniv1() {
 							</a> */}
 						</li>
 						<li>
-							<a href="">主催: Mira</a>
+							<Typography>主催: Mira</Typography>
 						</li>
 						{/* <li>
 							<a href="https://github.com/vipzero/hello/tree/master/src/components/Shomona22222">

@@ -7,6 +7,7 @@ import {
 	onSnapshot,
 	updateDoc,
 } from 'firebase/firestore'
+import { Board } from './constants'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDmBmOASz3gX6T_pEFRC4EFXsV26HT0Srw',
@@ -18,22 +19,6 @@ const firebaseConfig = {
 }
 const app = initializeApp(firebaseConfig)
 
-export type Team = {
-	id: string
-	name: string
-	players: string[]
-}
-
-export type Battle = {
-	win: boolean
-	from: string
-	to: string
-}
-
-export type Board = {
-	teams: Team[]
-	battles: Battle[]
-}
 const boardRef = () => doc(collection(db, 'boards'), 'board')
 
 const db = getFirestore()
@@ -46,6 +31,6 @@ export const subscribeBoards = (updateBoard: (board: Board) => void) => {
 	})
 }
 
-export const saveBoards = async (data: Board) => {
+export const updateBoard = async (data: Board) => {
 	await updateDoc(boardRef(), data)
 }

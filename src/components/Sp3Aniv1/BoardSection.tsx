@@ -1,35 +1,7 @@
-import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Board, subscribeBoards } from './firebase'
-import {
-	FormControl,
-	FormControlLabel,
-	FormLabel,
-	Radio,
-	RadioGroup,
-	Typography,
-} from '@mui/material'
-
-const useDb = () => {
-	const [board, setBoard] = useState<Board | null>(null)
-	useEffect(() => {
-		const t = subscribeBoards((board) => {
-			console.log(board)
-			setBoard(board)
-		})
-		return () => t()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
-	return { board }
-}
-
-const battleRules = [
-	{ id: 'a', name: 'エリア' },
-	{ id: 'y', name: 'ヤグラ' },
-	{ id: 'h', name: 'ホコ' },
-	{ id: 's', name: 'アサリ' },
-	{ id: 'n', name: 'ナワバリ' },
-]
+import BoardAdminPage from './BoardAdmin'
+import { battleRules } from './constants'
+import { useDb } from './useDb'
 
 const BoardSection = () => {
 	const { board } = useDb()
@@ -45,7 +17,7 @@ const BoardSection = () => {
 		<Style>
 			<div>
 				<h2>ボード</h2>
-				<table>
+				<table className="board">
 					<thead>
 						<tr>
 							<th />
@@ -86,41 +58,8 @@ const BoardSection = () => {
 					</tr> */}
 					</tbody>
 				</table>
-			</div>
-			<div>
-				<div>管理者ように後で移動。(未動作)</div>
 
-				{teams.map((t1) => (
-					<div key={t1.id}>
-						<Typography key={t1.id}>{t1.name}</Typography>
-						{teams.map((t2) => {
-							return (
-								<FormControl size="small" key={t2.id}>
-									<FormLabel id="demo-radio-buttons-group-label">
-										勝敗
-									</FormLabel>
-									<RadioGroup row aria-label="position" defaultValue="6.5">
-										<FormControlLabel
-											value={0}
-											control={<Radio color="primary" />}
-											label="未"
-										/>
-										<FormControlLabel
-											value={1}
-											control={<Radio color="primary" />}
-											label="A勝利"
-										/>
-										<FormControlLabel
-											value={2}
-											control={<Radio color="primary" />}
-											label="B勝利"
-										/>
-									</RadioGroup>{' '}
-								</FormControl>
-							)
-						})}
-					</div>
-				))}
+				<BoardAdminPage />
 			</div>
 		</Style>
 	)
@@ -136,10 +75,14 @@ const Style = styled.div`
 		vertical-align: middle;
 	}
 
-	table {
+	table.board {
 		border-collapse: collapse;
 		border-radius: 4px;
 		background: orange;
+		tr {
+			color: white;
+			background-image: linear-gradient(90deg, #c239f8, #303561);
+		}
 	}
 
 	.battle {

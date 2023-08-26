@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { teams, members } from './data'
+import { teams, members } from './constants'
 
 const TeamSection = () => (
 	<Style>
