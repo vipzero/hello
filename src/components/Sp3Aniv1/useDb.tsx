@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Board, Match, MatchResult } from './constants'
 import { subscribeBoards, updateBoard } from './firebase'
 
-const flipResult = (r: MatchResult) => {
+export const flipResult = (r: MatchResult) => {
 	if (!r) return r
 	return { ...r, win: r.win === 1 ? 2 : r.win === 2 ? 1 : 0 }
 }

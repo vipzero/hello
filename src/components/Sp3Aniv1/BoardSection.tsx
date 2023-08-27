@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { ScoreTd } from './ScoreTd'
 import { MatchResult, battleRules, schedules } from './constants'
-import { useDb } from './useDb'
+import { flipResult, useDb } from './useDb'
 
 const BoardSection = () => {
 	const { board, tableData, teamById } = useDb()
@@ -88,10 +88,7 @@ const BoardSection = () => {
 				{schedules.map((row, i) => (
 					<Card key={i}>
 						<Typography variant="h5">{row.time}</Typography>
-						<Box
-							className="match-card"
-							sx={{ display: 'flex', flexWrap: 'wrap' }}
-						>
+						<Box className="match-card">
 							{row.match.map((match, j) => {
 								const team1 = teamById.get(match[0])
 								const team2 = teamById.get(match[1])
@@ -100,29 +97,41 @@ const BoardSection = () => {
 									(m) => m.from === team1.id && m.to === team2.id
 								)
 								const results = boardMatch?.results || []
+								console.log(results)
+								const team1Win = results.filter((r) => r?.win === 1).length >= 3
+								const team2Win = results.filter((r) => r?.win === 2).length >= 3
 
 								return (
 									<CardItem key={j}>
 										<ResultBox>
 											<div>
-												<Typography>{team1.name}</Typography>
+												<Typography>
+													<span data-win-flag={team1Win}>★</span>
+													{team1.name}
+												</Typography>
 											</div>
 											<div>x</div>
 											<div>
-												<Typography>{team2.name}</Typography>
+												<Typography>
+													<span data-win-flag={team2Win}>★</span>
+													{team2.name}
+												</Typography>
 											</div>
 
 											{battleRules.map((rule, mi) => {
 												return (
 													<>
-														<Box key={rule.id}>
-															{['', 'x', 'o'][results[mi]?.win || 0]}
+														<Box data-win={results[mi]?.win} key={mi + '-1'}>
+															{['', 'o', 'x'][results[mi]?.win || 0]}
 														</Box>
-														<div>
+														<div key={mi + '-0'}>
 															<Typography>{rule.name}</Typography>
 														</div>
-														<Box key={rule.id}>
-															{['', 'o', 'x'][results[mi]?.win || 0]}
+														<Box
+															data-win={flipResult(results[mi])?.win}
+															key={mi + '-2'}
+														>
+															{['', 'x', 'o'][results[mi]?.win || 0]}
 														</Box>
 													</>
 												)
@@ -157,15 +166,13 @@ const Style = styled.div`
 		tr {
 			color: white;
 			&:not(.headder) {
-				background-image: linear-gradient(159deg, #3b3b3b, #141414);
-				/* background-image: linear-gradient(90deg, #c239f8, #303561); */
+				/* background-image: linear-gradient(159deg, #3b3b3b, #141414); */
+				background-image: linear-gradient(90deg, #3f1350, #303561);
 			}
 		}
 		td.cell {
 			padding: 0;
 			min-width: 128px;
-		}
-		.battle-result-sign {
 		}
 		th.num {
 			width: 4rem;
@@ -197,9 +204,14 @@ const Style = styled.div`
 		}
 	}
 	.battle-result-sign {
-		padding: 12px;
+		display: table;
+		> div {
+			display: table-cell;
+			vertical-align: middle;
+			padding: 8px;
+			width: 56px;
+		}
 		height: 128px;
-		width: 60px;
 		text-align: center;
 		font-size: 1.5rem;
 		place-content: center;
@@ -237,8 +249,10 @@ const Style = styled.div`
 				font-size: 0.5rem;
 			}
 			.battle-result-sign {
-				padding: 8px;
-				height: 50px;
+				> div {
+					padding: 2px;
+				}
+				height: 77px;
 				width: 30px;
 				text-align: center;
 				font-size: 1rem;
@@ -251,38 +265,59 @@ const Style = styled.div`
 			padding: 4px;
 		}
 	}
+	.match-card {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
 `
 
 const ResultBox = styled(Box)`
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	> div {
-		&:nth-child(3n + 1) {
-			text-align: center;
-		}
+		text-align: center;
 		&:nth-child(3n + 2) {
-			text-align: center;
-		}
-		&:nth-child(3n) {
 			text-align: center;
 		}
 	}
 `
+
+const rotate = keyframes`
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+`
+
 const Card = styled(Box)`
 	margin-top: 8px;
-	background-image: linear-gradient(159deg, #a4a4a4, #cdcdcd);
+	background: #ffffff85;
 	border-radius: 4px;
 	padding: 8px;
+
+	[data-win-flag='true'] {
+		display: inline-block;
+		animation: ${rotate} 0.1s linear infinite;
+	}
+	[data-win-flag='false'] {
+		display: none;
+	}
 `
 const CardItem = styled(Box)`
-	background-image: linear-gradient(159deg, #3b3b3b, #141414);
+	background-image: linear-gradient(90deg, #3f1350, #303561);
 	color: white;
 	border-radius: 4px;
 	padding: 8px;
 	/* mobile */
-	width: 50%;
+	width: calc(50% - 8px);
+
 	@media (max-width: 600px) {
 		width: 100%;
+	}
+	[data-win='1'] {
+		background: #ffd90044;
+	}
+	[data-win='2'] {
+		background: #1e00ff44;
 	}
 `
 
