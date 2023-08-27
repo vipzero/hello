@@ -29,7 +29,10 @@ export const useDb = () => {
 			)
 			if (ti1 === undefined) return
 			const matchs = [...board.matchs]
+			console.log({ ti1 })
+			console.log(matchs[ti1].results)
 			matchs[ti1].results = results
+			console.log(matchs[ti1].results)
 			updateBoard({ ...board, matchs })
 		},
 	}

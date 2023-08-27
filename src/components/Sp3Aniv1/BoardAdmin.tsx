@@ -109,12 +109,18 @@ const BoardAdminPage = () => {
 												</TableRow>
 											</TableHead>
 											<TableBody>
-												{battleRules.map((rule) => {
-													const changeResult = (result: number) => {
-														const res = [...results]
-														res[j] = result
-														updateMatchResult(team1.id, team2.id, res)
+												{battleRules.map((rule, mi) => {
+													const changeResult = (r: number) => {
+														const res = [...(results || [])]
+
+														res[mi] = r
+														updateMatchResult(
+															team1.id,
+															team2.id,
+															[...res].map((v) => v || 0)
+														)
 													}
+
 													return (
 														<TableRow key={rule.id}>
 															<TableCell>{rule.name}</TableCell>
@@ -126,7 +132,8 @@ const BoardAdminPage = () => {
 																	label={undefined}
 																	onChange={() => changeResult(0)}
 																	checked={
-																		results[j] === 0 || results[j] === undefined
+																		results[mi] === 0 ||
+																		results[mi] === undefined
 																	}
 																/>
 															</TableCell>
@@ -136,7 +143,7 @@ const BoardAdminPage = () => {
 																	control={<Radio color="primary" />}
 																	label={undefined}
 																	onChange={() => changeResult(1)}
-																	checked={results[j] === 1}
+																	checked={results[mi] === 1}
 																/>
 															</TableCell>
 															<TableCell>
@@ -145,7 +152,7 @@ const BoardAdminPage = () => {
 																	control={<Radio color="primary" />}
 																	label={undefined}
 																	onChange={() => changeResult(2)}
-																	checked={results[j] === 2}
+																	checked={results[mi] === 2}
 																/>
 															</TableCell>
 														</TableRow>
