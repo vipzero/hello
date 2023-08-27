@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import styled from 'styled-components'
-import BoardAdminPage from './BoardAdmin'
 import { MatchResult, battleRules } from './constants'
 import { useDb } from './useDb'
 
@@ -85,8 +84,6 @@ const BoardSection = () => {
 					</tr> */}
 					</tbody>
 				</table>
-
-				<BoardAdminPage />
 			</div>
 		</Style>
 	)
