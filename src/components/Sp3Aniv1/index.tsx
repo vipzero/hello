@@ -59,7 +59,8 @@ function Sp3Aniv1() {
 								<Grid item xs={12} sm={7}>
 									<h1>
 										<div className="logo">
-											(仮)VIPでドラフト<span>Splatoon3発売1周年杯</span>
+											<div>(仮)VIPでドラフト</div>
+											<span>Splatoon3発売1周年杯</span>
 										</div>
 									</h1>
 								</Grid>
@@ -160,7 +161,7 @@ const Style = styled.div`
 	}
 
 	.logo {
-		font-size: 2em;
+		font-size: 2rem;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		background: -webkit-linear-gradient(left, #ffe700, #ffd700);
@@ -171,8 +172,8 @@ const Style = styled.div`
 
 	.logo span {
 		position: relative;
-		top: -0.2em;
-		left: 0.2em;
+		top: -0.2rem;
+		left: 0.2rem;
 		color: #fff;
 		text-shadow: 2px 2px 4px #98ff9888;
 	}

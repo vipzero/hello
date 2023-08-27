@@ -1,11 +1,11 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import styled from 'styled-components'
 import { ScoreTd } from './ScoreTd'
-import { MatchResult, battleRules } from './constants'
+import { MatchResult, battleRules, schedules } from './constants'
 import { useDb } from './useDb'
 
 const BoardSection = () => {
-	const { board, matchById, tableData } = useDb()
+	const { board, tableData, teamById } = useDb()
 	if (board === null) return <div>loading</div>
 	console.log(tableData)
 	const { teams } = board
@@ -14,73 +14,117 @@ const BoardSection = () => {
 		<Style>
 			<div>
 				<h2>ボード</h2>
-				<table className="board">
-					<thead>
-						<tr className="headder">
-							<th />
-							{teams.map((team) => (
-								<th key={team.id}>vs{team.name}</th>
-							))}
-							<th className="num">勝利数</th>
-							<th className="num">勝ち点</th>
-							<th className="num">KO</th>
-						</tr>
-					</thead>
-					<tbody>
-						{tableData?.map(({ team: t1, matchs, ...row }) => (
-							<tr key={t1.id}>
-								<th>{t1.name}</th>
-								{matchs.map((m) => {
-									const match = m.match
-									if (t1.id === m.to.id || !match)
+				<div className="board-wrap">
+					<table className="board">
+						<thead>
+							<tr className="headder">
+								<th />
+								{teams.map((team) => (
+									<th key={team.id}>vs{team.name}</th>
+								))}
+								<th className="num">勝利数</th>
+								<th className="num">勝ち点</th>
+								<th className="num">KO</th>
+							</tr>
+						</thead>
+						<tbody>
+							{tableData?.map(({ team: t1, matchs, ...row }) => (
+								<tr key={t1.id}>
+									<th>{t1.name}</th>
+									{matchs.map((m) => {
+										const match = m.match
+										if (t1.id === m.to.id || !match)
+											return (
+												<td key={m.to.id} data-none={true}>
+													-
+												</td>
+											)
+
+										const results = match.results
+										function resultText(r: MatchResult | undefined) {
+											if (r === undefined || r.win === 0) return ' '
+											return r.win === 1 ? '○' : '×'
+										}
+
 										return (
-											<td key={m.to.id} data-none={true}>
-												-
+											<td key={m.to.id} className="cell">
+												<Box sx={{ display: 'flex' }}>
+													<div className="battle">
+														{battleRules.map((rule, ri) => (
+															<div key={rule.id}>
+																<div className="rule">{rule.name}</div>
+																<div
+																	className="result-sign"
+																	data-win={results[ri]?.win}
+																	data-ko={results[ri]?.ko}
+																>
+																	{resultText(results[ri])}
+																</div>
+															</div>
+														))}
+													</div>
+													<div data-win={m.win} className="battle-result-sign">
+														<div>{[' ', '○', '×'][m.win]}</div>
+													</div>
+												</Box>
 											</td>
 										)
-
-									const results = match.results
-									function resultText(r: MatchResult | undefined) {
-										if (r === undefined || r.win === 0) return ' '
-										return r.win === 1 ? '○' : '×'
-									}
-
-									return (
-										<td key={m.to.id} className="cell">
-											<Box sx={{ display: 'flex' }}>
-												<div className="battle">
-													{battleRules.map((rule, ri) => (
-														<div key={rule.id}>
-															<div className="rule">{rule.name}</div>
-															<div
-																className="result-sign"
-																data-win={results[ri]?.win}
-																data-ko={results[ri]?.ko}
-															>
-																{resultText(results[ri])}
-															</div>
-														</div>
-													))}
-												</div>
-												<div data-win={m.win} className="battle-result-sign">
-													<div>{[' ', '○', '×'][m.win]}</div>
-												</div>
-											</Box>
-										</td>
-									)
-								})}
-								<ScoreTd score={row.point} />
-								<ScoreTd score={row.pointBattle} />
-								<ScoreTd score={row.pointKo} />
-							</tr>
-						))}
-						{/* <tr key={'total'}>
+									})}
+									<ScoreTd score={row.point} />
+									<ScoreTd score={row.pointBattle} />
+									<ScoreTd score={row.pointKo} />
+								</tr>
+							))}
+							{/* <tr key={'total'}>
 						{Object.values(members).map((v, id) => (
 							<td key={id}>{memberPointsList[games.length - 1]}</td>
 						))}
 					</tr> */}
-					</tbody>
-				</table>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div>
+				{schedules.map((row, i) => (
+					<div key={i}>
+						<Typography variant="h5">{row.time}</Typography>
+						<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+							{row.match.map((match, j) => {
+								const team1 = teamById.get(match[0])
+								const team2 = teamById.get(match[1])
+								if (!team1 || !team2) return null
+								const boardMatch = board.matchs.find(
+									(m) => m.from === team1.id && m.to === team2.id
+								)
+								const results = boardMatch?.results || []
+
+								return (
+									<Card key={j}>
+										<Typography>
+											{team1.name} x {team2.name}
+										</Typography>
+										<Box
+											sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}
+										>
+											<Box>
+												{battleRules.map((rule, mi) => {
+													return (
+														<Box key={rule.id}>
+															<Typography>{rule.name}</Typography>
+
+															<Box></Box>
+															{results[mi]?.win}
+														</Box>
+													)
+												})}
+											</Box>
+										</Box>
+									</Card>
+								)
+							})}
+						</Box>
+					</div>
+				))}
 			</div>
 		</Style>
 	)
@@ -100,6 +144,7 @@ const Style = styled.div`
 		border-collapse: collapse;
 		border-radius: 4px;
 		background: gray;
+		/* phone */
 		tr {
 			color: white;
 			&:not(.headder) {
@@ -170,6 +215,34 @@ const Style = styled.div`
 			grid-template-columns: 2fr 1fr;
 		}
 	}
+	@media (max-width: 600px) {
+		.board-wrap {
+			max-width: 100vw;
+			overflow-x: scroll;
+			margin: 0 -16px;
+		}
+		table.board {
+			margin: 0 8px;
+			font-size: 0.6rem;
+			.rule {
+				font-size: 0.5rem;
+			}
+			.battle-result-sign {
+				padding: 8px;
+				height: 50px;
+				width: 30px;
+				text-align: center;
+				font-size: 1rem;
+			}
+			td.cell {
+				min-width: 80px;
+			}
+		}
+		.score {
+			padding: 4px;
+		}
+	}
 `
 
+const Card = styled(Box)``
 export default BoardSection

@@ -14,7 +14,7 @@ import {
 import styled from 'styled-components'
 
 import { range } from 'lodash'
-import { Team, battleRules } from './constants'
+import { Team, battleRules, schedules } from './constants'
 import { useDb } from './useDb'
 
 type Props = {}
@@ -26,34 +26,10 @@ const BoardAdminPage = () => {
 		updateMatchResultKoCheck,
 		updateMatchResultValue,
 		updateTeamName,
+		teamById,
 	} = useDb()
 	if (board === null) return <div>loading</div>
 	const { teams } = board
-	const teamsById: Record<string, Team> = {}
-	teams.forEach((t) => (teamsById[t.id] = t))
-	const schedules = [
-		{
-			time: '22:00',
-			match: [
-				['t1', 't2'],
-				['t3', 't4'],
-			],
-		},
-		{
-			time: '22:45',
-			match: [
-				['t1', 't3'],
-				['t2', 't4'],
-			],
-		},
-		{
-			time: '23:30',
-			match: [
-				['t1', 't4'],
-				['t2', 't3'],
-			],
-		},
-	]
 
 	return (
 		<div>
@@ -100,8 +76,9 @@ const BoardAdminPage = () => {
 						<Typography variant="h5">{row.time}</Typography>
 						<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
 							{row.match.map((match, j) => {
-								const team1 = teamsById[match[0]]
-								const team2 = teamsById[match[1]]
+								const team1 = teamById.get(match[0])
+								const team2 = teamById.get(match[1])
+								if (!team1 || !team2) return null
 								const boardMatch = board.matchs.find(
 									(m) => m.from === team1.id && m.to === team2.id
 								)
