@@ -22,7 +22,7 @@ import { Team, battleRules } from './constants'
 type Props = {}
 
 const BoardAdminPage = () => {
-	const { board, updateTeamPlayer, updateMatchResult } = useDb()
+	const { board, updateTeamPlayer, updateMatchResult, updateTeamName } = useDb()
 	if (board === null) return <div>loading</div>
 	const { teams } = board
 	const teamsById: Record<string, Team> = {}
@@ -60,14 +60,23 @@ const BoardAdminPage = () => {
 				<Box display="flex" flexWrap={'wrap'}>
 					{teams.map((t1) => (
 						<Box key={t1.id} display="grid">
-							<Typography key={t1.id}>{t1.name}</Typography>
+							{/* <Typography key={t1.id}>{t1.name}</Typography> */}
+							<TextField
+								label="チーム名"
+								size="small"
+								value={t1.name}
+								onChange={(e) => {
+									updateTeamName(t1.id, e.target.value)
+								}}
+								sx={{ width: '200px' }}
+							/>
 							{range(4).map((i) => {
 								return (
 									<TextField
 										key={i}
 										label={i + 1 + 'P'}
 										size="small"
-										defaultValue={t1.players[i]}
+										value={t1.players[i]}
 										onChange={(e) => {
 											const names = t1.players
 											names[i] = e.target.value

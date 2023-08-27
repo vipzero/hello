@@ -22,6 +22,14 @@ export const useDb = () => {
 
 			updateBoard({ ...board, teams })
 		},
+		updateTeamName: (teamId: string, name: string) => {
+			if (!board) return
+			const teams = [...board.teams]
+			const ti = board.teams.findIndex((t) => t.id === teamId)
+			teams[ti].name = name
+
+			updateBoard({ ...board, teams })
+		},
 		updateMatchResult: (team1: string, team2: string, results: number[]) => {
 			if (!board) return
 			const ti1 = board.matchs.findIndex(
