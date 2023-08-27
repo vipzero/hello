@@ -86,9 +86,12 @@ const BoardSection = () => {
 			</div>
 			<div>
 				{schedules.map((row, i) => (
-					<div key={i}>
+					<Card key={i}>
 						<Typography variant="h5">{row.time}</Typography>
-						<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+						<Box
+							className="match-card"
+							sx={{ display: 'flex', flexWrap: 'wrap' }}
+						>
 							{row.match.map((match, j) => {
 								const team1 = teamById.get(match[0])
 								const team2 = teamById.get(match[1])
@@ -99,31 +102,37 @@ const BoardSection = () => {
 								const results = boardMatch?.results || []
 
 								return (
-									<Card key={j}>
-										<Typography>
-											{team1.name} x {team2.name}
-										</Typography>
-										<Box
-											sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}
-										>
-											<Box>
-												{battleRules.map((rule, mi) => {
-													return (
-														<Box key={rule.id}>
-															<Typography>{rule.name}</Typography>
+									<CardItem key={j}>
+										<ResultBox>
+											<div>
+												<Typography>{team1.name}</Typography>
+											</div>
+											<div>x</div>
+											<div>
+												<Typography>{team2.name}</Typography>
+											</div>
 
-															<Box></Box>
-															{results[mi]?.win}
+											{battleRules.map((rule, mi) => {
+												return (
+													<>
+														<Box key={rule.id}>
+															{['', 'x', 'o'][results[mi]?.win || 0]}
 														</Box>
-													)
-												})}
-											</Box>
-										</Box>
-									</Card>
+														<div>
+															<Typography>{rule.name}</Typography>
+														</div>
+														<Box key={rule.id}>
+															{['', 'o', 'x'][results[mi]?.win || 0]}
+														</Box>
+													</>
+												)
+											})}
+										</ResultBox>
+									</CardItem>
 								)
 							})}
 						</Box>
-					</div>
+					</Card>
 				))}
 			</div>
 		</Style>
@@ -244,5 +253,37 @@ const Style = styled.div`
 	}
 `
 
-const Card = styled(Box)``
+const ResultBox = styled(Box)`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	> div {
+		&:nth-child(3n + 1) {
+			text-align: center;
+		}
+		&:nth-child(3n + 2) {
+			text-align: center;
+		}
+		&:nth-child(3n) {
+			text-align: center;
+		}
+	}
+`
+const Card = styled(Box)`
+	margin-top: 8px;
+	background-image: linear-gradient(159deg, #a4a4a4, #cdcdcd);
+	border-radius: 4px;
+	padding: 8px;
+`
+const CardItem = styled(Box)`
+	background-image: linear-gradient(159deg, #3b3b3b, #141414);
+	color: white;
+	border-radius: 4px;
+	padding: 8px;
+	/* mobile */
+	width: 50%;
+	@media (max-width: 600px) {
+		width: 100%;
+	}
+`
+
 export default BoardSection
