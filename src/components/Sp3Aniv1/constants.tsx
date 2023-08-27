@@ -18,7 +18,7 @@ export type Battle = {
 	win: boolean
 }
 
-export type MatchResult = number
+export type MatchResult = { win: number; ko: boolean }
 export type Match = {
 	from: string
 	to: string

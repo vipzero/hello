@@ -1,19 +1,72 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { Board, Match, MatchResult } from './constants'
 import { subscribeBoards, updateBoard } from './firebase'
-import { Battle, Board, Match } from './constants'
+
+const flipResult = (r: MatchResult) => {
+	if (!r) return r
+	return { ...r, win: r.win === 1 ? 2 : r.win === 2 ? 1 : 0, ko: false }
+}
+const fliped = (match: Match) => ({
+	...match,
+	from: match.to,
+	to: match.from,
+	results: match.results.map((r) => flipResult(r)),
+})
 
 export const useDb = () => {
 	const [board, setBoard] = useState<Board | null>(null)
 	useEffect(() => {
 		const t = subscribeBoards((board) => {
-			console.log(board)
 			setBoard(board)
 		})
 		return () => t()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
+
+	const teamById = new Map(board?.teams.map((t) => [t.id, t]))
+
+	const matchById = new Map(board?.matchs.map((m) => [m.from + '_' + m.to, m]))
+	const tableData = board?.teams.map((t1) => {
+		const matchs = board.teams.map((t2) => {
+			const m1 = matchById.get(t1.id + '_' + t2.id)
+			if (m1) return { to: t2, match: m1, flip: false }
+			const m2 = matchById.get(t2.id + '_' + t1.id)
+			if (m2) return { to: t2, match: fliped(m2), flip: true }
+			return { to: t2, match: null, flip: false }
+		})
+		const matchWithScore = matchs.map((m) => {
+			const winCount = m.match?.results.filter((r) => r?.win === 1).length || 0
+			const loseCount = m.match?.results.filter((r) => r?.win === 2).length || 0
+			return {
+				...m,
+				koCount: m.match?.results.filter((r) => r?.ko).length || 0,
+				winCount: m.match?.results.filter((r) => r?.win === 1).length || 0,
+				win: winCount >= 3 ? 1 : loseCount >= 3 ? 2 : 0,
+			}
+		})
+
+		return { matchs: matchWithScore, team: t1 }
+	})
+
+	const updateMatchResult = useCallback(
+		(team1: string, team2: string, results: MatchResult[]) => {
+			if (!board) return
+			const ti1 = board.matchs.findIndex(
+				(m) => m.from === team1 && m.to === team2
+			)
+			if (ti1 === undefined) return
+			const matchs = [...board.matchs]
+			matchs[ti1].results = results
+			updateBoard({ ...board, matchs })
+		},
+		[board]
+	)
+
 	return {
 		board,
+		matchById,
+		teamById,
+		tableData,
 		updateTeamPlayer: (teamId: string, names: string[]) => {
 			if (!board) return
 			const teams = [...board.teams]
@@ -30,18 +83,52 @@ export const useDb = () => {
 
 			updateBoard({ ...board, teams })
 		},
-		updateMatchResult: (team1: string, team2: string, results: number[]) => {
+		updateMatchResult,
+		updateMatchResultValue: (
+			teamId1: string,
+			teamId2: string,
+			r: number,
+			resultNum: number
+		) => {
 			if (!board) return
+
 			const ti1 = board.matchs.findIndex(
-				(m) => m.from === team1 && m.to === team2
+				(m) => m.from === teamId1 && m.to === teamId2
 			)
 			if (ti1 === undefined) return
-			const matchs = [...board.matchs]
-			console.log({ ti1 })
-			console.log(matchs[ti1].results)
-			matchs[ti1].results = results
-			console.log(matchs[ti1].results)
-			updateBoard({ ...board, matchs })
+			const { results } = board.matchs[ti1]
+
+			const res = [...(results || [])]
+
+			res[resultNum] = { ...res[resultNum], win: r }
+			updateMatchResult(
+				teamId1,
+				teamId2,
+				[...res].map((v) => v || { win: 0, ko: false })
+			)
+		},
+		updateMatchResultKoCheck: (
+			teamId1: string,
+			teamId2: string,
+			resultNum: number,
+			ko: boolean
+		) => {
+			if (!board) return
+			const ti1 = board.matchs.findIndex(
+				(m) => m.from === teamId1 && m.to === teamId2
+			)
+			if (ti1 === undefined) return
+
+			const { results } = board.matchs[ti1]
+
+			const res = [...(results || [])]
+
+			res[resultNum] = { ...res[resultNum], ko }
+			updateMatchResult(
+				teamId1,
+				teamId2,
+				[...res].map((v) => v || { win: 0, ko: false })
+			)
 		},
 	}
 }

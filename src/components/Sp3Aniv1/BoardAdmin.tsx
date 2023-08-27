@@ -1,10 +1,8 @@
 import {
 	Box,
-	FormControl,
+	Checkbox,
 	FormControlLabel,
-	FormLabel,
 	Radio,
-	RadioGroup,
 	Table,
 	TableBody,
 	TableCell,
@@ -15,14 +13,20 @@ import {
 } from '@mui/material'
 import styled from 'styled-components'
 
-import { useDb } from './useDb'
 import { range } from 'lodash'
 import { Team, battleRules } from './constants'
+import { useDb } from './useDb'
 
 type Props = {}
 
 const BoardAdminPage = () => {
-	const { board, updateTeamPlayer, updateMatchResult, updateTeamName } = useDb()
+	const {
+		board,
+		updateTeamPlayer,
+		updateMatchResultKoCheck,
+		updateMatchResultValue,
+		updateTeamName,
+	} = useDb()
 	if (board === null) return <div>loading</div>
 	const { teams } = board
 	const teamsById: Record<string, Team> = {}
@@ -115,19 +119,13 @@ const BoardAdminPage = () => {
 													<TableCell>なし</TableCell>
 													<TableCell>{team1.name}</TableCell>
 													<TableCell>{team2.name}</TableCell>
+													<TableCell>KO?</TableCell>
 												</TableRow>
 											</TableHead>
 											<TableBody>
 												{battleRules.map((rule, mi) => {
 													const changeResult = (r: number) => {
-														const res = [...(results || [])]
-
-														res[mi] = r
-														updateMatchResult(
-															team1.id,
-															team2.id,
-															[...res].map((v) => v || 0)
-														)
+														updateMatchResultValue(team1.id, team2.id, r, mi)
 													}
 
 													return (
@@ -141,8 +139,7 @@ const BoardAdminPage = () => {
 																	label={undefined}
 																	onChange={() => changeResult(0)}
 																	checked={
-																		results[mi] === 0 ||
-																		results[mi] === undefined
+																		!results[mi] || results[mi].win === 0
 																	}
 																/>
 															</TableCell>
@@ -152,7 +149,7 @@ const BoardAdminPage = () => {
 																	control={<Radio color="primary" />}
 																	label={undefined}
 																	onChange={() => changeResult(1)}
-																	checked={results[mi] === 1}
+																	checked={results[mi]?.win === 1}
 																/>
 															</TableCell>
 															<TableCell>
@@ -161,7 +158,23 @@ const BoardAdminPage = () => {
 																	control={<Radio color="primary" />}
 																	label={undefined}
 																	onChange={() => changeResult(2)}
-																	checked={results[mi] === 2}
+																	checked={results[mi]?.win === 2}
+																/>
+															</TableCell>
+															<TableCell>
+																<FormControlLabel
+																	value={2}
+																	control={<Checkbox color="primary" />}
+																	label={undefined}
+																	onChange={() => {
+																		updateMatchResultKoCheck(
+																			team1.id,
+																			team2.id,
+																			mi,
+																			!results[mi]?.ko
+																		)
+																	}}
+																	checked={results[mi]?.ko}
 																/>
 															</TableCell>
 														</TableRow>
