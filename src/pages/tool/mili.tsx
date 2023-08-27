@@ -90,7 +90,7 @@ function Mili() {
 }
 
 const Input = styled.input`
-	margin: 4px 1em;
+	margin: 4px 1rem;
 	border-radius: 4px;
 	font-size: 30px;
 `

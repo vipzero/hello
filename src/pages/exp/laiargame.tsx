@@ -82,7 +82,7 @@ const Style = styled.div`
 	> div {
 		margin: 4px 20px;
 		input {
-			font-size: 1.3em;
+			font-size: 1.3rem;
 		}
 	}
 `

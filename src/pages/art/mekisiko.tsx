@@ -43,7 +43,7 @@ const Page = styled.div`
 `
 
 const MenuTitle = styled.h2`
-	padding-left: 1em;
+	padding-left: 1rem;
 	font-family: 'Major Mono Display', monospace;
 `
 const Img = styled.img`
