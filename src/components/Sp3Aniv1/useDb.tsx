@@ -46,7 +46,15 @@ export const useDb = () => {
 			}
 		})
 
-		return { matchs: matchWithScore, team: t1 }
+		return {
+			matchs: matchWithScore,
+			team: t1,
+			point: matchWithScore.filter((m) => m.win === 1).length,
+			pointBattle: matchWithScore
+				.map((m) => m.winCount)
+				.reduce((a, b) => a + b, 0),
+			pointKo: matchWithScore.map((m) => m.koCount).reduce((a, b) => a + b, 0),
+		}
 	})
 
 	const updateMatchResult = useCallback(

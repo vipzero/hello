@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import styled from 'styled-components'
+import { ScoreTd } from './ScoreTd'
 import { MatchResult, battleRules } from './constants'
 import { useDb } from './useDb'
 
@@ -26,7 +27,7 @@ const BoardSection = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{tableData?.map(({ team: t1, matchs }) => (
+						{tableData?.map(({ team: t1, matchs, ...row }) => (
 							<tr key={t1.id}>
 								<th>{t1.name}</th>
 								{matchs.map((m) => {
@@ -50,7 +51,7 @@ const BoardSection = () => {
 												<div className="battle">
 													{battleRules.map((rule, ri) => (
 														<div key={rule.id}>
-															<div>{rule.name}</div>
+															<div className="rule">{rule.name}</div>
 															<div
 																className="result-sign"
 																data-win={results[ri]?.win}
@@ -68,13 +69,9 @@ const BoardSection = () => {
 										</td>
 									)
 								})}
-								<td>{matchs.filter((m) => m.win === 1).length}</td>
-								<td>
-									{matchs.map((m) => m.winCount).reduce((a, b) => a + b, 0)}
-								</td>
-								<td>
-									{matchs.map((m) => m.koCount).reduce((a, b) => a + b, 0)}
-								</td>
+								<ScoreTd score={row.point} />
+								<ScoreTd score={row.pointBattle} />
+								<ScoreTd score={row.pointKo} />
 							</tr>
 						))}
 						{/* <tr key={'total'}>
@@ -112,6 +109,7 @@ const Style = styled.div`
 		}
 		td.cell {
 			padding: 0;
+			min-width: 128px;
 		}
 		.battle-result-sign {
 		}
@@ -120,6 +118,17 @@ const Style = styled.div`
 		}
 	}
 
+	.score {
+		font-size: 1.5rem;
+		transition: transform 0.5s linear;
+	}
+	.rule {
+		text-align: end;
+		font-size: 0.8rem;
+		font-weight: bold;
+		padding-top: 0.1rem;
+		color: #ddd;
+	}
 	.result-sign {
 		border-left: 1px solid gray;
 		border-right: 1px solid gray;
