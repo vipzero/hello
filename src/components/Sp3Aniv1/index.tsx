@@ -1,10 +1,8 @@
-import styled from 'styled-components'
+import { Box, Grid, Typography } from '@mui/material'
 import Container from '@mui/material/Container'
 import Head from 'next/head'
-import TeamSection from './TeamSection'
-import GameSection from './GameSection'
+import styled from 'styled-components'
 import BoardSection from './BoardSection'
-import { Box, Grid, Typography } from '@mui/material'
 
 const Waves = () => (
 	<div className="wave">
