@@ -128,6 +128,9 @@ const Style = styled.div`
 		border-right: 1px solid gray;
 		&[data-win='1'] {
 			color: #ffae00aa;
+			&[data-ko='true'] {
+				color: #ff0000aa;
+			}
 		}
 		&[data-win='2'] {
 			color: #6dd7ffaa;

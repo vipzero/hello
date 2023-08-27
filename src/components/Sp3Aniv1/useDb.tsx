@@ -4,7 +4,7 @@ import { subscribeBoards, updateBoard } from './firebase'
 
 const flipResult = (r: MatchResult) => {
 	if (!r) return r
-	return { ...r, win: r.win === 1 ? 2 : r.win === 2 ? 1 : 0, ko: false }
+	return { ...r, win: r.win === 1 ? 2 : r.win === 2 ? 1 : 0 }
 }
 const fliped = (match: Match) => ({
 	...match,
@@ -39,7 +39,8 @@ export const useDb = () => {
 			const loseCount = m.match?.results.filter((r) => r?.win === 2).length || 0
 			return {
 				...m,
-				koCount: m.match?.results.filter((r) => r?.ko).length || 0,
+				koCount:
+					m.match?.results.filter((r) => r?.win === 1 && r?.ko).length || 0,
 				winCount: m.match?.results.filter((r) => r?.win === 1).length || 0,
 				win: winCount >= 3 ? 1 : loseCount >= 3 ? 2 : 0,
 			}
