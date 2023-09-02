@@ -32,8 +32,12 @@ export const useDb = () => {
 	const teamById = new Map(board?.teams.map((t) => [t.id, t]))
 
 	const matchById = new Map(board?.matchs.map((m) => [m.from + '_' + m.to, m]))
-	const tableData = board?.teams.map((t1) => {
-		const matchs = board.teams.map((t2) => {
+	const activeTeams =
+		(board?.teamNum === 3
+			? board?.teams.slice(0, 3)
+			: board?.teams.slice(0, 4)) || []
+	const tableData = activeTeams.map((t1) => {
+		const matchs = activeTeams.map((t2) => {
 			const m1 = matchById.get(t1.id + '_' + t2.id)
 			if (m1) return { to: t2, match: m1, flip: false }
 			const m2 = matchById.get(t2.id + '_' + t1.id)
@@ -82,6 +86,7 @@ export const useDb = () => {
 		matchById,
 		teamById,
 		tableData,
+		activeTeams,
 		updateTeamPlayer: (teamId: string, names: string[]) => {
 			if (!board) return
 			const teams = [...board.teams]

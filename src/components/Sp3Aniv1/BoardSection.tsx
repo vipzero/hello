@@ -1,4 +1,12 @@
-import { Box, Typography } from '@mui/material'
+import {
+	Box,
+	FormControl,
+	FormControlLabel,
+	FormLabel,
+	Radio,
+	RadioGroup,
+	Typography,
+} from '@mui/material'
 import styled, { keyframes } from 'styled-components'
 import { ScoreTd } from './ScoreTd'
 import { MatchResult, battleRules, schedules } from './constants'
@@ -6,23 +14,50 @@ import { flipResult, useDb } from './useDb'
 import { useState } from 'react'
 
 const BoardSection = () => {
-	const { board, tableData, teamById } = useDb()
+	const { board, tableData, teamById, activeTeams } = useDb()
 	const [hilTeam, setHilTeam] = useState<string>('')
 
 	if (board === null) return <div>loading</div>
 	console.log(tableData)
-	const { teams } = board
 
 	return (
 		<Style data-hilight={hilTeam}>
 			<div>
 				<h2>ボード</h2>
+				<Box display="flex">
+					<FormControl>
+						<FormLabel>自分のチームに色をつける</FormLabel>
+						<RadioGroup
+							row
+							value={hilTeam}
+							onChange={(e) => setHilTeam(e.target.value)}
+						>
+							<FormControlLabel
+								value={''}
+								control={<Radio color="primary" />}
+								label={'なし'}
+								onChange={() => setHilTeam('')}
+								checked={hilTeam === ''}
+							/>
+							{activeTeams.map((t) => (
+								<FormControlLabel
+									key={t.id}
+									value={t.id}
+									control={<Radio color="primary" />}
+									label={t.id}
+									onChange={() => setHilTeam(t.id)}
+									checked={hilTeam === t.id}
+								/>
+							))}
+						</RadioGroup>
+					</FormControl>
+				</Box>
 				<div className="board-wrap">
 					<table className="board">
 						<thead>
 							<tr className="headder">
 								<th />
-								{teams.map((team) => (
+								{activeTeams.map((team) => (
 									<th key={team.id}>vs{team.name}</th>
 								))}
 								<th className="num">勝利数</th>
@@ -33,7 +68,7 @@ const BoardSection = () => {
 						<tbody>
 							{tableData?.map(({ team: t1, matchs, ...row }) => (
 								<tr key={t1.id}>
-									<th>{t1.name}</th>
+									<th data-team={t1.id}>{t1.name}</th>
 									{matchs.map((m) => {
 										const match = m.match
 										if (t1.id === m.to.id || !match)
@@ -108,14 +143,14 @@ const BoardSection = () => {
 									<CardItem key={j}>
 										<ResultBox>
 											<div>
-												<Typography>
+												<Typography data-team={team1.id}>
 													<span data-win-flag={team1Win}>★</span>
 													{team1.name}
 												</Typography>
 											</div>
 											<div>x</div>
 											<div>
-												<Typography>
+												<Typography data-team={team2.id}>
 													<span data-win-flag={team2Win}>★</span>
 													{team2.name}
 												</Typography>
@@ -272,6 +307,14 @@ const Style = styled.div`
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
+	}
+
+	&[data-hilight='t1'] [data-team='t1'],
+	&[data-hilight='t2'] [data-team='t2'],
+	&[data-hilight='t3'] [data-team='t3'],
+	&[data-hilight='t4'] [data-team='t4'] {
+		color: yellow;
+		text-decoration: underline;
 	}
 `
 
