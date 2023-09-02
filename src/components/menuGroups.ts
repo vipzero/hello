@@ -64,6 +64,10 @@ const menuGroups: MenuGroup[] = [
 				name: 'VIPダービー梅雨の陣',
 			},
 			{
+				path: '/splat3-aniv1-2023',
+				name: 'Splat3VIP2023',
+			},
+			{
 				path: 'https://github.com/vipzero/rekka-haikei',
 				name: '暇アニ背景',
 			},

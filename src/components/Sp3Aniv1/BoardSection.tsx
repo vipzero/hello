@@ -3,15 +3,18 @@ import styled, { keyframes } from 'styled-components'
 import { ScoreTd } from './ScoreTd'
 import { MatchResult, battleRules, schedules } from './constants'
 import { flipResult, useDb } from './useDb'
+import { useState } from 'react'
 
 const BoardSection = () => {
 	const { board, tableData, teamById } = useDb()
+	const [hilTeam, setHilTeam] = useState<string>('')
+
 	if (board === null) return <div>loading</div>
 	console.log(tableData)
 	const { teams } = board
 
 	return (
-		<Style>
+		<Style data-hilight={hilTeam}>
 			<div>
 				<h2>ボード</h2>
 				<div className="board-wrap">
@@ -85,7 +88,7 @@ const BoardSection = () => {
 				</div>
 			</div>
 			<div>
-				{schedules.map((row, i) => (
+				{schedules[board.teamNum].map((row, i) => (
 					<Card key={i}>
 						<Typography variant="h5">{row.time}</Typography>
 						<Box className="match-card">

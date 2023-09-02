@@ -14,7 +14,7 @@ import {
 import styled from 'styled-components'
 
 import { range } from 'lodash'
-import { Team, battleRules, schedules } from './constants'
+import { battleRules, schedules } from './constants'
 import { useDb } from './useDb'
 
 type Props = {}
@@ -26,6 +26,7 @@ const BoardAdminPage = () => {
 		updateMatchResultKoCheck,
 		updateMatchResultValue,
 		updateTeamName,
+		setTeamNum,
 		teamById,
 	} = useDb()
 	if (board === null) return <div>loading</div>
@@ -45,16 +46,17 @@ const BoardAdminPage = () => {
 								label="チーム名"
 								size="small"
 								value={t1.name}
+								color="primary"
 								onChange={(e) => {
 									updateTeamName(t1.id, e.target.value)
 								}}
 								sx={{ width: '200px' }}
 							/>
-							{range(4).map((i) => {
+							{range(5).map((i) => {
 								return (
 									<TextField
 										key={i}
-										label={i + 1 + 'P'}
+										label={i + 1 + 'P' + (i < 4 ? '' : '(サブ)')}
 										size="small"
 										value={t1.players[i]}
 										onChange={(e) => {
@@ -69,9 +71,17 @@ const BoardAdminPage = () => {
 						</Box>
 					))}
 				</Box>
+				<FormControlLabel
+					value={0}
+					control={<Checkbox />}
+					label={'3チーム'}
+					onChange={() => setTeamNum(board.teamNum === 3 ? 4 : 3)}
+					checked={board.teamNum === 3}
+				/>
+
 				<Typography variant="h4">試合結果</Typography>
 
-				{schedules.map((row, i) => (
+				{schedules[board.teamNum].map((row, i) => (
 					<div key={i}>
 						<Typography variant="h5">{row.time}</Typography>
 						<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>

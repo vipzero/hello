@@ -29,28 +29,45 @@ export type Board = {
 	teams: Team[]
 	battles: Battle[]
 	matchs: Match[]
+	teamNum: number
 }
 
-export const schedules = [
-	{
-		time: '22:00',
-		match: [
-			['t1', 't2'],
-			['t3', 't4'],
-		],
-	},
-	{
-		time: '22:45',
-		match: [
-			['t1', 't3'],
-			['t2', 't4'],
-		],
-	},
-	{
-		time: '23:30',
-		match: [
-			['t1', 't4'],
-			['t2', 't3'],
-		],
-	},
-]
+export const schedules = {
+	3: [
+		{
+			time: '22:00',
+			match: [['t1', 't2']],
+		},
+		{
+			time: '22:45',
+			match: [['t2', 't3']],
+		},
+		{
+			time: '23:30',
+			match: [['t3', 't1']],
+		},
+	],
+	4: [
+		{
+			time: '22:00',
+			match: [
+				['t1', 't2'],
+				['t3', 't4'],
+			],
+		},
+		{
+			time: '22:45',
+			match: [
+				['t1', 't3'],
+				['t2', 't4'],
+			],
+		},
+		{
+			time: '23:30',
+			match: [
+				['t1', 't4'],
+				['t2', 't3'],
+			],
+		},
+	],
+}

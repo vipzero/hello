@@ -12,12 +12,18 @@ const fliped = (match: Match) => ({
 	to: match.from,
 	results: match.results.map((r) => flipResult(r)),
 })
+const initBoard: Board = {
+	teams: [],
+	battles: [],
+	matchs: [],
+	teamNum: 4,
+}
 
 export const useDb = () => {
 	const [board, setBoard] = useState<Board | null>(null)
 	useEffect(() => {
 		const t = subscribeBoards((board) => {
-			setBoard(board)
+			setBoard({ ...initBoard, ...board })
 		})
 		return () => t()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -138,6 +144,10 @@ export const useDb = () => {
 				teamId2,
 				[...res].map((v) => v || { win: 0, ko: false })
 			)
+		},
+		setTeamNum: (num: number) => {
+			if (!board) return
+			updateBoard({ ...board, teamNum: num })
 		},
 	}
 }
