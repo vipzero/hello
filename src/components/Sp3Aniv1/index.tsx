@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Button, Grid, Typography } from '@mui/material'
 import Container from '@mui/material/Container'
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -17,6 +17,8 @@ const Waves = () => (
 	</svg>
 	</div>
 )
+const calendarLink =
+	'https://www.google.com/calendar/render?action=TEMPLATE&text=%E3%82%B9%E3%83%97%E3%83%A9%E6%9D%AF&dates=20230909T210000/20230909T230000&sprop=https://hello.vipper.dev/splat3-aniv1-2023'
 
 const title = 'Splatoon3発売1周年記念大会'
 function Sp3Aniv1() {
@@ -76,7 +78,10 @@ function Sp3Aniv1() {
 						<div style={{ display: 'flex' }}>
 							<h4>2023.9.9(土) 21:00</h4>
 							<Box m={1}>
-								<p>21:00~ ドラフト</p>
+								<p>
+									21:00~ ドラフト{' '}
+									<Button href={calendarLink}>Googleカレンダー追加</Button>
+								</p>
 								<p>22:00~ 本番</p>
 							</Box>
 						</div>
