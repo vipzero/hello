@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Board, Match, MatchResult } from './constants'
+import { Board, Match, MatchResult, Member } from './constants'
 import { subscribeBoards, updateBoard } from './firebase'
 
 export const flipResult = (r: MatchResult) => {
@@ -21,6 +21,8 @@ const initBoard: Board = {
 
 export const useDb = () => {
 	const [board, setBoard] = useState<Board | null>(null)
+	const [members, setMembers] = useState<Member[] | null>(null)
+
 	useEffect(() => {
 		const t = subscribeBoards((board) => {
 			setBoard({ ...initBoard, ...board })
@@ -87,6 +89,7 @@ export const useDb = () => {
 		teamById,
 		tableData,
 		activeTeams,
+		members,
 		updateTeamPlayer: (teamId: string, names: string[]) => {
 			if (!board) return
 			const teams = [...board.teams]

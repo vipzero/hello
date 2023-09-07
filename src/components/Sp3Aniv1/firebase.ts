@@ -4,10 +4,15 @@ import {
 	getDoc,
 	collection,
 	doc,
+	getDocs,
 	onSnapshot,
 	updateDoc,
+	DocumentData,
+	QueryDocumentSnapshot,
+	SnapshotOptions,
+	addDoc,
 } from 'firebase/firestore'
-import { Board } from './constants'
+import { Board, Member } from './constants'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDmBmOASz3gX6T_pEFRC4EFXsV26HT0Srw',
@@ -20,6 +25,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 
 const boardRef = () => doc(collection(db, 'boards'), 'board')
+const membersRef = () =>
+	collection(db, 'members').withConverter(memberConverter)
 
 const db = getFirestore()
 export const getBoards = async () => {
@@ -33,4 +40,31 @@ export const subscribeBoards = (updateBoard: (board: Board) => void) => {
 
 export const updateBoard = async (data: Board) => {
 	await updateDoc(boardRef(), data)
+}
+
+export const getMembers = async () => {
+	const snap = await getDocs(membersRef())
+	return snap.docs.map((d) => d.data())
+}
+
+export const saveMembers = (members: Member[]) =>
+	Promise.all(members.map((member) => addDoc(membersRef(), member)))
+
+const memberConverter = {
+	toFirestore(member: Member): DocumentData {
+		return {
+			name: member.name,
+			weapons: member.weapons,
+		}
+	},
+	fromFirestore(
+		snapshot: QueryDocumentSnapshot,
+		options: SnapshotOptions
+	): Member {
+		const data = snapshot.data(options)!
+		return {
+			name: data.name,
+			weapons: data.weapons,
+		}
+	},
 }
