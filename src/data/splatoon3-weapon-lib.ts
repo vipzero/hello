@@ -57,7 +57,7 @@ export const weapons = {
 
 export const weaponCodes = {}
 Object.entries(weapons).forEach(([key, value]) => {
-	weaponCodes[key] = value
+	weaponCodes[value] = key
 })
 export const getImagePath = (name: string) =>
-	`Badge_WeaponLevel_${weaponCodes[name]}_Lv00`
+	`Badge_WeaponLevel_${weaponCodes[name]}_Lv00.png`

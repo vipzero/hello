@@ -18,17 +18,25 @@ const initBoard: Board = {
 	matchs: [],
 	teamNum: 4,
 }
+export const useMembers = () => {
+	const [members, setMembers] = useState<Member[] | null>(null)
+
+	useEffect(() => {
+		getMembers().then((members) => {
+			setMembers(members)
+		})
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+	return { members }
+}
 
 export const useDb = () => {
 	const [board, setBoard] = useState<Board | null>(null)
-	const [members, setMembers] = useState<Member[] | null>(null)
 
 	useEffect(() => {
 		const t = subscribeBoards((board) => {
 			setBoard({ ...initBoard, ...board })
-		})
-		getMembers().then((members) => {
-			setMembers(members)
 		})
 
 		return () => t()
@@ -93,7 +101,6 @@ export const useDb = () => {
 		teamById,
 		tableData,
 		activeTeams,
-		members,
 		updateTeamPlayer: (teamId: string, names: string[]) => {
 			if (!board) return
 			const teams = [...board.teams]

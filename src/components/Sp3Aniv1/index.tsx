@@ -3,6 +3,7 @@ import Container from '@mui/material/Container'
 import Head from 'next/head'
 import styled from 'styled-components'
 import BoardSection from './BoardSection'
+import MemberSection from './MemberSection'
 
 const Waves = () => (
 	<div className="wave">
@@ -100,6 +101,7 @@ function Sp3Aniv1() {
 						<li>ステージ: ランダム(重複なし)</li>
 					</ul>
 				</div>
+				<MemberSection />
 				<BoardSection />
 				<footer>
 					<h2>リンク</h2>
