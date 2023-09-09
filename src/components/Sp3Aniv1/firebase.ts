@@ -1,18 +1,19 @@
 import { initializeApp } from 'firebase/app'
 import {
-	getFirestore,
-	getDoc,
-	collection,
-	doc,
-	getDocs,
-	onSnapshot,
-	updateDoc,
 	DocumentData,
 	QueryDocumentSnapshot,
 	SnapshotOptions,
-	addDoc,
+	collection,
+	doc,
+	getDoc,
+	getDocs,
+	getFirestore,
+	onSnapshot,
+	setDoc,
+	updateDoc,
 } from 'firebase/firestore'
 import { Board, Member } from './constants'
+// import { members } from './seed'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDmBmOASz3gX6T_pEFRC4EFXsV26HT0Srw',
@@ -44,11 +45,18 @@ export const updateBoard = async (data: Board) => {
 
 export const getMembers = async () => {
 	const snap = await getDocs(membersRef())
+	// if (snap.docs.length === 0) {
+	// 	saveMembers(members)
+	// }
 	return snap.docs.map((d) => d.data())
 }
 
-export const saveMembers = (members: Member[]) =>
-	Promise.all(members.map((member) => addDoc(membersRef(), member)))
+export const saveMembers = (members: Record<string, Member>) =>
+	Promise.all(
+		Object.entries(members).map(([id, member]) =>
+			setDoc(doc(membersRef(), id), member)
+		)
+	)
 
 const memberConverter = {
 	toFirestore(member: Member): DocumentData {

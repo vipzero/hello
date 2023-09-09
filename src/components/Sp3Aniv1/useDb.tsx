@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Board, Match, MatchResult, Member } from './constants'
-import { subscribeBoards, updateBoard } from './firebase'
+import { getMembers, subscribeBoards, updateBoard } from './firebase'
 
 export const flipResult = (r: MatchResult) => {
 	if (!r) return r
@@ -27,6 +27,10 @@ export const useDb = () => {
 		const t = subscribeBoards((board) => {
 			setBoard({ ...initBoard, ...board })
 		})
+		getMembers().then((members) => {
+			setMembers(members)
+		})
+
 		return () => t()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
