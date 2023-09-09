@@ -87,7 +87,6 @@ const MemberSection = () => {
 						)
 					})}
 				</Box>
-				)
 			</div>
 		</Style>
 	)
