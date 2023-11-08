@@ -8,7 +8,7 @@
 		"@mui/material": "5.14.16",
 		"@mui/styled-engine-sc": "5.14.12",
 		"@next/bundle-analyzer": "11.1.4",
-		"axios": "0.27.2",
+		"axios": "1.6.1",
 		"bluebird": "3.7.2",
 		"copy-to-clipboard": "3.3.3",
 		"decimal.js": "10.4.3",
