@@ -52,17 +52,17 @@ function Home() {
 					<Links>
 						<LinkItem id="github" link="https://github.com/vipzero">
 							<ruby>
-								{'<'}ギッ{' />'}
+								{'<'}ギ{' />'}
 								<rt>GitHub</rt>
 							</ruby>
 						</LinkItem>
 						<LinkItem id="twitter" link="https://twitter.com/ano_v0">
 							<ruby>
-								{'o('}ツイ{')'}
-								<rt>Twitter</rt>
+								{'x('}エ{')'}
+								<rt>X/Twitter</rt>
 							</ruby>
 						</LinkItem>
-						<LinkItem
+						{/* <LinkItem
 							id="chichi-pui"
 							link="https://www.chichi-pui.com/users/ano_v0/"
 						>
@@ -70,7 +70,7 @@ function Home() {
 								{'[/'}チチ{'/]'}
 								<rt>chichi-pui</rt>
 							</ruby>
-						</LinkItem>
+						</LinkItem> */}
 					</Links>
 				</Box>
 			</Center>
