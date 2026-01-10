@@ -16,8 +16,6 @@ const menuGroups: MenuGroup[] = [
 	{
 		name: '芸術',
 		menus: [
-			{ path: '/art/jiko', name: '事故' },
-			{ path: '/art/ero', name: 'ero.js' },
 			{ path: '/art/okonomiyaki', name: 'お好み焼き' },
 			{ path: '/art/mekisiko', name: 'お朝飯前' },
 			{ path: '/art/othelle', name: 'オセレ' },
@@ -27,8 +25,6 @@ const menuGroups: MenuGroup[] = [
 	{
 		name: '検証',
 		menus: [
-			{ path: '/exp/laiargame', name: 'Laiar Game' },
-			{ path: '/exp/makerank', name: 'makerank' },
 			{ path: '/exp/5000000000000year', name: '5億年' },
 			{ path: '/exp/syukan', name: '週間' },
 			{ path: '/exp/anchord', name: '安価コード進行' },
@@ -44,7 +40,6 @@ const menuGroups: MenuGroup[] = [
 			{ path: '/tool/probability', name: 'コンマ確率グラフ' },
 			{ path: '/tool/dighash', name: 'Hash採掘' },
 			{ path: '/tool/bbsgacha', name: '板ガチャ' },
-			{ path: '/tool/mikel', name: 'マイコーズ' },
 			{ path: '/tool/words-regex', name: '正規表現メーカー' },
 			{ path: '/tool/ruru', name: 'るるさん' },
 			{ path: '/tool/uraru', name: 'yuuaarueru' },

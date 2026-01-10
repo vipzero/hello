@@ -62,15 +62,6 @@ function Home() {
 								<rt>X/Twitter</rt>
 							</ruby>
 						</LinkItem>
-						{/* <LinkItem
-							id="chichi-pui"
-							link="https://www.chichi-pui.com/users/ano_v0/"
-						>
-							<ruby>
-								{'[/'}チチ{'/]'}
-								<rt>chichi-pui</rt>
-							</ruby>
-						</LinkItem> */}
 					</Links>
 				</Box>
 			</Center>
@@ -136,9 +127,6 @@ const Link = styled.a`
 	}
 	&[data-content='twitter'] {
 		color: #49cdff;
-	}
-	&[data-content='chichi-pui'] {
-		color: #fbfc54;
 	}
 `
 
