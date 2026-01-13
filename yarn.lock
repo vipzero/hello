@@ -2,10 +2,13 @@
 # yarn lockfile v1
 
 
-"2ch-trip@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/2ch-trip/-/2ch-trip-1.0.1.tgz#21a03a617c26b6187191e2b6fc9f3599dd4a6472"
-  integrity sha512-+7ZQcnVK/AjmfbR2DVZ3TJEeksMUmk8s9DpKNMXbhlqf68eru6gWtw7dPPPDs67XomeXiToeYP2CZ8QDxeBzdA==
+"2ch-trip@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/2ch-trip/-/2ch-trip-4.0.0.tgz#719a9115e3b88d4d1d0f02c92536d09e265cac23"
+  integrity sha512-4zM6DZR99aVNpZ0ACuQLcsEWoOr8MoeoJ64F/w2+Ipsi5kulr8VOHcAOAJWhqxr9+LhAM91Du27s8gF84DoEig==
+  dependencies:
+    encoding-japanese "2.0.0"
+    unix-crypt-td-js "1.1.4"
 
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
@@ -3770,6 +3773,11 @@ emojis-list@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
   integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
+
+encoding-japanese@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/encoding-japanese/-/encoding-japanese-2.0.0.tgz#fa0226e5469e7b5b69a04fea7d5481bd1fa56936"
+  integrity sha512-++P0RhebUC8MJAwJOsT93dT+5oc5oPImp1HubZpAuCZ5kTLnhuuBhKHj2jJeO/Gj93idPBWmIuQ9QWMe5rX3pQ==
 
 encoding@0.1.13:
   version "0.1.13"
@@ -8074,6 +8082,11 @@ universalify@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-2.0.1.tgz#168efc2180964e6386d061e094df61afe239b18d"
   integrity sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==
+
+unix-crypt-td-js@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/unix-crypt-td-js/-/unix-crypt-td-js-1.1.4.tgz#4912dfad1c8aeb7d20fa0a39e4c31918c1d5d5dd"
+  integrity sha512-8rMeVYWSIyccIJscb9NdCfZKSRBKYTeVnwmiRYT2ulE3qd1RaDQ0xQDP+rI3ccIWbhu/zuo5cgN8z73belNZgw==
 
 unpipe@1.0.0:
   version "1.0.0"
